@@ -193,8 +193,8 @@
           <ul class="list-unstyled text-small">
             <li><a class="text-muted" href="index.php">Home</a></li>
             <li><a class="text-muted" href="sign-in.php">Sign-In</a></li>
-            <li><a class="text-muted" href="register-user.php">Register User</a></li>
-            <li><a class="text-muted" href="register-teknisi.php">Register Teknisi</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_user">Register User</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_user">Register Teknisi</a></li>
             <li><a class="text-muted" href="view-user.php">User View</a></li>
             <li><a class="text-muted" href="view-teknisi.php">Teknisi View</a></li>
 
