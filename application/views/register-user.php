@@ -19,6 +19,15 @@
                   <h4 class="heading h5 text-white text-center pt-4 pb-2">Hai :D<br>
                     silahkan isi data-data berikut untuk mendaftar sebagai User</h4>
                   <p class="text-center">atau klik <a href="register-teknisi.html" class="text-white"> <u>Disini</u></a> untuk mendaftar sebagai Teknisi </p>
+                  <?php
+                  if ($this->session->flashdata('message') != '') {
+                  ?>
+                    <div class="alert alert-primary">
+                      <?php echo $this->session->flashdata('message'); s?>
+                    </div>
+                  <?php
+                  }
+                  ?>
                   <form class="form-primary" action="<?php echo site_url(); ?>register/register_user_process" method="POST">
                     <div class="form-group">
                       <label> Username</label>

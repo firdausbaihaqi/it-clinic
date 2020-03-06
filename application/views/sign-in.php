@@ -12,7 +12,16 @@
                     <img class="ml-5 pl-5" src="assets/img/stetoscope.png" style="width: 175px">
                     <h4 class="heading h4 text-white text-center pt-4 pb-2">Halo :)<br>
                       silahkan masuk ke akun kamu</h4>
-                    <form class="form-primary" action="<?php echo site_url() ;?>login/verify" method="POST">
+                    <?php
+                    if ($this->session->flashdata('message') != '') {
+                    ?>
+                      <div class="alert alert-primary">
+                        <?php echo $this->session->flashdata('message'); ?>
+                      </div>
+                    <?php
+                    }
+                    ?>
+                    <form class="form-primary" action="<?php echo site_url(); ?>login/verify" method="POST">
                       <div class="form-group">
                         <input type="text" class="form-control" id="user" name="user" placeholder="Username">
                       </div>

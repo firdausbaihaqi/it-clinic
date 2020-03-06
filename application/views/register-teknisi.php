@@ -21,66 +21,58 @@
                   </div>
                   <h4 class="heading h5 text-white text-center pt-4 pb-2">Halo :D<br><br>
                     silahkan isi data-data berikut untuk melengkapi pendaftaran sebagai mitra IT-Clinic</h4>
-                  <form class="form-tertiary">
+                  <?php
+                  if ($this->session->flashdata('message') != '') {
+                  ?>
+                    <div class="alert alert-primary">
+                      <?php echo $this->session->flashdata('message'); ?>
+                    </div>
+                  <?php
+                  }
+                  ?>
+                  <form class="form-tertiary" action="<?php echo site_url(); ?>register/register_technician_process" method="POST">
                     <div class="row">
                       <div class="col">
-                        <label>Nama Depan</label>
-                        <input type="text" class="form-control" placeholder="First name">
+                        <label>Username</label>
+                        <input type="text" class="form-control" id="user" name="user" placeholder="Username" required>
                       </div>
                       <div class="col">
-                        <label>Nama Belakang</label>
-                        <input type="text" class="form-control" placeholder="Last name">
+                        <label>Nama Lengkap</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nama lengkap" required>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class=" mt-3">Alamat</label>
-                      <input type="text" class="form-control" id="input_password" placeholder="Alamat">
-                    </div>
-                    <div class="form-group">
-                      <label>Pendidikan Terakhir</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>SMA/SMK</option>
-                        <option>D1/D2</option>
-                        <option>D3</option>
-                        <option>S1</option>
-                      </select>
+                      <label class=" mt-3">Password</label>
+                      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <label class="">Email</label>
-                      <input type="text" class="form-control" id="input_password" placeholder="Email">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                     </div>
+                    <div class="form-group">
+                      <label class=" mt-3">Alamat</label>
+                      <input type="text" class="form-control" id="address" name="address" placeholder="Alamat" required>
+                    </div>
+                    <div class="form-group">
+                      <label class="">Phone</label>
+                      <input type="text" class="form-control" id="phone" name="phone" placeholder="Telepon" required>
+                    </div>
+                    <div class="form-group">
+                      <label>Pendidikan Terakhir</label>
+                      <select class="form-control" id="education" name="education" required>
+                        <option value="SMA/SMK">SMA/SMK</option>
+                        <option value="D1/D2">D1/D2</option>
+                        <option value="D3">D3</option>
+                        <option value="S1">S1</option>
+                      </select>
+                    </div>
+
                     <div class="mt-4 text-center">
                       <br>
-                      <p><input type="checkbox"> &nbsp Saya menerima <a href="#" class="text-white"> <u>Syarat & Ketentuan dari IT-Clinic</u></a> </p>
+                      <p><input type="checkbox" required> &nbsp Saya menerima <a href="#" class="text-white"> <u>Syarat & Ketentuan dari IT-Clinic</u></a> </p>
                     </div>
-                    <p type="submit" class="btn btn-block btn-lg bg-white mt-4 text-tertiary" data-toggle="modal" data-target="#modal_5">Daftar</p>
+                    <button type="submit" class="btn btn-block btn-lg bg-white mt-4 text-tertiary">Daftar</button>
 
-                    <!-- modal -->
-                    <div class="modal modal-tertiary fade" id="modal_5" tabindex="-1" role="dialog" aria-labelledby="modal_5" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="modal_title_6">Konfirmasi Pendaftaran</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="py-3 text-center">
-                              <i class="fa fa-check-circle fa-4x"></i>
-                              <h4 class="heading mt-4">Satu langkah lagi :)</h4>
-                              <p>
-                                silahkan periksa email anda untuk jadwal interview dan informasi lebih lanjut.
-                              </p>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><a href="sign-in.html">Kembali</a></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- modal -->
                   </form>
                 </div>
               </div>

@@ -30,7 +30,7 @@ class Login_model extends CI_Model
                 }
             }
         } else {
-            $this->session->set_flashdata('message', 'Login failed ! Check your username and password');
+            $this->session->set_flashdata('message', 'Login gagal, masukkan username dan password dengan benar');
             redirect(site_url('login'));
         }
     }
