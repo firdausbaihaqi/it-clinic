@@ -28,7 +28,7 @@
                   <img class="ml-5 pl-5" src="assets/img/stetoscope.png" style="width: 175px">
                   <h4 class="heading h4 text-white text-center pt-4 pb-2">Terimakasih telah melengkapi pendaftaran :)<br>
                   </h4>
-                  <p class="h5 text-white text-center">silahkan periksa email untuk konfirmasi pendaftaran</p>
+                  <p class="h5 text-white text-center">silahkan tunggu konfirmasi dari admin dan cek secara berkala </p>
                   <br>
                   <button type="button" class="col btn btn-secondary mb-3 text-center"><a href="sign-in.html" class="text-primary">Kembali</a></button>
                   <br>
