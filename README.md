@@ -7,3 +7,5 @@ To do list :
 - [x] user register
 - [x] technician register
 - [x] Anti bypass 
+
+fix
