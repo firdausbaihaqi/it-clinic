@@ -95,7 +95,7 @@
                                     <h6 class="h5 font-weight-normal mb-0"><?php echo $rows2->user; ?></h6>
                                 </th>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-info" data-toggle="modal">Details</a>
+                                    <a href="<?php echo site_url('dashboard/admin_verify_account_details' . "/" . $rows2->user . "/" . $rows2->status); ?>" class="btn btn-sm btn-info">Details</a>
                                     <a href="<?php echo site_url('dashboard/admin_verify_account_process' . "/" . $rows2->user . "/" . $rows2->status); ?>" class="btn btn-sm btn-success">Accept</a>
                                     <a href="<?php echo site_url('dashboard/admin_delete_account' . "/" . $rows2->user); ?>" class="btn btn-sm btn-danger">Decline</a>
                                 </td>
@@ -134,7 +134,7 @@
                                     <h6 class="h5 font-weight-normal mb-0"><?php echo $rows3->user; ?></h6>
                                 </th>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-info" data-toggle="modal">Details</a>
+                                    <a href="<?php echo site_url('dashboard/admin_verify_account_details' . "/" . $rows2->user . "/" . $rows2->status); ?>" class="btn btn-sm btn-info">Details</a>
                                     <a href="<?php echo site_url('dashboard/admin_verify_account_process' . "/" . $rows3->user . "/" . $rows3->status); ?>" class="btn btn-sm btn-success">Accept</a>
                                     <a href="<?php echo site_url('dashboard/admin_delete_account' . "/" . $rows3->user); ?>" class="btn btn-sm btn-danger">Decline</a>
                                 </td>

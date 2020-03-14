@@ -23,6 +23,21 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function get_unverified_account_details($user, $status)
+    {
+        if ($status == 'technician-unverified') {
+            $this->db->where('user', $user);
+            $query = $this->db->get('user_technician');
+            $result = $query->result();
+            return $result;
+        } else if ($status == 'customer-unverified') {
+            $this->db->where('user', $user);
+            $query = $this->db->get('user_customer');
+            $result = $query->result();
+            return $result;
+        }
+    }
+
     public function verify_account($user, $status)
     {
         if ($status == 'technician-unverified') {
@@ -54,7 +69,7 @@ class Admin_model extends CI_Model
     {
         $this->db->where('user', $user);
         $this->db->delete('user');
-        $this->session->set_flashdata('message', 'Verifikasi akun dibatalkan');
+        $this->session->set_flashdata('message', 'Akun berhasil dihapus');
     }
 }
 
