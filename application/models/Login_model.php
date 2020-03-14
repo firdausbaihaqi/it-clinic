@@ -11,7 +11,7 @@ class Login_model extends CI_Model
         $this->db->where('password', $password);
         $query = $this->db->get('user');
         $result = $query->result();
-        if ($this->db->affected_rows() == 1) {
+        if ($query->num_rows() == 1) {
             foreach ($result as $row) {
                 if ($row->status == 'admin') {
                     $this->session->set_userdata('status', 'admin');

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Sign In</title>
-  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/theme.css">
-  <link rel="stylesheet" href="assets/css/demo.css">
-
-</head>
-
 <body>
 
   <main class="main">
-    <section class="py-xl bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('assets/img/mountain.jpg')">
+    <section class="py-xl bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg')">
       <span class="mask bg-primary alpha-6"></span>
       <div class="container d-flex align-items-center no-padding">
         <div class="col">
@@ -25,7 +10,7 @@
               <div class="card bg-transparent text-white">
                 <div class="card-body">
                   <span class="clearfix"></span>
-                  <img class="ml-5 pl-5" src="assets/img/stetoscope.png" style="width: 175px">
+                  <img class="ml-5 pl-5" src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 175px">
                   <h4 class="heading h4 text-white text-center pt-4 pb-2">Terimakasih telah melengkapi pendaftaran :)<br>
                   </h4>
                   <p class="h5 text-white text-center">silahkan tunggu konfirmasi dari admin dan cek secara berkala </p>

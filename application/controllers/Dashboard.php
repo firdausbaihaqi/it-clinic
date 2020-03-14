@@ -10,10 +10,11 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         //Do your magic here
+        $this->load->model('admin_model');
         if ($this->session->userdata('status') == '') {
             $this->session->set_flashdata('message', 'Harap login terlebih dahulu');
             redirect('login');
-        }
+        }  
     }
 
 
@@ -37,7 +38,39 @@ class Dashboard extends CI_Controller
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
-        echo "ndang digarap ki";
+        $data['title'] = "Dashboard Admin";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/dashboard-admin', $data, FALSE);
+    }
+
+    public function admin_verify_account()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Verify Account";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/verify-admin', $data, FALSE);
+    }
+
+    public function admin_verify_account_process($user, $status){
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->verify_account($user, $status);
+        redirect('dashboard/admin_verify_account'); 
+    }
+
+    public function admin_delete_account($user){
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->delete_account($user);
+        redirect('dashboard/admin_verify_account'); 
     }
 
     public function technician()
@@ -62,10 +95,12 @@ class Dashboard extends CI_Controller
 
     public function unverified()
     {
-        if ($this->session->userdata('status') != 'technician-unverified' || $this->session->userdata('status') != 'customer-unverified') {
+        if ($this->session->userdata('status') != 'unverified') {
             redirect('dashboard');
         }
-        echo "Sabar bujang";
+        $data['title'] = "Menunggu Konfirmasi";
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('confirmation-user', $data, FALSE);
     }
 }
 

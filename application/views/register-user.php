@@ -23,15 +23,28 @@
                   if ($this->session->flashdata('message') != '') {
                   ?>
                     <div class="alert alert-primary">
-                      <?php echo $this->session->flashdata('message'); s?>
+                      <?php echo $this->session->flashdata('message'); ?>
                     </div>
                   <?php
                   }
                   ?>
-                  <form class="form-primary" action="<?php echo site_url(); ?>register/register_user_process" method="POST">
+                  <form class="form-primary" action="<?php echo site_url(); ?>register/register_customer_process" enctype="multipart/form-data" method="POST">
                     <div class="form-group">
-                      <label> Username</label>
-                      <input type="text" class="form-control" id="user" name="user" placeholder="Username" required>
+                      <input type="file" name="image" required>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Username</label>
+                          <input type="text" class="form-control" id="user" name="user" placeholder="Username" required>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Nama Lengkap</label>
+                          <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nama lengkap" required>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
                       <label>Password</label>

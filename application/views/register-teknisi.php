@@ -30,7 +30,10 @@
                   <?php
                   }
                   ?>
-                  <form class="form-tertiary" action="<?php echo site_url(); ?>register/register_technician_process" method="POST">
+                  <form class="form-tertiary" action="<?php echo site_url(); ?>register/register_technician_process" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                      <input type="file" name="image" required>
+                    </div>
                     <div class="row">
                       <div class="col">
                         <label>Username</label>

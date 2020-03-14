@@ -22,7 +22,7 @@
             <a href="<?php site_url(); ?>login" class="btn btn-sm bg-white">Sign In</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php site_url(); ?>register/register_technician">Looking for a Job?</a>
+            <a class="nav-link" href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="about.php">About Us</a>
