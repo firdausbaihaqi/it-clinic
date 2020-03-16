@@ -2,7 +2,7 @@
   <!-- ini navbar -->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="./"><strong>IT - Clinic</strong></a>
+      <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
       </button>
 
       <div class="navbar-collapse" id="navbar_main">
@@ -19,13 +19,13 @@
               </li> -->
           <!-- shortcut -->
           <li class="nav-item">
-            <a href="<?php site_url(); ?>login" class="btn btn-sm bg-white">Sign In</a>
+            <a href="<?php echo site_url(); ?>login" class="btn btn-sm bg-white">Sign In</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="about.php">About Us</a>
+            <a class="nav-link" href="<?php echo site_url(); ?>home/about">About Us</a>
           </li>
         </ul>
       </div>
@@ -85,7 +85,7 @@
             </h3>
             <p class="lead text-gray mt-4">IT-Clinic menyediakan pekerjaan bagi teknisi-teknisi dengan kemampuan yang mumpuni tapi belum mendapatkan pekerjaan, semua perbaikan dilakukan oleh teknisi-teknisi ini dengan pengawasan dari team Professional kami.
             </p>
-            <a href="register-teknisi" target="_blank" class="btn btn-sm btn-primary">Ayo Daftar Sekarang!</a>
+            <a href="<?php echo site_url(); ?>register/register_technician" class="btn btn-sm btn-primary">Ayo Daftar Sekarang!</a>
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
                 Daftar sekarang juga dan mulai gunakan layanan kami kapanpun, tersedia juga paket premium dan dapatkan akses khusus yang tidak dimiliki user regular dengan harga yang bersahabat.
               </p>
               <div class="btn-container mt-5">
-                <a href="register-user.php" class="btn btn-lg bg-white px-4">
+                <a href="<?php echo site_url(); ?>register/register_customer" class="btn btn-lg bg-white px-4">
                   Daftar Gratis Sekarang
                 </a>
               </div>
@@ -191,26 +191,23 @@
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="index.php">Home</a></li>
-            <li><a class="text-muted" href="sign-in.php">Sign-In</a></li>
-            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_user">Register User</a></li>
-            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_user">Register Teknisi</a></li>
-            <li><a class="text-muted" href="view-user.php">User View</a></li>
-            <li><a class="text-muted" href="view-teknisi.php">Teknisi View</a></li>
-
+            <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_customer">Register Customer</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a></li>
           </ul>
         </div>
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="about.php">About Us</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
           </ul>
         </div>
       </div>
       <hr>
       <div class="d-flex align-items-center">
         <span class="">
-          © 2019 <a href="#" class="footer-link" target="_blank">IT-Clinic</a>
+          © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link">IT-Clinic</a>
         </span>
       </div>
     </div>

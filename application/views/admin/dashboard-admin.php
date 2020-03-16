@@ -3,7 +3,7 @@
     <div class="row my-5 pb-5">
         <nav class="navbar navbar-expand-lg navbar-tertiary navbar-dark bg-tertiary py-2 fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="./"><strong>IT - Clinic</strong></a>
+                <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
                 </button>
 
                 <div class="navbar-collapse" id="navbar_main">
@@ -18,7 +18,7 @@
                             <a class="nav-link" href="#">Request History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Verify User</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_verify_account">Verify User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-icon" href="#" id="" role="button" data-toggle="dropdown">
@@ -33,7 +33,7 @@
                                 <div class="list-group">
                                     <?php foreach ($unverified_account as $rows) {
                                     ?>
-                                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <a href="<?php echo site_url(); ?>dashboard/admin_verify_account" class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-content">
                                                 <div class="list-group-heading"><?php echo $rows->user; ?></div>
                                             </div>
@@ -71,8 +71,8 @@
 
             <div class="d-flex justify-content-end">
                 <div class="card shadow-lg" style="width: 18rem;">
-                    <object data="empty.png" type="image/png">
-                        <img src="assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
+                    <object data="<?php echo base_url(); ?>empty.png" type="image/png">
+                        <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
                     </object>
 
                     <div class="card-body">
@@ -90,8 +90,8 @@
 
             <div class="d-flex justify-content-start">
                 <div class="card shadow-lg" style="width: 18rem;">
-                    <object data="empty.png" type="image/png">
-                        <img src="assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
+                    <object data="<?php echo base_url(); ?>empty.png" type="image/png">
+                        <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
                     </object>
 
                     <div class="card-body">
@@ -128,23 +128,23 @@
                 <div class="col-1 col-md">
                     <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="index.html">Home</a></li>
-                        <li><a class="text-muted" href="sign-in.html">Sign-In</a></li>
-                        <li><a class="text-muted" href="register-user.html">Register User</a></li>
-                        <li><a class="text-muted" href="register-teknisi.html">Register Teknisi</a></li>
+                        <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
+                        <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
+                        <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_customer">Register Customer</a></li>
+                        <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a></li>
                     </ul>
                 </div>
                 <div class="col-1 col-md">
                     <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="about.html">About Us</a></li>
+                        <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
                     </ul>
                 </div>
             </div>
             <hr>
             <div class="d-flex align-items-center">
                 <span class="">
-                    © 2019 <a href="#" class="footer-link" target="_blank">IT-Clinic</a>
+                    © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link" target="_blank">IT-Clinic</a>
                 </span>
             </div>
         </div>

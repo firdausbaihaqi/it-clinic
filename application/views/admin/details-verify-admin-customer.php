@@ -3,7 +3,7 @@
     <div class="row my-5 pb-5">
         <nav class="navbar navbar-expand-lg navbar-tertiary navbar-dark bg-tertiary py-2 fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="./"><strong>IT - Clinic</strong></a>
+                <a class="navbar-brand" href="<?php echo site_url();?>dashboard"><strong>IT - Clinic</strong></a>
                 </button>
 
                 <div class="navbar-collapse" id="navbar_main">
@@ -18,7 +18,7 @@
                             <a class="nav-link" href="#">Request History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Verify User</a>
+                            <a class="nav-link" href="<?php echo site_url();?>dashboard/admin_verify_account">Verify User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-icon" href="#" id="" role="button" data-toggle="dropdown">
@@ -33,7 +33,7 @@
                                 <div class="list-group">
                                     <?php foreach ($unverified_account as $rows) {
                                     ?>
-                                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">
+                                        <a href="<?php echo site_url();?>dashboard/admin_verify_account" class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-content">
                                                 <div class="list-group-heading"><?php echo $rows->user; ?></div>
                                             </div>
@@ -75,9 +75,9 @@
                 <?php foreach ($unverified_account_details as $rows2) {
                 ?>
                     <div class="row">
-                        <div class="col-sm-12 mt-5">
+                        <div class="col-sm-12">
                             <div class="d-flex justify-content-center">
-                                <img src="<?php echo base_url(); ?>data/profile/<?php echo $rows2->image; ?>" alt="" srcset="" width="250px" height="250px">
+                                <img src="<?php echo base_url(); ?>data/profile/<?php echo $rows2->image; ?>" class="card-img-top" alt="<?php echo base_url(); ?>assets/img/empty.png">
                             </div>
                         </div>
                     </div>
