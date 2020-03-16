@@ -14,19 +14,24 @@ class Login_model extends CI_Model
         if ($query->num_rows() == 1) {
             foreach ($result as $row) {
                 if ($row->status == 'admin') {
+                    $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'admin');
                     echo 'admin';
                     redirect(site_url('dashboard/admin'));
                 } elseif ($row->status == 'technician') {
+                    $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'technician');
                     redirect(site_url('dashboard/technician'));
                 } elseif ($row->status == 'customer') {
+                    $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'customer');
                     redirect(site_url('dashboard/customer'));
                 } elseif ($row->status == 'technician-unverified') {
+                    $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'unverified');
                     redirect(site_url('dashboard/unverified'));
                 } elseif ($row->status == 'customer-unverified') {
+                    $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'unverified');
                     redirect(site_url('dashboard/unverified'));
                 }

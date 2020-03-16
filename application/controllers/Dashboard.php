@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller
         parent::__construct();
         //Do your magic here
         $this->load->model('admin_model');
+        $this->load->model('customer_model');
         if ($this->session->userdata('status') == '') {
             $this->session->set_flashdata('message', 'Harap login terlebih dahulu');
             redirect('login');
@@ -84,12 +85,12 @@ class Dashboard extends CI_Controller
         redirect('dashboard/admin_verify_account');
     }
 
-    public function admin_delete_account($user)
+    public function admin_delete_account($user, $image)
     {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
-        $this->admin_model->delete_account($user);
+        $this->admin_model->delete_account($user, $image);
         redirect('dashboard/admin_verify_account');
     }
 
@@ -110,7 +111,23 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Dashboard Customer";
         $this->load->view('header', $data, FALSE);
-        $this->load->view('view-user', $data, FALSE);
+        $this->load->view('customer/dashboard-customer', $data, FALSE);
+    }
+
+    public function customer_add_request()
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Add Request";
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('customer/add-customer', $data, FALSE);
+    }
+
+    public function customer_add_request_process()
+    {
+        $this->customer_model->add_request();
+        redirect(site_url('dashboard/customer'));
     }
 
     public function unverified()

@@ -26,6 +26,7 @@ class Register_model extends CI_Model
         $data1 = array(
             'user' => $this->input->post('user'),
             'password' => $this->input->post('password'),
+            'image' => $file_name,
             'status' => 'technician-unverified'
         );
         $data2 = array(
@@ -71,6 +72,7 @@ class Register_model extends CI_Model
         $data1 = array(
             'user' => $this->input->post('user'),
             'password' => $this->input->post('password'),
+            'image' => $file_name,
             'status' => 'customer-unverified'
         );
         $data2 = array(

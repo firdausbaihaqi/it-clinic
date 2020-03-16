@@ -65,11 +65,13 @@ class Admin_model extends CI_Model
         return $result;
     }
 
-    public function delete_account($user)
+    public function delete_account($user, $image)
     {
         $this->db->where('user', $user);
         $this->db->delete('user');
         $this->session->set_flashdata('message', 'Akun berhasil dihapus');
+        $path = 'C:\xampp\htdocs\it-clinic\data\profile\\';
+        unlink($path.$image);
     }
 }
 

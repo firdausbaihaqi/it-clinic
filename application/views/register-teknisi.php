@@ -30,7 +30,10 @@
                     <div class="form-group">
                       <label>Foto Profile</label>
                       <br>
-                      <input type="file" name="image" required>
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col">
@@ -91,7 +94,15 @@
 
   <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
-
+  <script>
+    $('#inputGroupFile02').on('change', function() {
+      //get the file name
+      var fileName = $(this).val();
+      var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(cleanFileName);
+    })
+  </script>
 </body>
 
 </html>
