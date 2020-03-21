@@ -110,6 +110,7 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Dashboard Customer";
+        $data['request'] = $this->customer_model->view_request();
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/dashboard-customer', $data, FALSE);
     }
@@ -127,6 +128,11 @@ class Dashboard extends CI_Controller
     public function customer_add_request_process()
     {
         $this->customer_model->add_request();
+        redirect(site_url('dashboard/customer'));
+    }
+
+    public function customer_cancel_request($id, $user, $image){
+        $this->customer_model->cancel_request($id, $user, $image);
         redirect(site_url('dashboard/customer'));
     }
 

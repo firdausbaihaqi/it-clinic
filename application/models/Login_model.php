@@ -16,7 +16,6 @@ class Login_model extends CI_Model
                 if ($row->status == 'admin') {
                     $this->session->set_userdata('user', $user);
                     $this->session->set_userdata('status', 'admin');
-                    echo 'admin';
                     redirect(site_url('dashboard/admin'));
                 } elseif ($row->status == 'technician') {
                     $this->session->set_userdata('user', $user);
