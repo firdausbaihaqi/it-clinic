@@ -4,22 +4,10 @@
     <div class="container">
       <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
       </button>
-
       <div class="navbar-collapse" id="navbar_main">
         <ul class="navbar-nav ml-auto">
-          <!-- shortcut - complete -->
-          <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown">Shortcut</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="homepage.html">Homepage</a>
-                  <a class="dropdown-item" href="about.html">About us</a>
-                  <a class="dropdown-item" href="sign-in.html">Sign in</a>
-                  <a class="dropdown-item" href="contact.html">Contact</a>
-                </div>
-              </li> -->
-          <!-- shortcut -->
           <li class="nav-item">
-            <a href="<?php echo site_url(); ?>login" class="btn btn-sm bg-white">Sign In</a>
+            <a class="nav-link bg-white text-dark" href="<?php echo site_url(); ?>login" >Sign In</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
@@ -32,6 +20,7 @@
     </div>
   </nav>
   <!-- akhir navbar -->
+  
   <main class="main">
     <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/fixing.jpg')">
       <span class="mask bg-tertiary alpha-7"></span>
@@ -47,7 +36,6 @@
                   <p class="lead lh-180 text-white mt-3">
                     IT - Clinic merupakan sebuah platform yang bertujuan untuk menghubungkan customer yang memiliki kerusakan pada komputer nya dengan teknisi yang ada di berbagai tempat. IT - Clinic juga bertujuan untuk memberi jaminan kepuasan pelanggan karena semua proses di belakang IT - Clinic dikerjakan oleh orang-orang professional dalam bidang nya.
                   </p>
-
                 </div>
               </div>
             </div>
@@ -68,10 +56,13 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex align-items-start">
-
                     <div class="icon-text">
                       <h3 class="heading h4">Jaminan Kepuasan</h3>
-                      <p>It-Clinic menjembatani antara User dengan Teknisi, disini posisi kami adalah sebagai <b>Quality Assurance</b> untuk memastikan kepuasan customer dan juga sebagai penyedia lapangan kerja bagi teknisi.</p>
+                      <p>
+                        It-Clinic menjembatani antara User dengan Teknisi, disini posisi kami adalah sebagai 
+                        <b>Quality Assurance</b>
+                        untuk memastikan kepuasan customer dan juga sebagai penyedia lapangan kerja bagi teknisi.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -82,7 +73,9 @@
 
                     <div class="icon-text">
                       <h3 class="heading h4">Terpercaya</h3>
-                      <p>Tidak perlu kawatir lagi terhadap penipuan yang biasa terjadi di servis-servis konvensional, karena setiap perbaikan dan penentuan harga di manage oleh team Profesional kami yang bersertifikat.</p>
+                      <p>
+                        Tidak perlu kawatir lagi terhadap penipuan yang biasa terjadi di servis-servis konvensional, karena setiap perbaikan dan penentuan harga di manage oleh team Profesional kami yang bersertifikat.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -90,10 +83,11 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex align-items-start">
-
                     <div class="icon-text">
                       <h3 class="heading h4">Bersertifikasi</h3>
-                      <p>Teknisi yang diterima untuk melakukan interview disini akan dibekali dengan Program Latihan Khusus demi menjamin kualitas hasil kerja.</p>
+                      <p>
+                        Teknisi yang diterima untuk melakukan interview disini akan dibekali dengan Program Latihan Khusus demi menjamin kualitas hasil kerja.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -143,6 +137,10 @@
     </div>
   </footer>
   <!-- footer -->
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
   <script src="<?php base_url(); ?>assets/js/theme.js"></script>
 </body>
 

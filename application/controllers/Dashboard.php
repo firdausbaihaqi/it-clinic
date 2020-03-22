@@ -18,7 +18,6 @@ class Dashboard extends CI_Controller
         }
     }
 
-
     public function index()
     {
         if ($this->session->userdata('status') == 'admin') {
@@ -56,24 +55,6 @@ class Dashboard extends CI_Controller
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $this->load->view('header', $data, FALSE);
         $this->load->view('admin/verify-admin', $data, FALSE);
-    }
-
-    public function admin_verify_account_details($user, $status)
-    {
-        if ($this->session->userdata('status') != 'admin') {
-            redirect('dashboard');
-        }
-        $data['title'] = "Verify Account";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
-        $data['unverified_account'] = $this->admin_model->get_unverified_account();
-        $data['unverified_account_details'] = $this->admin_model->get_unverified_account_details($user, $status);
-        if ($status == 'technician-unverified') {
-            $this->load->view('header', $data, FALSE);
-            $this->load->view('admin/details-verify-admin-technician', $data, FALSE);
-        } else if ($status == 'customer-unverified') {
-            $this->load->view('header', $data, FALSE);
-            $this->load->view('admin/details-verify-admin-customer', $data, FALSE);
-        }
     }
 
     public function admin_verify_account_process($user, $status)

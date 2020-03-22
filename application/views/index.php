@@ -4,22 +4,10 @@
     <div class="container">
       <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
       </button>
-
       <div class="navbar-collapse" id="navbar_main">
         <ul class="navbar-nav ml-auto">
-          <!-- shortcut - complete -->
-          <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button" data-toggle="dropdown">Shortcut</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="homepage.html">Homepage</a>
-                  <a class="dropdown-item" href="about.html">About us</a>
-                  <a class="dropdown-item" href="sign-in.html">Sign in</a>
-                  <a class="dropdown-item" href="contact.html">Contact</a>
-                </div>
-              </li> -->
-          <!-- shortcut -->
           <li class="nav-item">
-            <a href="<?php echo site_url(); ?>login" class="btn btn-sm bg-white">Sign In</a>
+            <a class="nav-link bg-white text-dark" href="<?php echo site_url(); ?>login" >Sign In</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
@@ -34,7 +22,7 @@
   <!-- akhir navbar -->
 
   <!-- ini body atas -->
-  <section class="bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('assets/img/home.jpg')">
+  <section class="bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/home.jpg')">
     <span class="mask bg-primary alpha-7"></span>
     <div class="py-lg pt-lg-xl">
       <div class="container d-flex align-items-center no-padding">
@@ -42,13 +30,13 @@
           <div class="row cols-xs-space align-items-center text-center justify-content-center">
             <div class="col-7">
               <div class="text-center">
-                <img src="assets/img/stetoscope.png" style="width: 300px" class="alpha-8">
+                <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 300px" >
                 <h2 class="heading display-4 font-weight-400 text-white mt-2">
                   <span class="font-weight-500">IT</span> - Clinic
                 </h2>
                 <p class="lead text-white font-weight-350">
                   Perbaiki komputer anda dimanapun, kapanpun.
-                  <br><button class="pesan btn btn-sm bg-white mt-2 text-primary">Pesan Sekarang</button>
+                <br><button class="pesan btn btn-sm mt-2 bg-white text-dark">Pesan Sekarang</button>
                 </p>
               </div>
             </div>
@@ -60,23 +48,21 @@
   <section class="py-5 bg-lighter border-top border-bottom" id="scrollToSection">
     <div class="container">
       <div class="d-flex align-items-center justify-content-center">
-        <a href="#" class="btn btn-danger btn-icon-only btn-zoom--hover rounded-circle">
+        <button class="btn btn-danger btn-icon-only rounded-circle">
           <i class="fa fa-heart"></i>
-        </a>
-        <span class="heading h4 ml-3 mb-0">For Users, By Users</span>
+        </button>
+        <span class="heading h4 ml-3">For Users, By Users</span>
       </div>
     </div>
   </section>
   <!-- ini body atas -->
-
-
 
   <!-- deskripsi singkat  -->
   <section class="slice slice-lg" data-delimiter="1">
     <div class="container">
       <div class="row cols-xs-space cols-sm-space align-items-center">
         <div class="col-md-6">
-          <img src="assets/img/fixing.jpg" class="img-center img-fluid rounded z-depth-5">
+          <img src="<?php echo base_url(); ?>assets/img/fixing.jpg" class="img-center img-fluid rounded z-depth-5">
         </div>
         <div class="col-md-6 col-lg-5 ml-lg-auto ">
           <div class="pr-md-4">
@@ -105,7 +91,7 @@
       <div class="row cols-xs-space cols-sm-space cols-md-space">
         <div class="col-lg-4">
           <div class="card">
-            <img src="assets/img/rizal.png" class="card-img-top" style="height: 400px;width:350px;">
+            <img src="<?php echo base_url(); ?>assets/img/rizal.png" class="card-img-top" style="height: 400px;width:350px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Rizal Elsa</span>
@@ -118,7 +104,7 @@
         </div>
         <div class="col-lg-4">
           <div class="card">
-            <img src="assets/img/andry.png" class="card-img-top" style="height: 400px;width:350px;">
+            <img src="<?php echo base_url(); ?>assets/img/andry.png" class="card-img-top" style="height: 400px;width:350px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Andry Dwi</span>
@@ -131,7 +117,7 @@
         </div>
         <div class="col-lg-4">
           <div class="card">
-            <img src="assets/img/me.png" class="card-img-top" style="height: 400px;width:350px;">
+            <img src="<?php echo base_url(); ?>assets/img/me.png" class="card-img-top" style="height: 400px;width:350px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Kiki Effendi</span>
@@ -149,7 +135,7 @@
   <!-- body tengah -->
 
   <!-- body bawah -->
-  <section class="slice slice-lg bg-tertiary" id="scroll_pesan_sekarang" style="background-image: url('assets/img/crew.jpg'); background-position: center 10%;">
+  <section class="slice slice-lg bg-tertiary" id="scroll_pesan_sekarang" style="background-image: url('<?php echo base_url(); ?>assets/img/crew.jpg'); background-position: center 10%;">
     <span class="mask bg-primary alpha-7"></span>
     <div class="container text-center">
       <div class="row cols-xs-space cols-sm-space cols-md-space">
@@ -219,6 +205,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script src="<?php base_url(); ?>assets/js/theme.js"></script>
   <script>
     $(".pesan").click(function() {
       $('html,body').animate({

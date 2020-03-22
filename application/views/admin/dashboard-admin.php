@@ -53,39 +53,25 @@
     </div>
     <!-- akhir navbar -->
 
-
-
     <!-- ini body -->
-
     <div>
-
         <div class="row">
             <h4 class="mx-auto">Select request :</h4>
         </div>
-
     </div>
-
     <div class="row py-5 mx-5">
-
         <div class="col-md-6">
-
             <div class="d-flex justify-content-end">
                 <div class="card shadow-lg" style="width: 18rem;">
                     <object data="<?php echo base_url(); ?>empty.png" type="image/png">
                         <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
                     </object>
-
                     <div class="card-body">
-
-                        <center><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_5">Customer</a>
-                        </center>
+                        <center><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_5">Customer</a></center>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
         <div class="col-md-6">
 
             <div class="d-flex justify-content-start">
@@ -93,21 +79,13 @@
                     <object data="<?php echo base_url(); ?>empty.png" type="image/png">
                         <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
                     </object>
-
                     <div class="card-body">
-                        <center><a href="#" class="btn btn-tertiary" data-toggle="modal" data-target="#modal_5">Technician</a>
-                        </center>
+                        <center><a href="#" class="btn btn-tertiary" data-toggle="modal" data-target="#modal_5">Technician</a></center>
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     </div>
-
-
-
     <!-- ini body -->
 
 
@@ -157,6 +135,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+    <script src="<?php base_url(); ?>assets/js/theme.js"></script>
 </body>
 
 </html>

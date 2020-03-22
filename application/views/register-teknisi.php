@@ -1,6 +1,12 @@
 <body>
   <div style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg');background-repeat: repeat-y;">
-
+    <!-- ini navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
+      </div>
+    </nav>
+    <!-- akhir navbar -->
     <main class="main">
       <span class="mask bg-tertiary alpha-7"></span>
       <div class="container d-flex align-items-center no-padding">
@@ -93,7 +99,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/demo.js"></script>
   <script>
     $('#inputGroupFile02').on('change', function() {
       //get the file name

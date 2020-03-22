@@ -1,6 +1,12 @@
 <body>
-  <div style="background-image: url('<?php echo base_url();?>assets/img/mountain.jpg');background-repeat: repeat-y;">
-
+  <div style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg');background-repeat: repeat-y;">
+    <!-- ini navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
+      </div>
+    </nav>
+    <!-- akhir navbar -->
     <main class="main">
       <span class="mask bg-primary alpha-6"></span>
       <div class="container d-flex align-items-center no-padding">
@@ -12,7 +18,7 @@
                   <span class="clearfix"></span>
                   <div class="row">
                     <div class="col-md-4"></div>
-                    <div class="col-md-4"><img class="ml-3" src="<?php echo base_url();?>assets/img/stetoscope.png" style="width: 150px"></div>
+                    <div class="col-md-4"><img class="ml-3" src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 150px"></div>
                     <div class="col-md-4"></div>
                   </div>
                   <h4 class="heading h5 text-white text-center pt-4 pb-2">Hai :D<br>
@@ -66,12 +72,10 @@
                       <label>Telepon</label>
                       <input type="text" class="form-control" id="phone" name="phone" placeholder="Telepon" required>
                     </div>
-
                     <div class="mt-4 text-center">
                       <p><input type="checkbox" required>&nbsp Saya menerima <a href="#" class="text-white"> <u>Syarat & Ketentuan dari IT-Clinic</u></a> </p>
                     </div>
                     <button class="btn btn-block btn-lg bg-white mt-4 text-primary" type="submit">Daftar</button>
-
                   </form>
                 </div>
               </div>
@@ -87,8 +91,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script src="<?php echo base_url();?>assets/js/theme.js"></script>
-  <script src="<?php echo base_url();?>assets/js/demo.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
   <script>
     $('#inputGroupFile02').on('change', function() {
       //get the file name

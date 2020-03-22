@@ -9,7 +9,7 @@
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/customer_add_request">Add Request</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Request History</a>
@@ -25,11 +25,7 @@
   </div>
   <!-- akhir navbar -->
 
-
   <!-- ini body -->
-
-
-
   <div class="row px-5 mx-5">
 
     <div class="col-md-6">
@@ -82,7 +78,7 @@
 
   <div class="row py-5 px-5 mx-5">
     <?php foreach ($request as $rows) { ?>
-      <div class="col-md-4 mx-3">
+      <div class="col-md-4 my-3">
         <div class="card shadow-lg" style="width: 20rem;">
           <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" alt="" height="200px" style="object-fit: cover">
           <div class="card-body">
@@ -93,16 +89,17 @@
 
             <center>
               <?php if ($rows->status == "in_queue") { ?>
-                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_dalam_antrian">Dalam Antrian</a>
+                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_batal_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
-                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_dalam_proses">Sedang Diperbaiki</a>
+                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
               <?php } ?>
-              <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+              <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
           </div>
         </div>
-        <div class="modal modal-secondary fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <!-- modal -->
+        <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -114,7 +111,7 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex justify-content-center">
-                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" alt="...">
+                    <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" alt="<?php echo base_url(); ?>assets/img/empty.png" height="250px" style="object-fit: cover">
                   </div>
                 </div>
               </div>
@@ -130,7 +127,7 @@
                 <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><a href="sign-in.html">Kembali</a></button>
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
               </div>
             </div>
           </div>
@@ -139,7 +136,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modal_title_6">Batal Order</h5>
+                <h5 class="modal-title">Batal Order</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -159,18 +156,56 @@
             </div>
           </div>
         </div>
+        <!-- modal -->
       </div>
     <?php
     } ?>
   </div>
 
   <!-- modal -->
-
-  <div class="modal modal-success fade" id="modal_selesai" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_title_6">Status</h5>
+          <h5 class="modal-title">Add Request</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo site_url(); ?>dashboard/customer_add_request_process" enctype="multipart/form-data" method="POST">
+            <div class=" form-group">
+              <label>Foto Perangkat</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Tanggal Pemesanan</label>
+              <input type="date" class="form-control" name="date_order" id="date_order" value="<?php echo date('Y-m-d'); ?>" readonly>
+            </div>
+
+            <div class=" form-group">
+              <label>Keterangan</label>
+              <textarea class="form-control" name="detail" id="detail" cols="75" rows="10" placeholder="tulis keluhan anda disini..."></textarea>
+            </div>
+            <button class="btn btn-sm btn-success btn-block " type="submit">Request</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-success fade" id="modal_finish" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Status</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -191,11 +226,11 @@
     </div>
   </div>
 
-  <div class="modal modal-primary fade" id="modal_dalam_proses" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal modal-primary fade" id="modal_in_progress" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_title_6">Status</h5>
+          <h5 class="modal-title">Status</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -216,11 +251,11 @@
     </div>
   </div>
 
-  <div class="modal modal-warning fade" id="modal_dalam_antrian" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal modal-warning fade" id="modal_in_queue" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_title_6">Status</h5>
+          <h5 class="modal-title">Status</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -244,7 +279,6 @@
 
   <!-- ini body -->
 
-
   <!-- footer -->
   <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
     <div class="container">
@@ -252,8 +286,8 @@
         <div class="col-12 col-md-4">
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
-            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman Web Lanjut.
-            </p>
+            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman
+              Web Lanjut.</p>
           </div>
         </div>
         <!-- space kosong -->
@@ -262,23 +296,23 @@
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="index.html">Home</a></li>
-            <li><a class="text-muted" href="sign-in.html">Sign-In</a></li>
-            <li><a class="text-muted" href="register-user.html">Register User</a></li>
-            <li><a class="text-muted" href="register-teknisi.html">Register Teknisi</a></li>
+            <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_customer">Register Customer</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a></li>
           </ul>
         </div>
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="about.html">About Us</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
           </ul>
         </div>
       </div>
       <hr>
       <div class="d-flex align-items-center">
         <span class="">
-          © 2019 <a href="#" class="footer-link" target="_blank">IT-Clinic</a>
+          © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link" target="_blank">IT-Clinic</a>
         </span>
       </div>
     </div>
@@ -291,6 +325,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+  <script src="<?php base_url(); ?>assets/js/theme.js"></script>
+  <script>
+    $('#inputGroupFile02').on('change', function() {
+      //get the file name
+      var fileName = $(this).val();
+      var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(cleanFileName);
+    })
+  </script>
 </body>
 
 </html>
