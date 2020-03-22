@@ -9,13 +9,13 @@
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">List User</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">List Request</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Request History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_verify_account">Verify User</a>
@@ -119,7 +119,6 @@
                                                     ?>
                                                     <?php foreach ($unverified_account_details as $rows_technician_detail) {
                                                     ?>
-
                                                         <div class="d-flex justify-content-center mb-5">
                                                             <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_technician_detail->image; ?>" alt="<?php echo base_url(); ?>assets/img/empty.png" height="250px" width="250px" style="object-fit: cover">
                                                         </div>
@@ -199,7 +198,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-body">
-                    <h3>Akun Customer Baru :</h3>
+                    <h3>Akun Customer :</h3>
                     <table class="table table-hover table-cards align-items-center" id="customer">
                         <thead>
                             <tr>
@@ -242,16 +241,15 @@
                                                     $this->load->model('admin_model');
                                                     $unverified_account_details = $this->admin_model->get_unverified_account_details($rows3->user, $rows3->status);
                                                     ?>
-                                                    <?php foreach ($unverified_account_details as $rows_technician_detail) {
+                                                    <?php foreach ($unverified_account_details as $rows_customer_detail) {
                                                     ?>
-
                                                         <div class="d-flex justify-content-center mb-5">
-                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_technician_detail->image; ?>" alt="<?php echo base_url(); ?>assets/img/empty.png" height="250px" width="250px" style="object-fit: cover">
+                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_customer_detail->image; ?>" alt="..." height="250px" width="250px" style="object-fit: cover">
                                                         </div>
-                                                        <p class="h6">Name : <?php echo $rows_technician_detail->fullname; ?></p>
-                                                        <p class="h6">Email : <?php echo $rows_technician_detail->email; ?></p>
-                                                        <p class="h6">Address : <?php echo $rows_technician_detail->address; ?></p>
-                                                        <p class="h6">Phone Number : <?php echo $rows_technician_detail->phone; ?></p>
+                                                        <p class="h6">Name : <?php echo $rows_customer_detail->fullname; ?></p>
+                                                        <p class="h6">Email : <?php echo $rows_customer_detail->email; ?></p>
+                                                        <p class="h6">Address : <?php echo $rows_customer_detail->address; ?></p>
+                                                        <p class="h6">Phone Number : <?php echo $rows_customer_detail->phone; ?></p>
                                                     <?php
                                                     }
                                                     ?>

@@ -45,12 +45,25 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/dashboard-admin', $data, FALSE);
     }
 
+    public function admin_view_account()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "List User";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['verified_account'] = $this->admin_model->get_verified_account();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/list-user', $data, FALSE);
+    }
+
     public function admin_verify_account()
     {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
-        $data['title'] = "Verify Account";
+        $data['title'] = "Verify User";
         $data['notify'] = $this->admin_model->notify_unverified_account();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $this->load->view('header', $data, FALSE);
@@ -72,7 +85,7 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $this->admin_model->delete_account($user, $image);
-        redirect('dashboard/admin_verify_account');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function technician()

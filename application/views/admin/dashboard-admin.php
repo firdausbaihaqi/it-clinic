@@ -9,13 +9,13 @@
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">List User</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">List Request</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Request History</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_verify_account">Verify User</a>
