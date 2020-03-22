@@ -80,7 +80,7 @@
     <?php foreach ($request as $rows) { ?>
       <div class="col-md-4 my-3">
         <div class="card shadow-lg" style="width: 20rem;">
-          <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" alt="" height="200px" style="object-fit: cover">
+          <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
           <div class="card-body">
             <p class="h6">Kode Order :</p>
             <p class="card-text"><?php echo $rows->code_order; ?></p>
@@ -111,7 +111,7 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex justify-content-center">
-                    <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" alt="<?php echo base_url(); ?>assets/img/empty.png" height="250px" style="object-fit: cover">
+                    <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
                   </div>
                 </div>
               </div>

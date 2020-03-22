@@ -64,7 +64,7 @@
             <div class="d-flex justify-content-end">
                 <div class="card shadow-lg" style="width: 18rem;">
                     <object data="<?php echo base_url(); ?>empty.png" type="image/png">
-                        <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
+                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" >
                     </object>
                     <div class="card-body">
                         <center><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_5">Customer</a></center>
@@ -77,7 +77,7 @@
             <div class="d-flex justify-content-start">
                 <div class="card shadow-lg" style="width: 18rem;">
                     <object data="<?php echo base_url(); ?>empty.png" type="image/png">
-                        <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="card-img-top" alt="...">
+                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
                     </object>
                     <div class="card-body">
                         <center><a href="#" class="btn btn-tertiary" data-toggle="modal" data-target="#modal_5">Technician</a></center>

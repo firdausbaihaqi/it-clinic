@@ -90,7 +90,7 @@
                                     <!-- iki pembates antar item -->
                                     <tr>
                                         <td>
-                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows2->image; ?>" alt="..." width="100px" height="100px" style="object-fit: cover">
+                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows2->image; ?>" width="100px" height="100px" style="object-fit: cover">
                                         </td>
                                         <td>
                                             <h6><?php echo $rows2->user; ?></h6>
@@ -120,7 +120,7 @@
                                                     ?>
 
                                                         <div class="d-flex justify-content-center mb-5">
-                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_technician_detail->image; ?>" alt="..." height="250px" width="250px" style="object-fit: cover">
+                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_technician_detail->image; ?>" height="250px" width="250px" style="object-fit: cover">
                                                         </div>
                                                         <p class="h6">Name : <?php echo $rows_technician_detail->fullname; ?></p>
                                                         <p class="h6">Email : <?php echo $rows_technician_detail->email; ?></p>
@@ -192,7 +192,7 @@
                                     <!-- iki pembates antar item -->
                                     <tr>
                                         <td>
-                                        <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows3->image; ?>" alt="..." width="100px" height="100px" style="object-fit: cover">
+                                        <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows3->image; ?>" width="100px" height="100px" style="object-fit: cover">
                                         </td>
                                         <td>
                                             <h6><?php echo $rows3->user; ?></h6>
@@ -222,7 +222,7 @@
                                                     ?>
 
                                                         <div class="d-flex justify-content-center mb-5">
-                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_customer_detail->image; ?>" alt="<?php echo base_url(); ?>assets/img/empty.png" height="250px" width="250px" style="object-fit: cover">
+                                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows_customer_detail->image; ?>" height="250px" width="250px" style="object-fit: cover">
                                                         </div>
                                                         <p class="h6">Name : <?php echo $rows_customer_detail->fullname; ?></p>
                                                         <p class="h6">Email : <?php echo $rows_customer_detail->email; ?></p>
