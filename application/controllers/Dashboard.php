@@ -96,16 +96,6 @@ class Dashboard extends CI_Controller
         $this->load->view('customer/dashboard-customer', $data, FALSE);
     }
 
-    public function customer_add_request()
-    {
-        if ($this->session->userdata('status') != 'customer') {
-            redirect('dashboard');
-        }
-        $data['title'] = "Add Request";
-        $this->load->view('header', $data, FALSE);
-        $this->load->view('customer/add-customer', $data, FALSE);
-    }
-
     public function customer_add_request_process()
     {
         $this->customer_model->add_request();

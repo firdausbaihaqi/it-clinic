@@ -15,7 +15,7 @@
                   </h4>
                   <p class="h5 text-white text-center">silahkan tunggu konfirmasi dari admin dan cek secara berkala </p>
                   <br>
-                  <button type="button" class="col btn btn-secondary mb-3 text-center"><a href="<?php echo base_url(); ?>" class="text-primary">Kembali</a></button>
+                  <a href="<?php echo site_url(); ?>login/logout" class="btn btn-sm btn-light btn-block">Kembali</a>
                   <br>
 
                 </div>
