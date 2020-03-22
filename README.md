@@ -4,9 +4,11 @@ import porject.sql first
 
 Backend To do list :
 
-- [ ] nge link antar halaman
-- [ ] list request customer
+- [x] nge link antar halaman
+- [x] list request customer
 - [ ] list request technician
+- [ ] list request admin
+- [ ] list user admin
 - [x] Add upload picture
 
 Frontend To do list :
