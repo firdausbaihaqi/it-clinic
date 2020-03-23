@@ -94,8 +94,8 @@ class Admin_model extends CI_Model
             $this->db->or_where('technician', $delete->technician);
             $this->db->delete('order');
             $path = 'C:\xampp\htdocs\it-clinic\data\order\\';
-            $image = $delete->image;
-            unlink($path . $image);
+            $image_order = $delete->image;
+            unlink($path . $image_order);
         }
 
         $this->db->where('user', $user);
