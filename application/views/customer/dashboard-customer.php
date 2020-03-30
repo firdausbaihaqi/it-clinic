@@ -117,10 +117,8 @@
               </div>
               <br><br>
               <div class="modal-body">
-                <p class="h6">Kode Order :</p>
-                <p class="card-text"><?php echo $rows->code_order; ?></p>
-                <p class="h6">Keterangan :</p>
-                <p class="card-text"><?php echo $rows->detail; ?></p>
+                <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p><br>
+                <p class="h6">Keterangan : <?php echo $rows->detail; ?></p><br>
                 <p class="card-text h6">Customer : <?php echo $rows->customer; ?></p>
                 <p class="card-text h6">Cost : RP <?php echo $rows->price; ?></p><br>
                 <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>

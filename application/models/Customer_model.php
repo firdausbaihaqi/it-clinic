@@ -42,6 +42,7 @@ class Customer_model extends CI_Model
             'status' => 'in_queue'
         );
         $this->db->insert('order', $data);
+        $this->session->set_flashdata('message', 'Order berhasil direquest');
     }
 
     public function cancel_request($id, $user, $image)

@@ -7,8 +7,9 @@ class Admin_model extends CI_Model
 
     public function get_verified_account()
     {
-        $where = "status='technician' OR status='customer'";
-        $this->db->where($where);
+        $this->db->where('user !=', 'default');
+        $this->db->where('status', 'technician');
+        $this->db->or_where('status', 'customer');
         $query = $this->db->get('user');
         $result = $query->result();
         return $result;
@@ -31,8 +32,8 @@ class Admin_model extends CI_Model
 
     public function get_unverified_account()
     {
-        $where = "status='technician-unverified' OR status='customer-unverified'";
-        $this->db->where($where);
+        $this->db->where('status', 'technician-unverified');
+        $this->db->or_where('status', 'customer-unverified');
         $query = $this->db->get('user');
         $result = $query->result();
         return $result;
@@ -73,8 +74,8 @@ class Admin_model extends CI_Model
 
     public function notify_unverified_account()
     {
-        $where = "status='technician-unverified' OR status='customer-unverified'";
-        $this->db->where($where);
+        $this->db->where('status', 'technician-unverified');
+        $this->db->or_where('status', 'customer-unverified');
         $query = $this->db->get('user');
         $result = $query->num_rows();
         return $result;

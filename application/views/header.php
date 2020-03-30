@@ -11,5 +11,4 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/theme.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/demo.css">
-
 </head>

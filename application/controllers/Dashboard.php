@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller
         //Do your magic here
         $this->load->model('admin_model');
         $this->load->model('customer_model');
+        $this->load->model('technician_model');
         if ($this->session->userdata('status') == '') {
             $this->session->set_flashdata('message', 'Harap login terlebih dahulu');
             redirect('login');
@@ -94,8 +95,31 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Dashboard Teknisi";
+        $data['request'] = $this->technician_model->view_request();
         $this->load->view('header', $data, FALSE);
-        $this->load->view('view-teknisi', $data, FALSE);
+        $this->load->view('technician/dashboard-technician', $data, FALSE);
+    }
+
+    public function technician_take_request($id){
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        if ($this->technician_model->limit_take_request() == true){
+            $this->technician_model->take_request($id);
+            redirect('dashboard/technician');
+        }else{
+            redirect('dashboard/technician');
+        }
+    }
+
+    public function technician_view_accepted_request(){
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Accepted Request";
+        $data['request'] = $this->technician_model->view_accept_request();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('technician/list-accepted-request', $data, FALSE);
     }
 
     public function customer()
@@ -111,11 +135,17 @@ class Dashboard extends CI_Controller
 
     public function customer_add_request_process()
     {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
         $this->customer_model->add_request();
         redirect(site_url('dashboard/customer'));
     }
 
     public function customer_cancel_request($id, $user, $image){
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
         $this->customer_model->cancel_request($id, $user, $image);
         redirect(site_url('dashboard/customer'));
     }
