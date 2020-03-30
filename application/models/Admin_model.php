@@ -57,12 +57,12 @@ class Admin_model extends CI_Model
     public function verify_account($user, $status)
     {
         if ($status == 'technician-unverified') {
-            $this->db->set('status', 'technician');
             $this->db->where('user', $user);
+            $this->db->set('status', 'technician');
             $this->db->update('user');
         } else if ($status == 'customer-unverified') {
-            $this->db->set('status', 'customer');
             $this->db->where('user', $user);
+            $this->db->set('status', 'customer');
             $this->db->update('user');
         }
         if ($this->db->affected_rows() > 0) {
@@ -82,7 +82,7 @@ class Admin_model extends CI_Model
     }
 
     public function delete_account($user, $image)
-    {   
+    {
         $this->db->where('customer', $user);
         $this->db->or_where('technician', $user);
         $this->db->order_by('id', 'desc');
@@ -106,6 +106,57 @@ class Admin_model extends CI_Model
         unlink($path . $image);
     }
 
+    public function view_list_request_customer()
+    {
+        $this->db->where('status', 'in_queue');
+        $this->db->or_where('status', 'avaiable');
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function approve_list_request_customer($id, $user)
+    {
+        $this->db->where('id', $id);
+        $this->db->where('customer', $user);
+        $this->db->set('status', 'avaiable');
+        $this->db->update('order');
+        $this->session->set_flashdata('message', 'Order berhasil diapprove');
+    }
+
+    public function cancel_list_request_customer($id, $user, $image)
+    {
+        $this->db->where('id', $id);
+        $this->db->where('customer', $user);
+        $this->db->delete('order');
+        $this->session->set_flashdata('message', 'Order berhasil ditolak');
+        $path = 'C:\xampp\htdocs\it-clinic\data\order\\';
+        unlink($path . $image);
+    }
+
+    public function view_list_request_technician()
+    {
+        $this->db->where('status', 'in_progress');
+        $this->db->or_where('status', 'finish');
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function update_list_request_technician($id)
+    {
+        $data = array(
+            'date_finish' => $this->input->post('date_finish'),
+            'price' => $this->input->post('price'),
+            'detail' => $this->input->post('detail'),
+            'status' => $this->input->post('status')
+        );
+        $this->db->where('id', $id);
+        $this->db->update('order', $data);
+        $this->session->set_flashdata('message', 'Order berhasil diupdate');
+    }
 }
 
 /* End of file Admin_model.php */

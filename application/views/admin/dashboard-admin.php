@@ -5,7 +5,6 @@
             <div class="container">
                 <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
                 </button>
-
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -63,11 +62,9 @@
         <div class="col-md-6">
             <div class="d-flex justify-content-end">
                 <div class="card shadow-lg" style="width: 18rem;">
-                    <object data="<?php echo base_url(); ?>empty.png" type="image/png">
-                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" >
-                    </object>
+                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
                     <div class="card-body">
-                        <center><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_5">Customer</a></center>
+                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_customer" class="btn btn-primary">Customer</a></center>
                     </div>
                 </div>
             </div>
@@ -76,11 +73,9 @@
 
             <div class="d-flex justify-content-start">
                 <div class="card shadow-lg" style="width: 18rem;">
-                    <object data="<?php echo base_url(); ?>empty.png" type="image/png">
-                        <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
-                    </object>
+                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
                     <div class="card-body">
-                        <center><a href="#" class="btn btn-tertiary" data-toggle="modal" data-target="#modal_5">Technician</a></center>
+                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_technician" class="btn btn-tertiary">Technician</a></center>
                     </div>
                 </div>
             </div>

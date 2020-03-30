@@ -46,6 +46,32 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/dashboard-admin', $data, FALSE);
     }
 
+    public function admin_view_list_request_customer()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "List Request Customer";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['request'] = $this->admin_model->view_list_request_customer();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/list-request-customer', $data, FALSE);
+    }
+
+    public function admin_view_list_request_technician()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "List Request Technician";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['request'] = $this->admin_model->view_list_request_technician();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/list-request-technician', $data, FALSE);
+    }
+
     public function admin_view_account()
     {
         if ($this->session->userdata('status') != 'admin') {
@@ -89,6 +115,31 @@ class Dashboard extends CI_Controller
         redirect($_SERVER['HTTP_REFERER']);
     }
 
+    public function admin_approve_request($id, $user){
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->approve_list_request_customer($id, $user);
+        redirect('dashboard/admin_view_list_request_customer');
+    }
+
+    public function admin_update_request($id){
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->update_list_request_technician($id);
+        redirect('dashboard/admin_view_list_request_technician');
+    }
+
+    public function admin_cancel_request($id, $user, $image){
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->cancel_list_request_customer($id, $user, $image);
+        redirect('dashboard/admin_view_list_request_customer');
+    }
+
+
     public function technician()
     {
         if ($this->session->userdata('status') != 'technician') {
@@ -100,19 +151,21 @@ class Dashboard extends CI_Controller
         $this->load->view('technician/dashboard-technician', $data, FALSE);
     }
 
-    public function technician_take_request($id){
+    public function technician_take_request($id)
+    {
         if ($this->session->userdata('status') != 'technician') {
             redirect('dashboard');
         }
-        if ($this->technician_model->limit_take_request() == true){
+        if ($this->technician_model->limit_take_request() == true) {
             $this->technician_model->take_request($id);
             redirect('dashboard/technician');
-        }else{
+        } else {
             redirect('dashboard/technician');
         }
     }
 
-    public function technician_view_accepted_request(){
+    public function technician_view_accepted_request()
+    {
         if ($this->session->userdata('status') != 'technician') {
             redirect('dashboard');
         }
@@ -142,7 +195,8 @@ class Dashboard extends CI_Controller
         redirect(site_url('dashboard/customer'));
     }
 
-    public function customer_cancel_request($id, $user, $image){
+    public function customer_cancel_request($id, $user, $image)
+    {
         if ($this->session->userdata('status') != 'customer') {
             redirect('dashboard');
         }

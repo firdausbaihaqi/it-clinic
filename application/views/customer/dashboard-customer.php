@@ -88,12 +88,14 @@
             <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
 
             <center>
-              <?php if ($rows->status == "in_queue") { ?>
+              <?php if ($rows->status == "in_queue" || $rows->status == "avaiable") { ?>
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
-                <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_batal_<?php echo $rows->id; ?>">Batal</a>
+                <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
-              <?php } ?>
+              <?php } else if ($rows->status == "finish") {?>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Selesai</a>
+              <?php }?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
           </div>
@@ -130,7 +132,7 @@
             </div>
           </div>
         </div>
-        <div class="modal modal-danger fade" id="modal_batal_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -142,9 +144,7 @@
               <div class="modal-body">
                 <div class="py-3 text-center">
                   <i class="fas fa-exclamation-triangle fa-4x"></i>
-                  <p>
-                    Anda yakin ingin membatalkan order ?
-                  </p>
+                  <h4 class="heading mt-4">Anda yakin ingin membatalkan order ?</h4>
                 </div>
               </div>
               <div class="modal-footer">
