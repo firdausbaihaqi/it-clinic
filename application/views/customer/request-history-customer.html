@@ -1,0 +1,255 @@
+<!-- delete this cuk!! -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><?php echo $title; ?></title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+  <link rel="stylesheet" href="D:\xampp\htdocs\it-clinic\assets\css\theme.css">
+  <link rel="stylesheet" href="D:\xampp\htdocs\it-clinic\assets\css\demo.css">
+
+</head>
+
+<!-- delete this cuk!! -->
+
+<body>
+  <!-- ini navbar -->
+  <div class="row my-5 pb-5">
+    <nav class="navbar navbar-expand-lg navbar-tertiary navbar-dark bg-primary py-2 fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
+        </button>
+
+        <div class="navbar-collapse" id="navbar_main">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Request History</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo site_url(); ?>login/logout">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- akhir navbar -->
+
+  <!-- ini body -->
+  <div class="row px-5 mx-5">
+
+    <div class="col-md-6">
+      <h4>Request History :</h4>
+    </div>
+
+    <div class="col-md-6 d-flex flex-row-reverse">
+
+      <form class="form-inline">
+        <div class="input-group">
+          <input type="text" class="form-control border border-primary" placeholder="kode, tanggal, kerusakan">
+          <div class="input-group-append">
+            <a class="btn btn-outline-primary" href="#" style="padding: 7px 20px; font-size: 12px;">
+              Search
+            </a>
+          </div>
+        </div>
+      </form>
+      <div class="dropdown pr-2">
+        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown">
+          Sort by..
+        </button>
+        <div class="dropdown-menu">
+          <a class="btn dropdown-item" href="#">Terbaru</a>
+          <a class="btn dropdown-item" href="#">Terlama</a>
+        </div>
+      </div>
+    </div>
+  </div><br><br><br>
+
+
+
+  <div class="row py-5 px-5 mx-5 justify-content-center">
+
+    <div class="card mx-3 my-3" style="width: 450px;">
+      <div class="row no-gutters">
+        <div class="col-sm-5">
+          <img class="card-img rounded" src="#" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-body">
+            <h5 class="card-title">Kode Pemesanan :</h5>
+            <p class="card-text">Tanggal Selesai : </p><br>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_more_detail">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cuma contoh, hapus line comment ini sampe line comment selanjutnya -->
+    <div class="card mx-3 my-3" style="width: 450px;">
+      <div class="row no-gutters">
+        <div class="col-sm-5">
+          <img class="card-img rounded" src="#" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-body">
+            <h5 class="card-title">Kode Pemesanan :</h5>
+            <p class="card-text">Tanggal Selesai : </p><br>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_more_detail">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-3 my-3" style="width: 450px;">
+      <div class="row no-gutters">
+        <div class="col-sm-5">
+          <img class="card-img rounded" src="#" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-body">
+            <h5 class="card-title">Kode Pemesanan :</h5>
+            <p class="card-text">Tanggal Selesai : </p><br>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_more_detail">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card mx-3 my-3" style="width: 450px;">
+      <div class="row no-gutters">
+        <div class="col-sm-5">
+          <img class="card-img rounded" src="#" alt="">
+        </div>
+        <div class="col-sm-7">
+          <div class="card-body">
+            <h5 class="card-title">Kode Pemesanan :</h5>
+            <p class="card-text">Tanggal Selesai : </p><br>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modal_more_detail">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- cuma contoh, hapus line comment ini sampe line comment sebelumnya -->
+
+
+
+  </div>
+
+  <!-- modal -->
+  <div class="modal modal-light fade" id="modal_more_detail" tabindex="-1" role="dialog" aria-labelledby="modal"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <center><h5 class="modal-title">Details</h5></center>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            <div class="d-flex justify-content-center">
+              <img class="rounded my-3" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px"
+                style="object-fit: cover">
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+        <div class="modal-body">
+          <p class="card-text h6">Kode Order : </p><br>
+          <p class="h6">Keterangan : </p><br>
+          
+          <p class="card-text h6">Cost : RP </p>
+          <p class="card-text h6">Tanggal Order : </p>
+          <p class="card-text h6">Tanggal Selesai : </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+
+
+  <!-- ini body -->
+
+  <!-- footer -->
+  <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <div class="pr-lg-5">
+            <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
+            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman
+              Web Lanjut.</p>
+          </div>
+        </div>
+        <!-- space kosong -->
+        <div class="col-5"></div>
+        <!-- space kosong -->
+        <div class="col-1 col-md">
+          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_customer">Register Customer</a>
+            </li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-1 col-md">
+          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="d-flex align-items-center">
+        <span class="">
+          © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link" target="_blank">IT-Clinic</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+  <!-- footer -->
+
+  <!-- cdn js ojo diganti!! -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="<?php base_url(); ?>assets/js/theme.js"></script>
+  <script>
+    $('#inputGroupFile02').on('change', function () {
+      //get the file name
+      var fileName = $(this).val();
+      var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(cleanFileName);
+    })
+  </script>
+</body>
+
+</html>
