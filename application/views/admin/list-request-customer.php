@@ -11,7 +11,7 @@
                             <a class="nav-link" href="#">List Request</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Request History</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>
@@ -96,28 +96,28 @@
     </div>
 
     <div class="row py-5 px-5 mx-5">
-        <?php foreach ($request as $rows) { ?>
+        <?php foreach ($request as $rows2) { ?>
             <div class="col-md-4 my-3">
                 <div class="card shadow-lg" style="width: 20rem;">
-                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
+                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <p class="h6">Kode Order :</p>
-                        <p class="card-text"><?php echo $rows->code_order; ?></p>
+                        <p class="card-text"><?php echo $rows2->code_order; ?></p>
                         <p class="h6">Keterangan :</p>
-                        <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
+                        <p class="card-text"><?php echo $rows2->detail; ?></p><br><br>
                         <center>
-                            <?php if ($rows->status == "in_queue") { ?>
-                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_approve_<?php echo $rows->id; ?>">Approve</a>    
-                            <?php } else if ($rows->status == "avaiable") { ?>
+                            <?php if ($rows2->status == "in_queue") { ?>
+                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_approve_<?php echo $rows2->id; ?>">Approve</a>    
+                            <?php } else if ($rows2->status == "avaiable") { ?>
                                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_approved">Approved</a>
                             <?php } ?>
-                            <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Tolak</a>
-                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+                            <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows2->id; ?>">Tolak</a>
+                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows2->id; ?>">Details</a>
                         </center>
                     </div>
                 </div>
                 <!-- modal -->
-                <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -129,18 +129,18 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
-                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
+                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
                                     </div>
                                 </div>
                             </div>
                             <br><br>
                             <div class="modal-body">
-                                <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p><br>
-                                <p class="h6">Keterangan : <?php echo $rows->detail; ?></p><br>
-                                <p class="card-text h6">Customer : <?php echo $rows->customer; ?></p>
-                                <p class="card-text h6">Cost : RP <?php echo $rows->price; ?></p><br>
-                                <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
-                                <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
+                                <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
+                                <p class="h6">Keterangan : <?php echo $rows2->detail; ?></p><br>
+                                <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
+                                <p class="card-text h6">Cost : RP <?php echo $rows2->price; ?></p><br>
+                                <p class="card-text h6">Tanggal Order : <?php echo $rows2->date_order; ?></p>
+                                <p class="card-text h6">Tanggal Selesai : <?php echo $rows2->date_finish; ?></p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal modal-warning fade" id="modal_approve_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal modal-warning fade" id="modal_approve_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -164,13 +164,13 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="<?php echo site_url('dashboard/admin_approve_request' . "/" . $rows->id . "/" . $rows->customer); ?>" class="btn btn-sm btn-secondary">Ya</a>
+                                <a href="<?php echo site_url('dashboard/admin_approve_request' . "/" . $rows2->id . "/" . $rows2->customer); ?>" class="btn btn-sm btn-secondary">Ya</a>
                                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -186,7 +186,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="<?php echo site_url('dashboard/admin_cancel_request' . "/" . $rows->id . "/" . $rows->customer . "/" . $rows->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
+                                <a href="<?php echo site_url('dashboard/admin_cancel_request' . "/" . $rows2->id . "/" . $rows2->customer . "/" . $rows2->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
                                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
                             </div>
                         </div>

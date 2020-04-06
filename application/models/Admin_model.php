@@ -109,7 +109,7 @@ class Admin_model extends CI_Model
     public function view_list_request_customer()
     {
         $this->db->where('status', 'in_queue');
-        $this->db->or_where('status', 'avaiable');
+        $this->db->or_where('status', 'available');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
@@ -120,7 +120,7 @@ class Admin_model extends CI_Model
     {
         $this->db->where('id', $id);
         $this->db->where('customer', $user);
-        $this->db->set('status', 'avaiable');
+        $this->db->set('status', 'available');
         $this->db->update('order');
         $this->session->set_flashdata('message', 'Order berhasil diapprove');
     }
@@ -138,7 +138,6 @@ class Admin_model extends CI_Model
     public function view_list_request_technician()
     {
         $this->db->where('status', 'in_progress');
-        $this->db->or_where('status', 'finish');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
@@ -156,6 +155,14 @@ class Admin_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('order', $data);
         $this->session->set_flashdata('message', 'Order berhasil diupdate');
+    }
+
+    public function view_history(){
+        $this->db->where('status', 'finish');
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
     }
 }
 

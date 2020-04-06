@@ -11,7 +11,7 @@
                             <a class="nav-link" href="#">List Request</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Request History</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>

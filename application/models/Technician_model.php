@@ -8,7 +8,7 @@ class Technician_model extends CI_Model
     public function view_request()
     {
         $this->db->order_by('id', 'desc');
-        $this->db->where('status', 'avaiable');
+        $this->db->where('status', 'available');
         $query = $this->db->get('order');
         $result = $query->result();
         return $result;
@@ -49,6 +49,15 @@ class Technician_model extends CI_Model
             $this->session->set_flashdata('message', 'Limit request order yang dapat diambil maksimal 3');
             return false;
         }
+    }
+
+    public function view_history($user){
+        $this->db->where('status', 'finish');
+        $this->db->where('technician', $user);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
     }
 }
 

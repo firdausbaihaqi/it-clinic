@@ -115,7 +115,8 @@ class Dashboard extends CI_Controller
         redirect($_SERVER['HTTP_REFERER']);
     }
 
-    public function admin_approve_request($id, $user){
+    public function admin_approve_request($id, $user)
+    {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
@@ -123,7 +124,8 @@ class Dashboard extends CI_Controller
         redirect('dashboard/admin_view_list_request_customer');
     }
 
-    public function admin_update_request($id){
+    public function admin_update_request($id)
+    {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
@@ -131,12 +133,26 @@ class Dashboard extends CI_Controller
         redirect('dashboard/admin_view_list_request_technician');
     }
 
-    public function admin_cancel_request($id, $user, $image){
+    public function admin_cancel_request($id, $user, $image)
+    {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
         }
         $this->admin_model->cancel_list_request_customer($id, $user, $image);
         redirect('dashboard/admin_view_list_request_customer');
+    }
+
+    public function admin_view_history()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Request History";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['request'] = $this->admin_model->view_history();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/request-history-admin', $data, FALSE);
     }
 
 
@@ -175,6 +191,18 @@ class Dashboard extends CI_Controller
         $this->load->view('technician/list-accepted-request', $data, FALSE);
     }
 
+    public function technician_view_history()
+    {
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        $user = $this->session->userdata('user');
+        $data['title'] = "View History";
+        $data['request'] = $this->technician_model->view_history($user);
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('technician/request-history-technician', $data, FALSE);
+    }
+
     public function customer()
     {
         if ($this->session->userdata('status') != 'customer') {
@@ -202,6 +230,18 @@ class Dashboard extends CI_Controller
         }
         $this->customer_model->cancel_request($id, $user, $image);
         redirect(site_url('dashboard/customer'));
+    }
+
+    public function customer_view_history()
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $user = $this->session->userdata('user');
+        $data['title'] = "View History";
+        $data['request'] = $this->customer_model->view_history($user);
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('customer/request-history-customer', $data, FALSE);
     }
 
     public function unverified()

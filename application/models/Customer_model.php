@@ -54,6 +54,15 @@ class Customer_model extends CI_Model
         $path = 'C:\xampp\htdocs\it-clinic\data\order\\';
         unlink($path.$image);
     }
+
+    public function view_history($user){
+        $this->db->where('status', 'finish');
+        $this->db->where('customer', $user);
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
 }
 
 /* End of file Customer_model.php */

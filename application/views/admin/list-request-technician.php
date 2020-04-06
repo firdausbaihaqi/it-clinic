@@ -11,7 +11,7 @@
                             <a class="nav-link" href="#">List Request</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Request History</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>
@@ -96,28 +96,24 @@
     </div>
 
     <div class="row py-5 px-5 mx-5">
-        <?php foreach ($request as $rows) { ?>
+        <?php foreach ($request as $rows2) { ?>
             <div class="col-md-4 my-3">
                 <div class="card shadow-lg" style="width: 20rem;">
-                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
+                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <p class="h6">Kode Order :</p>
-                        <p class="card-text"><?php echo $rows->code_order; ?></p>
+                        <p class="card-text"><?php echo $rows2->code_order; ?></p>
                         <p class="h6">Keterangan :</p>
-                        <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
+                        <p class="card-text"><?php echo $rows2->detail; ?></p><br><br>
                         <center>
-                            <?php if ($rows->status == "in_progress") { ?>
-                                <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
-                            <?php } else if ($rows->status == "finish") { ?>
-                                <a href="#" class="btn btn-sm btn-success mt-1" data-toggle="modal" data-target="#modal_finish">Selesai</a>
-                            <?php } ?>
-                            <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_update_<?php echo $rows->id; ?>">Update</a>
-                            <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+                            <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
+                            <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_update_<?php echo $rows2->id; ?>">Update</a>
+                            <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows2->id; ?>">Details</a>
                         </center>
                     </div>
                 </div>
                 <!-- modal -->
-                <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -129,19 +125,19 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
-                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
+                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
                                     </div>
                                 </div>
                             </div>
                             <br><br>
                             <div class="modal-body">
-                                <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p><br>
-                                <p class="h6">Keterangan : <?php echo $rows->detail; ?></p><br>
-                                <p class="card-text h6">Customer : <?php echo $rows->customer; ?></p>
-                                <p class="card-text h6">Technician : <?php echo $rows->technician; ?></p>
-                                <p class="card-text h6">Cost : RP <?php echo $rows->price; ?></p><br>
-                                <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
-                                <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
+                                <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
+                                <p class="h6">Keterangan : <?php echo $rows2->detail; ?></p><br>
+                                <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
+                                <p class="card-text h6">Technician : <?php echo $rows2->technician; ?></p>
+                                <p class="card-text h6">Cost : RP <?php echo $rows2->price; ?></p><br>
+                                <p class="card-text h6">Tanggal Order : <?php echo $rows2->date_order; ?></p>
+                                <p class="card-text h6">Tanggal Selesai : <?php echo $rows2->date_finish; ?></p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
@@ -149,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal modal-primary fade" id="modal_update_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                <div class="modal modal-primary fade" id="modal_update_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -161,32 +157,32 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
-                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
+                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
                                     </div>
                                 </div>
                             </div>
                             <br><br>
                             <div class="modal-body">
-                                <form action="<?php echo site_url('dashboard/admin_update_request' . "/" . $rows->id);?>" method="POST">
+                                <form action="<?php echo site_url('dashboard/admin_update_request' . "/" . $rows2->id);?>" method="POST">
 
                                     <div class="form-group">
                                         <label>Kode Order</label>
-                                        <input type="text" class="form-control" name="code_order" id="code_order" value="<?php echo $rows->code_order; ?>" readonly>
+                                        <input type="text" class="form-control" name="code_order" id="code_order" value="<?php echo $rows2->code_order; ?>" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Customer</label>
-                                        <input type="text" class="form-control" name="customer" id="customer" value="<?php echo $rows->customer; ?>" readonly>
+                                        <input type="text" class="form-control" name="customer" id="customer" value="<?php echo $rows2->customer; ?>" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Technician</label>
-                                        <input type="text" class="form-control" name="technician" id="technician" value="<?php echo $rows->technician; ?>" readonly>
+                                        <input type="text" class="form-control" name="technician" id="technician" value="<?php echo $rows2->technician; ?>" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Tanggal Pemesanan</label>
-                                        <input type="date" class="form-control" name="date_order" id="date_order" value="<?php echo $rows->date_order; ?>" readonly>
+                                        <input type="date" class="form-control" name="date_order" id="date_order" value="<?php echo $rows2->date_order; ?>" readonly>
                                     </div>
 
                                     <div class="form-group">
@@ -196,18 +192,18 @@
 
                                     <div class="form-group">
                                         <label>Harga (Dalam Rupiah)</label>
-                                        <input type="number" class="form-control" name="price" id="price" value="<?php echo $rows->price; ?>">
+                                        <input type="number" class="form-control" name="price" id="price" value="<?php echo $rows2->price; ?>">
                                     </div>
 
                                     <div class=" form-group">
                                         <label>Keterangan</label>
-                                        <textarea class="form-control" name="detail" id="detail" cols="75" rows="10" placeholder="tulis keluhan anda disini..."><?php echo $rows->detail; ?></textarea>
+                                        <textarea class="form-control" name="detail" id="detail" cols="75" rows="10" placeholder="tulis keluhan anda disini..."><?php echo $rows2->detail; ?></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Status</label>
                                         <select class="custom-select" name="status" id="status">
-                                            <option selected value="<?php echo $rows->status; ?>">Pilih Status</option>
+                                            <option selected value="<?php echo $rows2->status; ?>">Pilih Status</option>
                                             <option value="in_progress">Sedang Diperbaiki</option>
                                             <option value="finish">Selesai</option>
                                         </select>
@@ -241,27 +237,6 @@
                     <div class="py-3 text-center">
                         <i class="fa fa-exclamation-circle fa-4x"></i>
                         <h4 class="heading mt-4">Request order masih sedang dikerjakan</h4>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal modal-success fade" id="modal_finish" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Status</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="py-3 text-center">
-                        <i class="fa fa-exclamation-circle fa-4x"></i>
-                        <h4 class="heading mt-4">Request order sudah selesai</h4>
                     </div>
                 </div>
                 <div class="modal-footer">

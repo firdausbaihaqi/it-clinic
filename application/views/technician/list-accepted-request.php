@@ -12,7 +12,7 @@
               <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Request History</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a>
             </li>
 
             <li class="nav-item">
@@ -59,11 +59,7 @@
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
             <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
-
             <center>
-              <?php if ($rows->status == "avaiable") { ?>
-                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_accept_<?php echo $rows->id; ?>">Ambil Job</a>
-              <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
           </div>
@@ -129,36 +125,6 @@
     <?php
     } ?>
   </div>
-
-  <!-- modal -->
-  <div class="modal modal-teritiary fade" id="modal_ambil_job" tabindex="-1" role="dialog" aria-labelledby="modall" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modal_title_6">Status</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="py-3 text-center">
-            <i class="fa fa-check fa-4x"></i>
-            <h4 class="heading mt-4 mb-3">Selamat Bekerja :)</h4>
-            <!-- ganti kode nya -->
-            <h5 class="heading mt-2">Kode Pemesanan : <b>X41oa8Zl</b></h5>
-            <!-- ganti kode nya -->
-            <p>
-              silahkan ambil barang di kantor it-clinic dengan menunjukan kode diatas
-            </p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><a href="sign-in.html">Kembali</a></button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- modal -->
 
   <!-- footer -->
   <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">

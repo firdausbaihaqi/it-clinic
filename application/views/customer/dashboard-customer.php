@@ -12,7 +12,7 @@
               <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Request History</a>
+              <a class="nav-link" href="<?php echo site_url();?>dashboard/customer_view_history">Request History</a>
             </li>
 
             <li class="nav-item">
@@ -88,13 +88,11 @@
             <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
 
             <center>
-              <?php if ($rows->status == "in_queue" || $rows->status == "avaiable") { ?>
+              <?php if ($rows->status == "in_queue" || $rows->status == "available") { ?>
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
-              <?php } else if ($rows->status == "finish") {?>
-                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Selesai</a>
               <?php }?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
@@ -194,31 +192,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal-success fade" id="modal_finish" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Status</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="py-3 text-center">
-            <i class="fa fa-check-circle fa-4x"></i>
-            <h4 class="heading mt-4">Komputer anda telah selesai diperbaiki :)</h4>
-            <p>
-              komputer sudah bisa diambil
-            </p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
         </div>
       </div>
     </div>
