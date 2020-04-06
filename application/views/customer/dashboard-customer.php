@@ -86,17 +86,18 @@
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
             <!-- <p class="card-text"><?php echo $rows->detail; ?></p> -->
-            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" 
-            placeholder="<?php echo $rows->detail; ?>"></textarea>
+            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows->detail; ?>"></textarea>
             <br><br>
 
             <center>
-            <!-- <?php echo $rows->status; ?> -->
+              <!-- <?php echo $rows->status; ?> -->
               <?php if ($rows->status == "in_queue" || $rows->status == "available") { ?>
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
+              <?php } else if ($rows->status == "finish") { ?>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Selesai</a>
               <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
@@ -203,6 +204,31 @@
     </div>
   </div>
 
+  <div class="modal modal-success fade" id="modal_finish" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="py-3 text-center">
+            <i class="fa fa-exclamation-circle fa-4x"></i>
+            <h4 class="heading mt-4">Perangkat anda telah selesai diservis</h4>
+            <p>
+              Silahkan ambil perangkat anda
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="modal modal-primary fade" id="modal_in_progress" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -215,9 +241,9 @@
         <div class="modal-body">
           <div class="py-3 text-center">
             <i class="fa fa-exclamation-circle fa-4x"></i>
-            <h4 class="heading mt-4">Komputer anda masih diperbaiki, silahkan tunggu</h4>
+            <h4 class="heading mt-4">Perangkat anda masih diperbaiki, silahkan tunggu</h4>
             <p>
-              komputer belum bisa diambil
+              Perangkat belum bisa diambil
             </p>
           </div>
         </div>
