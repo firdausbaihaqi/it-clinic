@@ -26,7 +26,7 @@
                                 </i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
-                                <div class="py-3 px-3">
+                                <div class=" px-3">
                                     <h5 class="heading h6 mb-0">User Pending List</h5>
                                 </div>
                                 <div class="list-group">
@@ -97,14 +97,15 @@
 
     <div class="row py-5 px-5 mx-5">
         <?php foreach ($request as $rows2) { ?>
-            <div class="col-md-4 my-3">
+            <div class="col-md-4 ">
                 <div class="card shadow-lg" style="width: 20rem;">
                     <img src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
                     <div class="card-body">
                         <p class="h6">Kode Order :</p>
                         <p class="card-text"><?php echo $rows2->code_order; ?></p>
                         <p class="h6">Keterangan :</p>
-                        <p class="card-text"><?php echo $rows2->detail; ?></p><br><br>
+                        <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
+                        <br><br>
                         <center>
                             <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
                             <a href="#" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal_update_<?php echo $rows2->id; ?>">Update</a>
@@ -125,14 +126,16 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex justify-content-center">
-                                        <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
+                                        <img class="rounded " src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
                                     </div>
                                 </div>
                             </div>
                             <br><br>
                             <div class="modal-body">
                                 <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
-                                <p class="h6">Keterangan : <?php echo $rows2->detail; ?></p><br>
+                                <p class="h6">Keterangan : </p>
+                                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
+                                <br>
                                 <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
                                 <p class="card-text h6">Technician : <?php echo $rows2->technician; ?></p>
                                 <p class="card-text h6">Cost : RP <?php echo $rows2->price; ?></p><br>
@@ -163,7 +166,7 @@
                             </div>
                             <br><br>
                             <div class="modal-body">
-                                <form action="<?php echo site_url('dashboard/admin_update_request' . "/" . $rows2->id);?>" method="POST">
+                                <form action="<?php echo site_url('dashboard/admin_update_request' . "/" . $rows2->id); ?>" method="POST">
 
                                     <div class="form-group">
                                         <label>Kode Order</label>
@@ -182,17 +185,17 @@
 
                                     <div class="form-group">
                                         <label>Tanggal Pemesanan</label>
-                                        <input type="date" class="form-control" name="date_order" id="date_order" value="<?php echo $rows2->date_order; ?>" readonly>
+                                        <input type="date" class="form-control form-control-sm" style="font-size: 18pt" name="date_order" id="date_order" value="<?php echo $rows2->date_order; ?>" readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label>Tanggal Selesai</label>
-                                        <input type="date" class="form-control" name="date_finish" id="date_finish" value="<?php echo date('Y-m-d'); ?>">
+                                        <input type="date" class="form-control form-control-sm" style="font-size: 18pt" name="date_finish" id="date_finish" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Harga (Dalam Rupiah)</label>
-                                        <input type="number" class="form-control" name="price" id="price" value="<?php echo $rows2->price; ?>">
+                                        <input type="number" class="form-control form-control-lg" style="font-size: 19pt" name="price" id="price" value="<?php echo $rows2->price; ?>">
                                     </div>
 
                                     <div class=" form-group">
@@ -234,7 +237,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="py-3 text-center">
+                    <div class=" text-center">
                         <i class="fa fa-exclamation-circle fa-4x"></i>
                         <h4 class="heading mt-4">Request order masih sedang dikerjakan</h4>
                     </div>
@@ -249,7 +252,7 @@
     <!-- ini body -->
 
     <!-- footer -->
-    <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+    <footer class="pt-5  footer  footer-dark bg-tertiary">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-4">

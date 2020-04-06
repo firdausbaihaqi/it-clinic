@@ -58,7 +58,9 @@
             <p class="h6">Kode Order :</p>
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
-            <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
+            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" 
+                                placeholder="<?php echo $rows->detail; ?>"></textarea>
+            <br><br>
             <center>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
@@ -77,7 +79,7 @@
               <div class="row">
                 <div class="col">
                   <div class="d-flex justify-content-center">
-                    <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
+                    <img class="rounded my-3" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
                   </div>
                 </div>
               </div>
@@ -86,7 +88,8 @@
                 <p class="h6">Kode Order :</p>
                 <p class="card-text"><?php echo $rows->code_order; ?></p>
                 <p class="h6">Keterangan :</p>
-                <p class="card-text"><?php echo $rows->detail; ?></p>
+                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" 
+                                placeholder="<?php echo $rows->detail; ?>"></textarea><br>
                 <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
                 <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
               </div>

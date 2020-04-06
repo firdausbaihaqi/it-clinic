@@ -12,7 +12,7 @@
               <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo site_url();?>dashboard/customer_view_history">Request History</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/customer_view_history">Request History</a>
             </li>
 
             <li class="nav-item">
@@ -85,17 +85,22 @@
             <p class="h6">Kode Order :</p>
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
-            <p class="card-text"><?php echo $rows->detail; ?></p><br><br>
+            <!-- <p class="card-text"><?php echo $rows->detail; ?></p> -->
+            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" 
+            placeholder="<?php echo $rows->detail; ?>"></textarea>
+            <br><br>
 
             <center>
+            <!-- <?php echo $rows->status; ?> -->
               <?php if ($rows->status == "in_queue" || $rows->status == "available") { ?>
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
-              <?php }?>
+              <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
+
           </div>
         </div>
         <!-- modal -->
@@ -118,7 +123,8 @@
               <br><br>
               <div class="modal-body">
                 <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p><br>
-                <p class="h6">Keterangan : <?php echo $rows->detail; ?></p><br>
+                <p class="h6">Keterangan : </p>
+                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
                 <p class="card-text h6">Customer : <?php echo $rows->customer; ?></p>
                 <p class="card-text h6">Cost : RP <?php echo $rows->price; ?></p><br>
                 <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
