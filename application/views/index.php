@@ -1,6 +1,6 @@
 <body>
 
- <!-- ini navbar -->
+  <!-- ini navbar -->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
     <div class="container">
       <ul class="navbar-nav ml-auto">
@@ -34,13 +34,13 @@
           <div class="row cols-xs-space align-items-center text-center justify-content-center">
             <div class="col-7">
               <div class="text-center">
-                <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 300px" >
+                <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 300px">
                 <h2 class="heading display-4 font-weight-400 text-white mt-2">
                   <span class="font-weight-500">IT</span> - Clinic
                 </h2>
                 <p class="lead text-white font-weight-350">
                   Perbaiki komputer anda dimanapun, kapanpun.
-                <br><button class="pesan btn btn-sm mt-2 bg-white text-dark">Pesan Sekarang</button>
+                  <br><button class="pesan btn btn-sm mt-3 bg-white text-dark">Pesan Sekarang</button>
                 </p>
               </div>
             </div>
@@ -65,15 +65,37 @@
   <section class="slice slice-lg" data-delimiter="1">
     <div class="container">
       <div class="row cols-xs-space cols-sm-space align-items-center">
+        <div class="col-md-6 col-lg-5 ml-lg-auto">
+          <div class="pr-md-4">
+            <h3 class="heading h3">
+              Semua jenis kerusakan komputer anda akan di periksa oleh tenaga profesional kami
+            </h3>
+            <p class="lead text-gray mt-4">dengan menggunakan layanan kami,
+              anda tidak perlu kawatir lagi terhadap penipuan yang sering terjadi di layanan servis konvensional.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg" class="img-center img-fluid rounded z-depth-3" style="width: 440px">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="slice slice-lg" data-delimiter="1">
+    <div class="container">
+      <div class="row cols-xs-space cols-sm-space align-items-center">
         <div class="col-md-6">
           <img src="<?php echo base_url(); ?>assets/img/fixing.jpg" class="img-center img-fluid rounded z-depth-5">
         </div>
         <div class="col-md-6 col-lg-5 ml-lg-auto ">
           <div class="pr-md-4">
             <h3 class="heading h3">
-              Membuka Lapangan Kerja
+              Program Mitra IT-Clinic
             </h3>
-            <p class="lead text-gray mt-4">IT-Clinic menyediakan pekerjaan bagi teknisi-teknisi dengan kemampuan yang mumpuni tapi belum mendapatkan pekerjaan, semua perbaikan dilakukan oleh teknisi-teknisi ini dengan pengawasan dari team Professional kami.
+            <p class="lead text-gray mt-4">Program ini menyediakan pekerjaan bagi teknisi dengan kemampuan mumpuni yang telah melalui tes kompetensi
+              dari kami, semua perbaikan hardware dilakukan oleh teknisi-teknisi ini dengan pengawasan dari team Professional kami. <br> Untuk mendaftar silahkan gunakan link berikut.
             </p>
             <a href="<?php echo site_url(); ?>register/register_technician" class="btn btn-sm btn-primary">Ayo Daftar Sekarang!</a>
           </div>
@@ -89,47 +111,54 @@
       <div class="mb-md text-center">
         <h3 class="heading h3">Diawasi oleh team Professional</h3>
         <div class="fluid-paragraph text-center mt-4">
-          <p class="lead lh-180">dengan menggunakan layanan kami, anda tidak perlu kawatir lagi terhadap penipuan yang biasa terjadi di servis-servis konvensional, karena setiap perbaikan dan penentuan harga di manage oleh team Profesional kami yang bersertifikat.</p>
+          <p class="lead lh-180">dengan menggunakan layanan kami, anda tidak perlu kawatir lagi terhadap penipuan yang biasa terjadi di servis-servis konvensional,
+            karena setiap perbaikan dan penentuan harga di manage oleh team Profesional kami yang terpercaya.</p>
         </div>
       </div>
       <div class="row cols-xs-space cols-sm-space cols-md-space">
         <div class="col-lg-4">
-          <div class="card">
-            <img src="<?php echo base_url(); ?>assets/img/rizal.png" class="card-img-top" style="height: 400px;width:350px;">
+          <div class="card" style="border:none">
+            <img src="<?php echo base_url(); ?>assets/img/rizal.png" class="avatar avatar-lg mx-auto" style="height: 250px;width:250px; ">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Rizal Elsa</span>
                 <small class="text-muted">Founder and CEO IT-Clinic</small>
               </h3>
-              <p class="mt-2">Teknisi profesional ber sertifikasi kompeten dan juga Founder dari IT-Clinic</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <p class="mt-4">Teknisi profesional ber sertifikasi kompeten dan juga Founder dari IT-Clinic</p>
+              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card">
-            <img src="<?php echo base_url(); ?>assets/img/andry.png" class="card-img-top" style="height: 400px;width:350px;">
+          <div class="card" style="border:none">
+            <img src="<?php echo base_url(); ?>assets/img/andry.png" class="avatar avatar-lg mx-auto" style="height: 250px;width:240px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Andry Dwi</span>
-                <small class="text-muted">Front-End and Back-End Programmer of IT-Clinic</small>
+                <small class="text-muted">Back-End Programmer of IT-Clinic</small>
               </h3>
-              <p class="mt-2">Mahasiswa dari Polinema dengan multi talenta</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <p class="mt-4">Mahasiswa alumni Polinema dengan multi talenta</p>
+              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
-          <div class="card">
-            <img src="<?php echo base_url(); ?>assets/img/me.png" class="card-img-top" style="height: 400px;width:350px;">
+          <div class="card" style="border:none">
+            <img src="<?php echo base_url(); ?>assets/img/me.png" class="avatar avatar-lg mx-auto" style="height: 250px;width:250px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Kiki Effendi</span>
-                <small class="text-muted">Freelancer</small>
+                <small class="text-muted">Front-End Programmer of IT-Clinic</small>
               </h3>
               <br>
-              <p class="mt-2">Pegawai Magang</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <p>Fresh Graduate yang sedang dalam masa Internship di IT-Clinic</p>
+              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -150,7 +179,8 @@
           <div class="row justify-content-center mt-4">
             <div class="col-lg-8">
               <p class="lead text-white">
-                Daftar sekarang juga dan mulai gunakan layanan kami kapanpun, tersedia juga paket premium dan dapatkan akses khusus yang tidak dimiliki user regular dengan harga yang bersahabat.
+                Daftar sekarang juga dan mulai gunakan layanan kami kapanpun,
+                bagi teknisi yang ingin mengikuti program mitra IT-Clinic juga bisa mendaftar melalui link berikut.
               </p>
               <div class="btn-container mt-5">
                 <a href="<?php echo site_url(); ?>register/register_customer" class="btn btn-lg bg-white px-4">
@@ -174,7 +204,7 @@
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
             <p>IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
-            juga menjamin keamanan dan kepuasan Customer.</p>
+              juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
 
@@ -198,7 +228,7 @@
             <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
           </ul>
         </div>
-        
+
       </div>
       <hr>
 
@@ -217,7 +247,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
   <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
   <script>
     $(".pesan").click(function() {
