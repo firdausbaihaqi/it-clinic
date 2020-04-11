@@ -1,13 +1,16 @@
 <body>
-  <!-- ini navbar -->
-  <div class="row my-5 pb-5">
-    <nav class="navbar navbar-expand-lg navbar-tertiary navbar-dark bg-primary py-2 fixed-top">
+ <!-- ini navbar -->
+ <div class="row my-5 pb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 fixed-top">
       <div class="container">
         <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
         </button>
 
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
             </li>
@@ -36,7 +39,7 @@
 
       <form class="form-inline">
         <div class="input-group">
-          <input type="text" class="form-control border border-primary" placeholder="kode pemesanan">
+          <input type="text" class="form-control border border-primary" placeholder="kode, tgl, kerusakan">
           <div class="input-group-append">
             <a class="btn btn-outline-primary" href="#" style="padding: 7px 20px; font-size: 12px;">
               Search
@@ -51,8 +54,8 @@
           Sort by..
         </button>
         <div class="dropdown-menu">
-          <a class="btn dropdown-item" href="#">bisa diambil</a>
-          <a class="btn dropdown-item" href="#">dalam proses</a>
+          <a class="btn dropdown-item" href="#">selesai</a>
+          <a class="btn dropdown-item" href="#">sedang proses</a>
           <a class="btn dropdown-item" href="">dalam antrian</a>
           <a class="btn dropdown-item" href="#">tanggal pemesanan</a>
         </div>
@@ -283,41 +286,48 @@
   <!-- ini body -->
 
   <!-- footer -->
-  <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+  <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4">
+
+        <div class="col-md-4">
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
-            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman
-              Web Lanjut.</p>
+            <p class="text-muted">IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
+               juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
+
         <!-- space kosong -->
-        <div class="col-5"></div>
+        <div class="col-4"></div>
         <!-- space kosong -->
-        <div class="col-1 col-md">
-          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
+
+        <div class="col-2">
+          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Navigation</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
-            <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
-            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_customer">Register Customer</a></li>
-            <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a></li>
+            <li><a class="text-muted" href="<?php echo base_url(); ?>dashboard">Dashboard</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>dashboard/customer_view_history">Request History</a></li>
+            <li><a class="text-muted" href="<?php echo base_url(); ?>login/logout">Logout</a></li>
           </ul>
         </div>
+
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>">Home</a></li>
           </ul>
         </div>
+        
       </div>
       <hr>
+
       <div class="d-flex align-items-center">
-        <span class="">
-          © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link" target="_blank">IT-Clinic</a>
+        <span class="text-muted">
+          © 2020 <a href="<?php echo site_url(); ?>home/about" class="text-muted">IT-Clinic</a>
         </span>
       </div>
+
     </div>
   </footer>
   <!-- footer -->
