@@ -70,8 +70,8 @@ class Customer_model extends CI_Model
 
         $this->db->like('code_order', $keyword);
         $this->db->or_Like('detail', $keyword);
-        $this->db->where('customer', );
-        $query = $this->db->get('order', $user);
+        $this->db->where('customer', $user);
+        $query = $this->db->get('order');
         $result = $query->result();
         $this->session->set_flashdata('message', 'Hasil Pencarian');
         return $result;
