@@ -34,13 +34,11 @@
 
     <div class="col-md-6 d-flex flex-row-reverse">
 
-      <form class="form-inline">
+      <form class="form-inline" action="<?php echo site_url(); ?>dashboard/customer" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control border border-primary" placeholder="kode pemesanan">
+          <input type="text" class="form-control border border-primary" id="keyword" name="keyword" placeholder="kode pemesanan">
           <div class="input-group-append">
-            <a class="btn btn-outline-primary" href="#" style="padding: 7px 20px; font-size: 12px;">
-              Search
-            </a>
+            <button class="btn btn-outline-primary" type="submit" style="padding: 7px 20px; font-size: 12px;">Search</button>
           </div>
         </div>
       </form>
@@ -85,7 +83,7 @@
             <p class="h6">Kode Order :</p>
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
-            <!-- <p class="card-text"><?php echo $rows->detail; ?></p> -->
+            <!-- <p class="card-text"><//?php echo $rows->detail; ?></p> -->
             <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows->detail; ?>"></textarea>
             <br><br>
 

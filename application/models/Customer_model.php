@@ -63,6 +63,20 @@ class Customer_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    public function search($keyword)
+    {
+        $user = $this->session->userdata('user');
+
+        $this->db->like('code_order', $keyword);
+        $this->db->or_Like('detail', $keyword);
+        $this->db->where('customer', );
+        $query = $this->db->get('order', $user);
+        $result = $query->result();
+        $this->session->set_flashdata('message', 'Hasil Pencarian');
+        return $result;
+    }
+
 }
 
 /* End of file Customer_model.php */

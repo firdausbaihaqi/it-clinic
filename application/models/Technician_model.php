@@ -59,6 +59,17 @@ class Technician_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    public function search($keyword)
+    {
+        $this->db->like('code_order', $keyword);
+        $this->db->or_Like('detail', $keyword);
+        $query = $this->db->get('order');
+        $result = $query->result();
+        $this->session->set_flashdata('message', 'Hasil Pencarian');
+        return $result;
+    }
+    
 }
 
 /* End of file Technician_model.php */

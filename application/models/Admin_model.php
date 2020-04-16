@@ -164,6 +164,19 @@ class Admin_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    public function search($keyword)
+    {
+        $this->db->like('code_order', $keyword);
+        $this->db->or_Like('detail', $keyword);
+        $this->db->or_Like('customer', $keyword);
+        $this->db->or_Like('technician', $keyword);
+        $query = $this->db->get('order');
+        $result = $query->result();
+        $this->session->set_flashdata('message', 'Hasil Pencarian');
+        return $result;
+    }
+
 }
 
 /* End of file Admin_model.php */

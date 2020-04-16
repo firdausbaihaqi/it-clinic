@@ -210,6 +210,11 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Dashboard Customer";
         $data['request'] = $this->customer_model->view_request();
+        //search
+        $keyword = $this->input->post('keyword');
+        if ($keyword != ""){
+            $data['request'] = $this->customer_model->search($keyword);
+        }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/dashboard-customer', $data, FALSE);
     }
