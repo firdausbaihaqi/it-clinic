@@ -1,5 +1,5 @@
 <body>
-  <div style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg');background-repeat: repeat-y;">
+  <div style="background-image: url('<?php echo base_url(); ?>assets/img/bg-register-cust.jpg');background-repeat: repeat-y;">
     <!-- ini navbar -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
       <div class="container">
@@ -7,13 +7,14 @@
       </div>
     </nav>
     <!-- akhir navbar -->
+
     <main class="main">
       <span class="mask bg-primary alpha-6"></span>
       <div class="container d-flex align-items-center no-padding">
         <div class="col">
           <div class="row justify-content-center">
             <div class="col-lg-6">
-              <div class="card bg-primary text-white mt-5">
+              <div class="card shadow-lg bg-primary text-white mt-5">
                 <div class="card-body">
                   <span class="clearfix"></span>
                   <div class="row">
@@ -21,8 +22,8 @@
                     <div class="col-md-4"><img class="ml-3" src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 150px"></div>
                     <div class="col-md-4"></div>
                   </div>
-                  <h4 class="heading h5 text-white text-center pt-4 pb-2">Hai :D<br>
-                    silahkan isi data-data berikut untuk mendaftar sebagai User</h4>
+                  <h4 class="heading h5 text-white text-center pt-4 pb-2">Hai :)<br>
+                    silahkan isi data-data berikut untuk mendaftar sebagai Customer</h4>
                   <p class="text-center">atau klik <a href="<?php echo site_url(); ?>register/register_technician" class="text-white"> <u>Disini</u></a> untuk mendaftar sebagai Teknisi </p>
                   <?php
                   if ($this->session->flashdata('message') != '') {

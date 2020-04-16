@@ -1,18 +1,22 @@
 <body>
+  
   <!-- ini navbar -->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
-      </button>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white text-uppercase" href="<?php echo base_url(); ?>"><strong>IT - Clinic</strong></a>
+        </li>
+      </ul>
       <div class="navbar-collapse" id="navbar_main">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link bg-white text-dark" href="<?php echo site_url(); ?>login" >Sign In</a>
+            <a class="nav-link bg-white text-dark" href="<?php echo site_url(); ?>login">Sign In</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
+          <li class="nav-item ">
+            <a class="nav-link " href="<?php echo site_url(); ?>register/register_technician">Looking for a Job?</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="<?php echo site_url(); ?>home/about">About Us</a>
           </li>
         </ul>
@@ -20,7 +24,7 @@
     </div>
   </nav>
   <!-- akhir navbar -->
-  
+
   <main class="main">
     <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/fixing.jpg')">
       <span class="mask bg-tertiary alpha-7"></span>
@@ -59,7 +63,7 @@
                     <div class="icon-text">
                       <h3 class="heading h4">Jaminan Kepuasan</h3>
                       <p>
-                        It-Clinic menjembatani antara User dengan Teknisi, disini posisi kami adalah sebagai 
+                        It-Clinic menjembatani antara User dengan Teknisi, disini posisi kami adalah sebagai
                         <b>Quality Assurance</b>
                         untuk memastikan kepuasan customer dan juga sebagai penyedia lapangan kerja bagi teknisi.
                       </p>
@@ -100,20 +104,24 @@
   </main>
 
   <!-- footer -->
-  <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+  <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4">
+
+        <div class="col-md-4">
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
-            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman Web Lanjut.</p>
+            <p>IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
+            juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
+
         <!-- space kosong -->
-        <div class="col-5"></div>
+        <div class="col-4"></div>
         <!-- space kosong -->
-        <div class="col-1 col-md">
-          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
+
+        <div class="col-2">
+          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Navigation</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted" href="<?php echo base_url(); ?>">Home</a></li>
             <li><a class="text-muted" href="<?php echo site_url(); ?>login">Sign-In</a></li>
@@ -121,26 +129,31 @@
             <li><a class="text-muted" href="<?php echo site_url(); ?>register/register_technician">Register Teknisi</a></li>
           </ul>
         </div>
+
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
           </ul>
         </div>
+
       </div>
       <hr>
+
       <div class="d-flex align-items-center">
-        <span class="">
-          © 2019 <a href="<?php echo site_url(); ?>home/about" class="footer-link">IT-Clinic</a>
+        <span>
+          © 2020 <a href="<?php echo site_url(); ?>home/about" class="footer-link">IT-Clinic</a>
         </span>
       </div>
+
     </div>
   </footer>
   <!-- footer -->
+
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
   <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
 </body>
 

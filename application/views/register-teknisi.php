@@ -1,5 +1,5 @@
 <body>
-  <div style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg');background-repeat: repeat-y;">
+  <div style="background-image: url('<?php echo base_url(); ?>assets/img/bg-register-tech.jpg');background-repeat: repeat-y;">
     <!-- ini navbar -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark bg-dark py-4 fixed-top">
       <div class="container">
@@ -7,13 +7,14 @@
       </div>
     </nav>
     <!-- akhir navbar -->
+
     <main class="main">
-      <span class="mask bg-tertiary alpha-7"></span>
+      <span class="mask bg-tertiary alpha-9"></span>
       <div class="container d-flex align-items-center no-padding">
         <div class="col">
           <div class="row justify-content-center">
             <div class="col-lg-6">
-              <div class="card bg-tertiary text-white mt-5">
+              <div class="card shadow-lg bg-tertiary text-white mt-5">
                 <div class="card-body">
                   <span class="clearfix"></span>
                   <div class="row">

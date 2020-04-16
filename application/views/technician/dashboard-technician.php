@@ -8,15 +8,18 @@
 
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
+          <li class="nav-item">
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a>
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo site_url(); ?>login/logout">Log Out</a>
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>login/logout">Log Out</a>
             </li>
           </ul>
         </div>
@@ -161,42 +164,50 @@
   </div>
   <!-- modal -->
 
-  <!-- footer -->
-  <footer class="pt-5 pb-3 footer  footer-dark bg-tertiary">
+ <!-- footer -->
+ <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-4">
+
+        <div class="col-md-4">
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
-            <p>IT-Clinic didesain dan di program untuk memenuhi tugas Design Interface dan juga Pemrograman Web Lanjut.
-            </p>
+            <p >IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
+               juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
+
         <!-- space kosong -->
-        <div class="col-5"></div>
+        <div class="col-4"></div>
         <!-- space kosong -->
-        <div class="col-1 col-md">
-          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Shortcut</h5>
+
+        <div class="col-2">
+          <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Navigation</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="index.html">Home</a></li>
-            <li><a class="text-muted" href="sign-in.html">Sign-In</a></li>
-            <li><a class="text-muted" href="register-user.html">Register User</a></li>
-            <li><a class="text-muted" href="register-teknisi.html">Register Teknisi</a></li>
+            <li><a class="text-muted" href="<?php echo base_url(); ?>dashboard">Dashboard</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a></li>
+            <li><a class="text-muted" href="<?php echo base_url(); ?>login/logout">Logout</a></li>
           </ul>
         </div>
+
         <div class="col-1 col-md">
           <h5 class="heading h6 text-uppercase font-weight-700 mb-3">About</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="about.html">About Us</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>home/about">About Us</a></li>
+            <li><a class="text-muted" href="<?php echo site_url(); ?>">Home</a></li>
           </ul>
         </div>
+        
       </div>
       <hr>
+
       <div class="d-flex align-items-center">
-        <span class="">
-          © 2019 <a href="#" class="footer-link" target="_blank">IT-Clinic</a>
+        <span class="text-muted">
+          © 2020 <a href="<?php echo site_url(); ?>home/about" class="text-muted">IT-Clinic</a>
         </span>
       </div>
+
     </div>
   </footer>
   <!-- footer -->
