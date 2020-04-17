@@ -58,27 +58,6 @@
         <div class="col-md-6">
             <h4>List customer request :</h4>
         </div>
-        <div class="col-md-6 d-flex flex-row-reverse">
-            <form class="form-inline">
-                <div class="input-group">
-                    <input type="text" class="form-control border border-tertiary" placeholder="kode pemesanan">
-                    <div class="input-group-append">
-                        <a class="btn btn-outline-tertiary" href="#" style="padding: 7px 20px; font-size: 12px;">
-                            Search</a>
-                    </div>
-                </div>
-            </form>
-            <div class="dropdown pr-2">
-                <button class="btn btn-sm btn-outline-tertiary dropdown-toggle" type="button" data-toggle="dropdown">
-                    Sort by..
-                </button>
-                <div class="dropdown-menu">
-                    <a class="btn dropdown-item" href="list-request-technician.html">status (approved)</a>
-                    <a class="btn dropdown-item" href="#">status (not approved)</a>
-                    <a class="btn dropdown-item" href="#">tanggal pemesanan</a>
-                </div>
-            </div>
-        </div>
     </div><br><br><br>
 
     <div class="row mx-5">

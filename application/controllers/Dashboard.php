@@ -151,6 +151,11 @@ class Dashboard extends CI_Controller
         $data['notify'] = $this->admin_model->notify_unverified_account();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['request'] = $this->admin_model->view_history();
+        //search
+        $keyword = $this->input->post('keyword');
+        if ($keyword != ""){
+            $data['request'] = $this->admin_model->search($keyword);
+        }
         $this->load->view('header', $data, FALSE);
         $this->load->view('admin/request-history-admin', $data, FALSE);
     }
@@ -199,6 +204,11 @@ class Dashboard extends CI_Controller
         $user = $this->session->userdata('user');
         $data['title'] = "View History";
         $data['request'] = $this->technician_model->view_history($user);
+        //search
+        $keyword = $this->input->post('keyword');
+        if ($keyword != ""){
+            $data['request'] = $this->technician_model->search($keyword);
+        }
         $this->load->view('header', $data, FALSE);
         $this->load->view('technician/request-history-technician', $data, FALSE);
     }
@@ -245,6 +255,11 @@ class Dashboard extends CI_Controller
         $user = $this->session->userdata('user');
         $data['title'] = "View History";
         $data['request'] = $this->customer_model->view_history($user);
+        //search
+        $keyword = $this->input->post('keyword');
+        if ($keyword != ""){
+            $data['request'] = $this->customer_model->search($keyword);
+        }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/request-history-customer', $data, FALSE);
     }

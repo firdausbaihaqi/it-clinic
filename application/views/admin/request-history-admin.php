@@ -60,28 +60,30 @@
     </div>
 
     <div class="col-md-6 d-flex flex-row-reverse">
-
-      <form class="form-inline">
+      <form class="form-inline" action="<?php echo site_url(); ?>dashboard/admin_view_history" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control border border-primary" placeholder="kode, tanggal, kerusakan">
+          <input type="text" class="form-control border border-tertiary" id="keyword" name="keyword" placeholder="kode, tgl selesai, kerusakan">
           <div class="input-group-append">
-            <a class="btn btn-outline-primary" href="#" style="padding: 7px 20px; font-size: 12px;">
-              Search
-            </a>
+            <button class="btn btn-outline-tertiary" type="submit" style="padding: 7px 20px; font-size: 12px;">Search</button>
           </div>
         </div>
       </form>
-      <div class="dropdown pr-2">
-        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown">
-          Sort by..
-        </button>
-        <div class="dropdown-menu">
-          <a class="btn dropdown-item" href="#">Terbaru</a>
-          <a class="btn dropdown-item" href="#">Terlama</a>
-        </div>
-      </div>
     </div>
   </div><br><br><br>
+
+  <div class="row mx-5">
+    <div class="col md-12">
+      <?php
+      if ($this->session->flashdata('message') != '') {
+      ?>
+        <div class="alert alert-primary">
+          <?php echo $this->session->flashdata('message'); ?>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+  </div>
 
   <div class="row py-5 px-5 mx-5">
     <?php foreach ($request as $rows2) { ?>

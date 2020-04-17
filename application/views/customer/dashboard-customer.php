@@ -36,31 +36,14 @@
     </div>
 
     <div class="col-md-6 d-flex flex-row-reverse">
-
       <form class="form-inline" action="<?php echo site_url(); ?>dashboard/customer" method="POST">
         <div class="input-group">
-          <input type="text" class="form-control border border-primary" id="keyword" name="keyword" placeholder="kode pemesanan">
-          <input type="text" class="form-control border border-primary" placeholder="kode, tgl, kerusakan">
+          <input type="text" class="form-control border border-primary" id="keyword" name="keyword" placeholder="kode, tgl selesai, kerusakan">
           <div class="input-group-append">
             <button class="btn btn-outline-primary" type="submit" style="padding: 7px 20px; font-size: 12px;">Search</button>
           </div>
         </div>
       </form>
-
-
-      <div class="dropdown pr-2">
-        <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown">
-          Sort by..
-        </button>
-        <div class="dropdown-menu">
-          <a class="btn dropdown-item" href="#">selesai</a>
-          <a class="btn dropdown-item" href="#">sedang proses</a>
-          <a class="btn dropdown-item" href="">dalam antrian</a>
-          <a class="btn dropdown-item" href="#">tanggal pemesanan</a>
-        </div>
-      </div>
-
-
     </div>
   </div><br><br><br>
 

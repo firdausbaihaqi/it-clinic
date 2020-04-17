@@ -70,6 +70,7 @@ class Customer_model extends CI_Model
 
         $this->db->like('code_order', $keyword);
         $this->db->or_Like('detail', $keyword);
+        $this->db->or_Like('date_finish', $keyword);
         $this->db->where('customer', $user);
         $query = $this->db->get('order');
         $result = $query->result();
