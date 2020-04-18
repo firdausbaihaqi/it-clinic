@@ -13,6 +13,9 @@
               <a class="nav-link" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/customer_view_profile">Profile</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#modal_add_request">Add Request</a>
             </li>
             <li class="nav-item">

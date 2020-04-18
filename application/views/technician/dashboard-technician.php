@@ -8,8 +8,11 @@
 
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_profile">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
@@ -60,8 +63,7 @@
             <p class="h6">Kode Order :</p>
             <p class="card-text"><?php echo $rows->code_order; ?></p>
             <p class="h6">Keterangan :</p>
-            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" 
-            placeholder="<?php echo $rows->detail; ?>"></textarea>
+            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows->detail; ?>"></textarea>
             <!-- <p class="card-text"><?php echo $rows->detail; ?></p> -->
             <br><br>
 
@@ -93,8 +95,7 @@
                 <p class="h6">Kode Order :</p>
                 <p class="card-text"><?php echo $rows->code_order; ?></p>
                 <p class="h6">Keterangan :</p>
-                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" 
-                placeholder="<?php echo $rows->detail; ?>"></textarea>
+                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" placeholder="<?php echo $rows->detail; ?>"></textarea>
                 <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
                 <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
               </div>
@@ -164,16 +165,16 @@
   </div>
   <!-- modal -->
 
- <!-- footer -->
- <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
+  <!-- footer -->
+  <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
     <div class="container">
       <div class="row">
 
         <div class="col-md-4">
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
-            <p >IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
-               juga menjamin keamanan dan kepuasan Customer.</p>
+            <p>IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
+              juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
 
@@ -198,7 +199,7 @@
             <li><a class="text-muted" href="<?php echo site_url(); ?>">Home</a></li>
           </ul>
         </div>
-        
+
       </div>
       <hr>
 

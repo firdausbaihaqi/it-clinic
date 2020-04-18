@@ -153,7 +153,7 @@ class Dashboard extends CI_Controller
         $data['request'] = $this->admin_model->view_history();
         //search
         $keyword = $this->input->post('keyword');
-        if ($keyword != ""){
+        if ($keyword != "") {
             $data['request'] = $this->admin_model->search($keyword);
         }
         $this->load->view('header', $data, FALSE);
@@ -170,6 +170,26 @@ class Dashboard extends CI_Controller
         $data['request'] = $this->technician_model->view_request();
         $this->load->view('header', $data, FALSE);
         $this->load->view('technician/dashboard-technician', $data, FALSE);
+    }
+
+    public function technician_view_profile()
+    {
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Profile Teknisi";
+        $data['profile'] = $this->technician_model->view_profile();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('technician/profile-technician', $data, FALSE);
+    }
+
+    public function technician_edit_profile($user)
+    {
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        $this->technician_model->edit_profile($user);
+        redirect(site_url('dashboard/technician_view_profile'));
     }
 
     public function technician_take_request($id)
@@ -206,7 +226,7 @@ class Dashboard extends CI_Controller
         $data['request'] = $this->technician_model->view_history($user);
         //search
         $keyword = $this->input->post('keyword');
-        if ($keyword != ""){
+        if ($keyword != "") {
             $data['request'] = $this->technician_model->search($keyword);
         }
         $this->load->view('header', $data, FALSE);
@@ -222,11 +242,31 @@ class Dashboard extends CI_Controller
         $data['request'] = $this->customer_model->view_request();
         //search
         $keyword = $this->input->post('keyword');
-        if ($keyword != ""){
+        if ($keyword != "") {
             $data['request'] = $this->customer_model->search($keyword);
         }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/dashboard-customer', $data, FALSE);
+    }
+
+    public function customer_view_profile()
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Profile Customer";
+        $data['profile'] = $this->customer_model->view_profile();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('customer/profile-customer', $data, FALSE);
+    }
+
+    public function customer_edit_profile($user)
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $this->customer_model->edit_profile($user);
+        redirect(site_url('dashboard/customer_view_profile'));
     }
 
     public function customer_add_request_process()
@@ -257,7 +297,7 @@ class Dashboard extends CI_Controller
         $data['request'] = $this->customer_model->view_history($user);
         //search
         $keyword = $this->input->post('keyword');
-        if ($keyword != ""){
+        if ($keyword != "") {
             $data['request'] = $this->customer_model->search($keyword);
         }
         $this->load->view('header', $data, FALSE);

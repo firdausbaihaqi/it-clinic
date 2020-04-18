@@ -13,6 +13,9 @@
               <a class="nav-link" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_profile">Profile</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
             </li>
             <li class="nav-item">

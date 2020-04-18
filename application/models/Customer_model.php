@@ -4,7 +4,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Customer_model extends CI_Model
 {
-    public function view_request(){
+    public function view_profile()
+    {
+        $user = $this->session->userdata('user');
+
+        $this->db->where('user', $user);
+        $query = $this->db->get('user_customer');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function edit_profile($user)
+    {
+        $user_new = $this->input->post('user');
+        
+
+        $this->db->where('user', $user);
+        $this->db->set('user', $user_new);
+        $this->db->update('user');
+
+        $data = array(
+            'password' => $this->input->post('password'),
+            'fullname' => $this->input->post('fullname'),
+            'email' => $this->input->post('email'),
+            'address' => $this->input->post('address'),
+            'phone' => $this->input->post('phone')
+        );
+        $this->db->where('user', $user);
+        $this->db->update('user_customer', $data);
+
+        $this->session->set_userdata('user', $user_new);
+        $this->session->set_flashdata('message', 'Update profile berhasil');
+    }
+
+    public function view_request()
+    {
         $user = $this->session->userdata('user');
 
         $this->db->where('customer', $user);
@@ -32,7 +66,7 @@ class Customer_model extends CI_Model
         $upload_data = $this->upload->data();
         $file_name = $upload_data['file_name'];
 
-        $data= array(
+        $data = array(
             'code_order' => mt_rand(),
             'customer' => $user,
             'technician' => 'default',
@@ -52,10 +86,11 @@ class Customer_model extends CI_Model
         $this->db->delete('order');
         $this->session->set_flashdata('message', 'Order berhasil dibatalkan');
         $path = 'C:\xampp\htdocs\it-clinic\data\order\\';
-        unlink($path.$image);
+        unlink($path . $image);
     }
 
-    public function view_history($user){
+    public function view_history($user)
+    {
         $this->db->where('status', 'finish');
         $this->db->where('customer', $user);
         $this->db->order_by('id', 'desc');
@@ -77,7 +112,6 @@ class Customer_model extends CI_Model
         $this->session->set_flashdata('message', 'Hasil Pencarian');
         return $result;
     }
-
 }
 
 /* End of file Customer_model.php */

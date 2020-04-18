@@ -5,6 +5,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Technician_model extends CI_Model
 {
 
+    public function view_profile()
+    {
+        $user = $this->session->userdata('user');
+
+        $this->db->where('user', $user);
+        $query = $this->db->get('user_technician');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function edit_profile($user)
+    {
+        $user_new = $this->input->post('user');
+        
+
+        $this->db->where('user', $user);
+        $this->db->set('user', $user_new);
+        $this->db->update('user');
+
+        $data = array(
+            'password' => $this->input->post('password'),
+            'fullname' => $this->input->post('fullname'),
+            'email' => $this->input->post('email'),
+            'address' => $this->input->post('address'),
+            'phone' => $this->input->post('phone'),
+            'education' => $this->input->post('education')
+        );
+        $this->db->where('user', $user);
+        $this->db->update('user_technician', $data);
+
+        $this->session->set_userdata('user', $user_new);
+        $this->session->set_flashdata('message', 'Update profile berhasil');
+    }
+
     public function view_request()
     {
         $this->db->order_by('id', 'desc');
