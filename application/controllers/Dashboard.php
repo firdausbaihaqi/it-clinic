@@ -160,6 +160,33 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/request-history-admin', $data, FALSE);
     }
 
+    public function admin_view_shipment()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Request Pengiriman";
+        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['request'] = $this->admin_model->view_shipment();
+        //search
+        $keyword = $this->input->post('keyword');
+        if ($keyword != "") {
+            $data['request'] = $this->admin_model->search($keyword);
+        }
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/shipment', $data, FALSE);
+    }
+
+    public function admin_process_shipment($id, $shipment)
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->process_shipment($id, $shipment);
+        redirect(site_url('dashboard/admin_view_shipment'));
+    }
+
 
     public function technician()
     {
@@ -302,6 +329,15 @@ class Dashboard extends CI_Controller
         }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/request-history-customer', $data, FALSE);
+    }
+
+    public function customer_request_shipment($id)
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $this->customer_model->request_shipment($id);
+        redirect(site_url('dashboard/customer'));
     }
 
     public function unverified()

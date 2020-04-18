@@ -165,6 +165,31 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function view_shipment()
+    {
+        $this->db->where('shipment', 'in_request');
+        $this->db->or_where('shipment', 'in_delivery');
+        $this->db->or_where('shipment', 'delivered');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function process_shipment($id, $shipment)
+    {
+        $this->db->where('id', $id);
+        if ($shipment == "in_request")
+        {
+            $this->db->set('shipment', 'in_delivery');
+            $this->session->set_flashdata('message', 'Perangkat akan segera dikirim');
+        }else if ($shipment == "in_delivery")
+        {
+            $this->db->set('shipment', 'delivered');
+            $this->session->set_flashdata('message', 'Perangkat telah sampai ke customer');
+        }
+        $this->db->update('order');
+    }
+
     public function search($keyword)
     {
         $this->db->like('code_order', $keyword);

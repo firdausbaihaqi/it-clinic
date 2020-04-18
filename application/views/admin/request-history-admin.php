@@ -9,10 +9,10 @@
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">List Request</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_shipment">Request Pengiriman</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Request History</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_account">List User</a>
@@ -122,7 +122,7 @@
                 </div>
               </div>
               <br><br>
-              <div class="modal-body">
+              <div class="modal-body" id="divtoprint">
                 <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
                 <p class="h6">Keterangan : <?php echo $rows2->detail; ?></p><br>
                 <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
@@ -132,7 +132,7 @@
                 <p class="card-text h6">Tanggal Selesai : <?php echo $rows2->date_finish; ?></p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Print</button>
+                <button type="button" class="btn btn-sm btn-primary" onclick="PrintContent()">Print</button>
                 <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
               </div>
             </div>
@@ -200,6 +200,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="<?php base_url(); ?>assets/js/theme.js"></script>
+  <script>
+    function PrintContent() {
+      var DocumentContainer = document.getElementById('divtoprint');
+      var WindowObject = window.open("", "PrintWindow",
+        "width=750,height=650,top=50,left=50,toolbars=no,scrollbars=yes,status=no,resizable=yes");
+      WindowObject.document.writeln(DocumentContainer.innerHTML);
+      WindowObject.document.close();
+      WindowObject.focus();
+      WindowObject.print();
+      WindowObject.close();
+    }
+  </script>
 </body>
 
 </html>

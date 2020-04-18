@@ -8,7 +8,7 @@
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">List Request</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_shipment">Request Pengiriman</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
@@ -83,8 +83,7 @@
                         <p class="h6">Kode Order :</p>
                         <p class="card-text"><?php echo $rows2->code_order; ?></p>
                         <p class="h6">Keterangan :</p>
-                        <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" 
-                        placeholder="<?php echo $rows2->detail; ?>"></textarea>
+                        <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
 
                         <br><br>
                         <center>
@@ -119,8 +118,7 @@
                             <div class="modal-body">
                                 <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
                                 <p class="h6">Keterangan :</p>
-                                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" 
-                                placeholder="<?php echo $rows2->detail; ?>"></textarea>
+                                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
                                 <br>
                                 <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
                                 <p class="card-text h6">Cost : RP <?php echo $rows2->price; ?></p><br>
@@ -208,8 +206,8 @@
     <!--modal-->
     <!-- ini body -->
 
-       <!-- footer -->
-       <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
+    <!-- footer -->
+    <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
         <div class="container">
             <div class="row">
 

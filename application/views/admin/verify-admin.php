@@ -9,7 +9,7 @@
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">List Request</a>
+                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_shipment">Request Pengiriman</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_history">Request History</a>
@@ -214,7 +214,7 @@
                                     <!-- iki pembates antar item -->
                                     <tr>
                                         <td>
-                                        <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows3->image; ?>" width="100px" height="100px" style="object-fit: cover">
+                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows3->image; ?>" width="100px" height="100px" style="object-fit: cover">
                                         </td>
                                         <td>
                                             <h6><?php echo $rows3->user; ?></h6>

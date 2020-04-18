@@ -78,18 +78,22 @@
             <br><br>
 
             <center>
-              <!-- <?php echo $rows->status; ?> -->
               <?php if ($rows->status == "in_queue" || $rows->status == "available") { ?>
                 <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
                 <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
-              <?php } else if ($rows->status == "finish") { ?>
-                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Siap Dikirim</a>
+              <?php } else if ($rows->status == "finish" && $rows->shipment == "") { ?>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish_<?php echo $rows->id; ?>">Siap Dikirim</a>
+              <?php } else if ($rows->shipment == "in_request") { ?>
+                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_request">Sedang Dikirim</a>
+              <?php } else if ($rows->shipment == "in_delivery") { ?>
+                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_delivery">Dalam Pengiriman</a>
+              <?php } else if ($rows->shipment == "delivered") { ?>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_delivered">Sudah Sampai</a>
               <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
-
           </div>
         </div>
         <!-- modal -->
@@ -124,6 +128,7 @@
             </div>
           </div>
         </div>
+
         <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -141,6 +146,30 @@
               </div>
               <div class="modal-footer">
                 <a href="<?php echo site_url('dashboard/customer_cancel_request' . "/" . $rows->id . "/" . $rows->customer . "/" . $rows->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal modal-success fade" id="modal_finish_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="py-3 text-center">
+                  <i class="fa fa-check-circle fa-4x"></i>
+                  <h4 class="heading mt-4">Apakah anda ingin barang dikirim sekarang?</h4>
+                  <p>Perangkat telah selesai di servis </p>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-sm btn-secondary" href="<?php echo site_url(); ?>dashboard/customer_request_shipment/<?php echo $rows->id; ?>">Kirim Sekarang</a>
                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
               </div>
             </div>
@@ -191,7 +220,7 @@
     </div>
   </div>
 
-  <div class="modal modal-success fade" id="modal_finish" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal modal-warning fade" id="modal_in_queue" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -202,13 +231,14 @@
         </div>
         <div class="modal-body">
           <div class="py-3 text-center">
-            <i class="fa fa-check-circle fa-4x"></i>
-            <h4 class="heading mt-4">Apakah anda ingin barang dikirim sekarang?</h4>
-            <p>Perangkat telah selesai di servis </p>
+            <i class="fa fa-exclamation-circle fa-4x"></i>
+            <h4 class="heading mt-4">Perangkat anda masih dalam antrian</h4>
+            <p>
+              Perangkat anda belum diproses
+            </p>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kirim Sekarang</button>
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
         </div>
       </div>
@@ -240,11 +270,11 @@
     </div>
   </div>
 
-  <div class="modal modal-warning fade" id="modal_in_queue" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal modal-warning fade" id="modal_in_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Status</h5>
+          <h5 class="modal-title">Shipment</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -252,9 +282,59 @@
         <div class="modal-body">
           <div class="py-3 text-center">
             <i class="fa fa-exclamation-circle fa-4x"></i>
-            <h4 class="heading mt-4">Perangkat anda masih dalam antrian</h4>
+            <h4 class="heading mt-4">Perangkat anda masih dalam pengiriman</h4>
             <p>
-              Perangkat anda belum diproses
+              Perangkat anda belum dikirim
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-primary fade" id="modal_in_delivery" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Shipment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="py-3 text-center">
+            <i class="fa fa-exclamation-circle fa-4x"></i>
+            <h4 class="heading mt-4">Perangkat anda sedang dikirm</h4>
+            <p>
+              Harap ditunggu, masih dalam perjalanan
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-success fade" id="modal_delivered" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Shipment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="py-3 text-center">
+            <i class="fa fa-exclamation-circle fa-4x"></i>
+            <h4 class="heading mt-4">Perangkat anda sudah sampai</h4>
+            <p>
+              Terimakasih telah menggunakan jasa kami :)
             </p>
           </div>
         </div>

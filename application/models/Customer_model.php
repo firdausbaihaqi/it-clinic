@@ -17,7 +17,6 @@ class Customer_model extends CI_Model
     public function edit_profile($user)
     {
         $user_new = $this->input->post('user');
-        
 
         $this->db->where('user', $user);
         $this->db->set('user', $user_new);
@@ -97,6 +96,17 @@ class Customer_model extends CI_Model
         $query = $this->db->get('order');
         $result = $query->result();
         return $result;
+    }
+
+    public function request_shipment($id)
+    {
+        $user = $this->session->userdata('user');
+
+        $this->db->where('id', $id);
+        $this->db->where('customer', $user);
+        $this->db->set('shipment', 'in_request');
+        $this->db->update('order');
+        $this->session->set_flashdata('message', 'Request pengiriman berhasil');
     }
 
     public function search($keyword)
