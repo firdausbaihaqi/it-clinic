@@ -132,6 +132,7 @@
                 <p class="card-text h6">Tanggal Selesai : <?php echo $rows2->date_finish; ?></p>
               </div>
               <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Print</button>
                 <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
               </div>
             </div>

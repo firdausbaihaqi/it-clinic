@@ -1,6 +1,6 @@
 <body>
- <!-- ini navbar -->
- <div class="row my-5 pb-5">
+  <!-- ini navbar -->
+  <div class="row my-5 pb-5">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 fixed-top">
       <div class="container">
         <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
@@ -85,7 +85,7 @@
               <?php } else if ($rows->status == "in_progress") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
               <?php } else if ($rows->status == "finish") { ?>
-                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Selesai</a>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish">Siap Dikirim</a>
               <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
@@ -103,14 +103,13 @@
                 </button>
               </div>
               <div class="row">
-                <div class="col">
+                <div class="col mt-3">
                   <div class="d-flex justify-content-center">
                     <img class="rounded" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" height="250px" style="object-fit: cover">
                   </div>
                 </div>
               </div>
-              <br><br>
-              <div class="modal-body">
+              <div class="modal-body mt-4">
                 <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p><br>
                 <p class="h6">Keterangan : </p>
                 <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
@@ -203,14 +202,13 @@
         </div>
         <div class="modal-body">
           <div class="py-3 text-center">
-            <i class="fa fa-exclamation-circle fa-4x"></i>
-            <h4 class="heading mt-4">Perangkat anda telah selesai diservis</h4>
-            <p>
-              Silahkan ambil perangkat anda
-            </p>
+            <i class="fa fa-check-circle fa-4x"></i>
+            <h4 class="heading mt-4">Apakah anda ingin barang dikirim sekarang?</h4>
+            <p>Perangkat telah selesai di servis </p>
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kirim Sekarang</button>
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
         </div>
       </div>
@@ -279,7 +277,7 @@
           <div class="pr-lg-5">
             <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>IT-</strong>Clinic</h1>
             <p class="text-muted">IT-Clinic didesain dan di program untuk menjadi sebuah platform yang menghubungkan antara Customer dengan Teknisi,
-               juga menjamin keamanan dan kepuasan Customer.</p>
+              juga menjamin keamanan dan kepuasan Customer.</p>
           </div>
         </div>
 
@@ -303,7 +301,7 @@
             <li><a class="text-muted" href="<?php echo site_url(); ?>">Home</a></li>
           </ul>
         </div>
-        
+
       </div>
       <hr>
 
