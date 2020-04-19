@@ -158,11 +158,19 @@ class Admin_model extends CI_Model
     }
 
     public function view_history(){
-        $this->db->where('status', 'finish');
+        $this->db->where('shipment', 'history');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
         return $result;
+    }
+
+    public function save_to_history($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('shipment', 'history');
+        $this->db->update('order');
+        $this->session->set_flashdata('message', 'Request disimpan dalam history');
     }
 
     public function view_shipment()

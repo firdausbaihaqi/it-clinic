@@ -120,7 +120,7 @@
                                     <?php } else if ($rows2->shipment == "in_delivery") { ?>
                                         <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modal_in_delivery_<?php echo $rows2->id; ?>"> <i class="fas fa-truck"></i> Dalam Pengiriman</a>
                                     <?php } else if ($rows2->shipment == "delivered") { ?>
-                                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#modal_delivered"> <i class="fas fa-truck"></i> Sudah Sampai</a>
+                                        <a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#modal_delivered_<?php echo $rows2->id; ?>"> <i class="fas fa-truck"></i> Sudah Sampai</a>
                                     <?php } ?>
                             </div>
                         </div>
@@ -172,35 +172,34 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal modal-success fade" id="modal_delivered_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Konfirmasi</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="py-3 text-center">
+                                    <i class="fas fa-shipping-fast fa-4x"></i>
+                                    <h4 class="heading mt-4">Pengiriman telah sampai :)</h4>
+                                    <a href="<?php echo site_url(); ?>dashboard/admin_save_history/<?php echo $rows2->id; ?>" class="btn btn-block btn-light">Simpan ke history</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Kembali</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- modal -->
             </div>
         <?php
         } ?>
     </div>
-
-    <!-- modal -->
-    <div class="modal modal-success fade" id="modal_delivered" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Konfirmasi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="py-3 text-center">
-                        <i class="fas fa-shipping-fast fa-4x"></i>
-                        <h4 class="heading mt-4">Pengiriman telah sampai :)</h4>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-light" data-dismiss="modal">Kembali</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- modal -->
 
     <!-- footer -->
     <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">

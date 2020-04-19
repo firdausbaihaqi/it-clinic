@@ -41,6 +41,7 @@ class Customer_model extends CI_Model
         $user = $this->session->userdata('user');
 
         $this->db->where('customer', $user);
+        $this->db->where_not_in('status', 'history');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
@@ -90,12 +91,23 @@ class Customer_model extends CI_Model
 
     public function view_history($user)
     {
-        $this->db->where('status', 'finish');
+        $this->db->where('status', 'history');
         $this->db->where('customer', $user);
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
         return $result;
+    }
+
+    public function save_to_history($id)
+    {
+        $user = $this->session->userdata('user');
+
+        $this->db->where('id', $id);
+        $this->db->where('customer', $user);
+        $this->db->set('status', 'history');
+        $this->db->update('order');
+        $this->session->set_flashdata('message', 'Request disimpan dalam history');
     }
 
     public function request_shipment($id)

@@ -160,6 +160,15 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/request-history-admin', $data, FALSE);
     }
 
+    public function admin_save_history($id)
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $this->admin_model->save_to_history($id);
+        redirect(site_url('dashboard/admin_view_history'));
+    }
+
     public function admin_view_shipment()
     {
         if ($this->session->userdata('status') != 'admin') {
@@ -329,6 +338,15 @@ class Dashboard extends CI_Controller
         }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/request-history-customer', $data, FALSE);
+    }
+
+    public function customer_save_history($id)
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $this->customer_model->save_to_history($id);
+        redirect(site_url('dashboard/customer_view_history'));
     }
 
     public function customer_request_shipment($id)

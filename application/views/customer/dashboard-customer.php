@@ -90,7 +90,7 @@
               <?php } else if ($rows->shipment == "in_delivery") { ?>
                 <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_delivery">Dalam Pengiriman</a>
               <?php } else if ($rows->shipment == "delivered") { ?>
-                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_delivered">Sudah Sampai</a>
+                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_delivered_<?php echo $rows->id; ?>">Sudah Sampai</a>
               <?php } ?>
               <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
             </center>
@@ -170,6 +170,30 @@
               </div>
               <div class="modal-footer">
                 <a class="btn btn-sm btn-secondary" href="<?php echo site_url(); ?>dashboard/customer_request_shipment/<?php echo $rows->id; ?>">Kirim Sekarang</a>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal modal-success fade" id="modal_delivered_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Shipment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="py-3 text-center">
+                  <i class="fa fa-exclamation-circle fa-4x"></i>
+                  <h4 class="heading mt-4">Perangkat anda sudah sampai</h4>
+                  <p>Terimakasih telah menggunakan jasa kami :)</p>
+                  <a href="<?php echo site_url(); ?>dashboard/customer_save_history/<?php echo $rows->id; ?>" class="btn btn-block btn-light">Simpan ke history</a>
+                </div>
+              </div>
+              <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
               </div>
             </div>
@@ -310,31 +334,6 @@
             <h4 class="heading mt-4">Perangkat anda sedang dikirm</h4>
             <p>
               Harap ditunggu, masih dalam perjalanan
-            </p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal modal-success fade" id="modal_delivered" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Shipment</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="py-3 text-center">
-            <i class="fa fa-exclamation-circle fa-4x"></i>
-            <h4 class="heading mt-4">Perangkat anda sudah sampai</h4>
-            <p>
-              Terimakasih telah menggunakan jasa kami :)
             </p>
           </div>
         </div>
