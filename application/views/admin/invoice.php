@@ -48,7 +48,7 @@
                                     ?>
                                         <a href="<?php echo site_url(); ?>dashboard/admin_view_shipment" class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-content">
-                                                <div class="list-group-heading"><?php echo $rows->code_order." - ".$rows->customer ?></div>
+                                                <div class="list-group-heading"><?php echo $rows->code_order . " - " . $rows->customer ?></div>
                                             </div>
                                         </a>
                                     <?php
@@ -67,40 +67,24 @@
     <!-- akhir navbar -->
 
     <!-- ini body -->
-    <div class="container">
-        <canvas id="bar-chart" width="100" height="20"></canvas>
-    </div>
-
-    <div>
+    <button class="btn btn-primary" onclick="window.print()">print</button>
+    <div class="container bg-dark" id="section-to-print">
         <div class="row">
-            <h4 class="mx-auto">Select request :</h4>
-        </div>
-    </div>
-    <div class="row py-5 mx-5">
-        <div class="col-md-6">
-            <div class="d-flex justify-content-end">
-                <div class="card shadow-lg" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
-                    <div class="card-body">
-                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_customer" class="btn btn-primary">Customer</a></center>
-                    </div>
-                </div>
+            <div class="col-md-2">
+                <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 100px">
             </div>
-        </div>
-        <div class="col-md-6">
-
-            <div class="d-flex justify-content-start">
-                <div class="card shadow-lg" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
-                    <div class="card-body">
-                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_technician" class="btn btn-tertiary">Technician</a></center>
-                    </div>
-                </div>
+            <div class="col-md-6">
+                <h1 class="text-white mt-5">IT Clinic</h1>
+            </div>
+            <div class="col-md-2">
+                <h5 class="text-white mt-3">IT Clinic</h5><br>
+                <h5 class="text-white">nomer telepon</h5>
+            </div>
+            <div class="col-md-2">
+                <h5 class="text-white mt-3">alamat</h5>
             </div>
         </div>
     </div>
-    <!-- ini body -->
-
 
     <!-- footer -->
     <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
@@ -158,34 +142,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script>
-        new Chart(document.getElementById("bar-chart"), {
-            type: 'bar',
-            data: {
-                labels: [<?php foreach ($chart as $charts) {
-                                echo '"' . date("F", mktime(0, 0, 0, $charts->month, 10)) . ", " . $charts->year . '", ';
-                            } ?>],
-                datasets: [{
-                    label: "Jumlah Request",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [<?php foreach ($chart as $charts2) {
-                                echo $charts2->total . ", ";
-                            } ?>, 0]
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    display: true,
-                    text: 'Grafik Data Request Sepanjang Masa Hiya Hiya'
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

@@ -196,6 +196,22 @@ class Admin_model extends CI_Model
         }
         $this->db->update('order');
     }
+    
+    public function notify_shipment_list()
+    {
+        $this->db->where('shipment', 'in_request');
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
+
+    public function notify_shipment_number()
+    {
+        $this->db->where('shipment', 'in_request');
+        $query = $this->db->get('order');
+        $result = $query->num_rows();
+        return $result;
+    }
 
     public function chart()
     {

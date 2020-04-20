@@ -40,7 +40,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Dashboard Admin";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['chart'] = $this->admin_model->chart();
         $this->load->view('header', $data, FALSE);
@@ -53,7 +55,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "List Request Customer";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['request'] = $this->admin_model->view_list_request_customer();
         $this->load->view('header', $data, FALSE);
@@ -66,7 +70,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "List Request Technician";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['request'] = $this->admin_model->view_list_request_technician();
         $this->load->view('header', $data, FALSE);
@@ -79,7 +85,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "List User";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['verified_account'] = $this->admin_model->get_verified_account();
         $this->load->view('header', $data, FALSE);
@@ -92,7 +100,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Verify User";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $this->load->view('header', $data, FALSE);
         $this->load->view('admin/verify-admin', $data, FALSE);
@@ -149,7 +159,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Request History";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['request'] = $this->admin_model->view_history();
         //search
@@ -176,7 +188,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Request Pengiriman";
-        $data['notify'] = $this->admin_model->notify_unverified_account();
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
         $data['request'] = $this->admin_model->view_shipment();
         //search
@@ -195,6 +209,20 @@ class Dashboard extends CI_Controller
         }
         $this->admin_model->process_shipment($id, $shipment);
         redirect(site_url('dashboard/admin_view_shipment'));
+    }
+
+    public function admin_print_invoice()
+    {
+        if ($this->session->userdata('status') != 'admin') {
+            redirect('dashboard');
+        }
+        $data['title'] = "Invoice";
+        $data['notify_account_number'] = $this->admin_model->notify_unverified_account();
+        $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
+        $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
+        $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('admin/invoice', $data, FALSE);
     }
 
 
