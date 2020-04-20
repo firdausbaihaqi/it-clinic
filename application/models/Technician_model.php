@@ -52,6 +52,7 @@ class Technician_model extends CI_Model
         $user = $this->session->userdata('user');
 
         $this->db->where('technician', $user);
+        $this->db->where('status', 'in_progress');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
@@ -74,6 +75,7 @@ class Technician_model extends CI_Model
         $user = $this->session->userdata('user');
 
         $this->db->where('technician', $user);
+        $this->db->where('status', 'in_progress');
         $query = $this->db->get('order');
         $limit = $query->num_rows();
 
@@ -87,6 +89,7 @@ class Technician_model extends CI_Model
 
     public function view_history($user){
         $this->db->where('status', 'finish');
+
         $this->db->where('technician', $user);
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');

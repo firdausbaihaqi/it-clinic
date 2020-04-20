@@ -211,6 +211,12 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function chart()
+    {
+        $this->db->query('select year(date_order) as year, month(date_order) as month, count(id) as total from `order` group by month(date_order), month(date_order)');
+    }
+    
+
 }
 
 /* End of file Admin_model.php */
