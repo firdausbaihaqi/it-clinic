@@ -9,20 +9,20 @@
         <div class="navbar-collapse" id="navbar_main">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_profile">Profile</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_profile">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_accepted_request">Accepted Request</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>dashboard/technician_view_history">Request History</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="<?php echo site_url(); ?>login/logout">Log Out</a>
+              <a class="nav-link" href="<?php echo site_url(); ?>login/logout">Log Out</a>
             </li>
           </ul>
         </div>

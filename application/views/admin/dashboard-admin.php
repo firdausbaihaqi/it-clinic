@@ -150,11 +150,15 @@
         new Chart(document.getElementById("bar-chart"), {
             type: 'bar',
             data: {
-                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                labels: [<?php foreach ($chart as $charts) {
+                                echo '"' . date("F", mktime(0, 0, 0, $charts->month, 10)) . ", " . $charts->year . '", ';
+                            } ?>],
                 datasets: [{
-                    label: "Population (millions)",
+                    label: "Jumlah Request",
                     backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [2478, 5267, 734, 784, 433]
+                    data: [<?php foreach ($chart as $charts2) {
+                                echo $charts2->total.", ";
+                            } ?> , 0]
                 }]
             },
             options: {
@@ -163,7 +167,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Predicted world population (millions) in 2050'
+                    text: 'Grafik Data Request Sepanjang Masa Hiya Hiya'
                 }
             }
         });

@@ -157,7 +157,8 @@ class Admin_model extends CI_Model
         $this->session->set_flashdata('message', 'Order berhasil diupdate');
     }
 
-    public function view_history(){
+    public function view_history()
+    {
         $this->db->where('shipment', 'history');
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
@@ -186,37 +187,23 @@ class Admin_model extends CI_Model
     public function process_shipment($id, $shipment)
     {
         $this->db->where('id', $id);
-        if ($shipment == "in_request")
-        {
+        if ($shipment == "in_request") {
             $this->db->set('shipment', 'in_delivery');
             $this->session->set_flashdata('message', 'Perangkat akan segera dikirim');
-        }else if ($shipment == "in_delivery")
-        {
+        } else if ($shipment == "in_delivery") {
             $this->db->set('shipment', 'delivered');
             $this->session->set_flashdata('message', 'Perangkat telah sampai ke customer');
         }
         $this->db->update('order');
     }
 
-    public function search($keyword)
-    {
-        $this->db->like('code_order', $keyword);
-        $this->db->or_Like('detail', $keyword);
-        $this->db->or_Like('date_finish', $keyword);
-        $this->db->or_Like('customer', $keyword);
-        $this->db->or_Like('technician', $keyword);
-        $query = $this->db->get('order');
-        $result = $query->result();
-        $this->session->set_flashdata('message', 'Hasil Pencarian');
-        return $result;
-    }
-
     public function chart()
     {
-        $this->db->query('select year(date_order) as year, month(date_order) as month, count(id) as total from `order` group by month(date_order), month(date_order)');
+        $sql = "select year(date_order) as year, month(date_order) as month, count(id) as total from `order` where status = 'finish' or status = 'history' group by month(date_order)";
+        $query = $this->db->query($sql);
+        $result = $query->result();
+        return $result;
     }
-    
-
 }
 
 /* End of file Admin_model.php */

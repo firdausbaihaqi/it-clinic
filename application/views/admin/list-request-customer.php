@@ -54,14 +54,8 @@
 
     <!-- ini body -->
 
-    <div class="row px-5 mx-5">
-        <div class="col-md-6">
-            <h4>List customer request :</h4>
-        </div>
-    </div><br><br><br>
-
     <div class="row mx-5">
-        <div class="col md-12">
+        <div class="col">
             <?php
             if ($this->session->flashdata('message') != '') {
             ?>
@@ -74,112 +68,141 @@
         </div>
     </div>
 
-    <div class="row py-5 px-5 mx-5">
-        <?php foreach ($request as $rows2) { ?>
-            <div class="col-md-4 my-3">
-                <div class="card shadow-lg" style="width: 20rem;">
-                    <img src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" class="card-img-top" height="200px" style="object-fit: cover">
-                    <div class="card-body">
-                        <p class="h6">Kode Order :</p>
-                        <p class="card-text"><?php echo $rows2->code_order; ?></p>
-                        <p class="h6">Keterangan :</p>
-                        <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="3" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
-
-                        <br><br>
-                        <center>
-                            <?php if ($rows2->status == "in_queue") { ?>
-                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_approve_<?php echo $rows2->id; ?>">Approve</a>
-                            <?php } else if ($rows2->status == "avaiable") { ?>
-                                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_approved">Approved</a>
-                            <?php } ?>
-                            <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows2->id; ?>">Tolak</a>
-                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows2->id; ?>">Details</a>
-                        </center>
-                    </div>
+    <!-- table -->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-body">
+                    <h3>List Customer Request :</h3>
+                    <table class="table table-hover table-cards align-items-center" id="customer">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Kode Order</th>
+                                <th>Keterangan</th>
+                                <th>Tanggal Pesan</th>
+                                <th>Tanggal Selesai</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($request as $rows) {
+                            ?>
+                                <tr>
+                                    <td>
+                                        <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="100px" height="100px" style="object-fit: cover">
+                                    </td>
+                                    <td>
+                                        <?php echo $rows->code_order; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows->detail; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows->date_order; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows->date_finish; ?>
+                                    </td>
+                                    <td>
+                                        <?php if ($rows->status == "in_queue") { ?>
+                                            <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_approve_<?php echo $rows->id; ?>">Approve</a>
+                                        <?php } else if ($rows->status == "avaiable") { ?>
+                                            <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_approved">Approved</a>
+                                        <?php } ?>
+                                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Tolak</a>
+                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+                                        <!-- modal -->
+                                        <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="modal-title h6" id="modal_title_6">More details</div>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col mt-3">
+                                                            <div class="d-flex justify-content-center">
+                                                                <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-body mt-4">
+                                                        <p class="card-text h6">Kode Order : <?php echo $rows->code_order; ?></p>
+                                                        <p class="card-text h6">Customer : <?php echo $rows->customer; ?></p>
+                                                        <p class="card-text h6">Keterangan : </p>
+                                                        <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
+                                                        <p class="card-text h6">Tanggal Order : <?php echo $rows->date_order; ?></p>
+                                                        <p class="card-text h6">Tanggal Selesai : <?php echo $rows->date_finish; ?></p>
+                                                        <p class="card-text h6">Biaya Servis : RP <?php echo $rows->price; ?></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal modal-warning fade" id="modal_approve_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Approve Order</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="py-3 text-center">
+                                                            <i class="fas fa-exclamation-triangle fa-4x"></i>
+                                                            <h4 class="heading mt-4">Anda yakin ingin me-approve order ?</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="<?php echo site_url('dashboard/admin_approve_request' . "/" . $rows->id . "/" . $rows->customer); ?>" class="btn btn-sm btn-secondary">Ya</a>
+                                                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Tolak Order</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="py-3 text-center">
+                                                            <i class="fas fa-exclamation-triangle fa-4x"></i>
+                                                            <h4 class="heading mt-4">Anda yakin ingin menolak order ?</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="<?php echo site_url('dashboard/admin_cancel_request' . "/" . $rows->id . "/" . $rows->customer . "/" . $rows->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
+                                                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- modal -->
+                                    </td>
+                                </tr>
+                            <?php
+                            } ?>
+                        </tbody>
+                    </table>
                 </div>
-                <!-- modal -->
-                <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modal_title_6">More details</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="d-flex justify-content-center">
-                                        <img class="rounded my-3" src="<?php echo base_url(); ?>data/order/<?php echo $rows2->image; ?>" height="250px" style="object-fit: cover">
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                            <div class="modal-body">
-                                <p class="card-text h6">Kode Order : <?php echo $rows2->code_order; ?></p><br>
-                                <p class="h6">Keterangan :</p>
-                                <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="5" style="resize: none" placeholder="<?php echo $rows2->detail; ?>"></textarea>
-                                <br>
-                                <p class="card-text h6">Customer : <?php echo $rows2->customer; ?></p>
-                                <p class="card-text h6">Cost : RP <?php echo $rows2->price; ?></p><br>
-                                <p class="card-text h6">Tanggal Order : <?php echo $rows2->date_order; ?></p>
-                                <p class="card-text h6">Tanggal Selesai : <?php echo $rows2->date_finish; ?></p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal modal-warning fade" id="modal_approve_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Approve Order</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="py-3 text-center">
-                                    <i class="fas fa-exclamation-triangle fa-4x"></i>
-                                    <h4 class="heading mt-4">Anda yakin ingin me-approve order ?</h4>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="<?php echo site_url('dashboard/admin_approve_request' . "/" . $rows2->id . "/" . $rows2->customer); ?>" class="btn btn-sm btn-secondary">Ya</a>
-                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows2->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Tolak Order</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="py-3 text-center">
-                                    <i class="fas fa-exclamation-triangle fa-4x"></i>
-                                    <h4 class="heading mt-4">Anda yakin ingin menolak order ?</h4>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="<?php echo site_url('dashboard/admin_cancel_request' . "/" . $rows2->id . "/" . $rows2->customer . "/" . $rows2->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
-                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- modal -->
             </div>
-        <?php
-        } ?>
+        </div>
+        <div class="col-md-1"></div>
     </div>
+    <br><br><br>
+    <!-- table -->
 
     <!--modal-->
     <div class="modal modal-primary fade" id="modal_approved" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -260,8 +283,14 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#customer').DataTable();
+        });
+    </script>
 </body>
 
 </html>

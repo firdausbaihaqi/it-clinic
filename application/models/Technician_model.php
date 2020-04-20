@@ -89,7 +89,7 @@ class Technician_model extends CI_Model
 
     public function view_history($user){
         $this->db->where('status', 'finish');
-
+        $this->db->or_where('status', 'history');
         $this->db->where('technician', $user);
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');

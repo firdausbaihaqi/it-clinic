@@ -42,6 +42,7 @@ class Dashboard extends CI_Controller
         $data['title'] = "Dashboard Admin";
         $data['notify'] = $this->admin_model->notify_unverified_account();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['chart'] = $this->admin_model->chart();
         $this->load->view('header', $data, FALSE);
         $this->load->view('admin/dashboard-admin', $data, FALSE);
     }
