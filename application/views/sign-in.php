@@ -8,7 +8,12 @@
     <!-- akhir navbar -->
 
     <main class="main">
-      <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg'); object-fit: cover;">
+      <!-- <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg'); object-fit: cover;"> -->
+      <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+      ">
         <span class="mask bg-primary alpha-6"></span>
         <div class="container d-flex align-items-center no-padding">
           <div class="col">

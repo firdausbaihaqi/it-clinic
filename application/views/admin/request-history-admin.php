@@ -53,6 +53,7 @@
   </div>
   <!-- akhir navbar -->
 
+
   <div class="row mx-5">
     <div class="col">
       <?php
