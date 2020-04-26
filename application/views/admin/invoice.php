@@ -67,8 +67,10 @@
     <!-- akhir navbar -->
 
     <!-- ini body -->
-    <button class="btn btn-primary" onclick="window.print()">print</button>
-    <div class="container bg-dark" id="section-to-print">
+    <div class="row p-5">
+        <button class="btn btn-block btn-primary" onclick="window.print()">Print Invoice</button>
+    </div>
+    <!-- <div class="container bg-dark" id="section-to-print">
         <div class="row">
             <div class="col-md-2">
                 <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 100px">
@@ -84,10 +86,124 @@
                 <h5 class="text-white mt-3">alamat</h5>
             </div>
         </div>
+    </div> -->
+
+
+    <!-- invoice  -->
+
+    <div class="row vh-100" id="section-to-print">
+        <div class="row h-25 w-100 ">
+            <div class="col-md-4  ">
+                <img src="
+                <?php echo base_url(); ?>assets/img/stetoscope-logo.png">
+            </div>
+            <div class="col-md-8 text-right ">
+                <p class="d-flex flex-column ">
+                    <h5>Jalan Sukarno Hatta No. 12</h5>
+                    <h6>Karangbesuki, Malang</h6>
+                    <h6>441214</h6>
+                    <h6>Jawa Timur</h6>
+                </p>
+            </div>
+        </div>
+        <div class="row h-25 w-100  ">
+            <div class="col-md-3   ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Atas Nama</h6>
+                        <h6>Rizal Elsa F</h6>
+                        <h6>Jl. ngawi no 20, Nganjuk</h6>
+                        <h6>+62 851 5531 9812</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3  ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Tanggal cetak : </h6>
+                        <h6>06/01/2020 </h6>
+                        <h6 class="text-primary">Garansi Sampai :</h6>
+                        <h6>09/01/2020</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3  ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Nomer Pesanan : </h6>
+                        <h6>90128884120</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3   text-right">
+                <p>
+                    <h6 class="text-primary">Total Biaya : </h6>
+                    <h1>RP 190.000</h1>
+                </p>
+            </div>
+            <hr class="bg-primary" style="width: 100%; height: 2px;" />
+        </div>
+        <div class="row h-25 w-100  ">
+
+            <div class="col-md-3 ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Keterangan : </h6>
+                        <h6>ganti layar, ganti keyboard, install ulang windows</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3  ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Harga Satuan </h6>
+                        <h6>RP 190.000</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3  ">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">Jumlah </h6>
+                        <h6>1</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3  ">
+                <div class="text-right">
+                    <p>
+                        <h6 class="text-primary">Biaya </h6>
+                        <h6>RP 190.000</h6>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="row h-25 w-100  ">
+
+            <div class="col-md-6 w-100 "> </div>
+            <div class="col-md-3 h-50 border">
+                <div class="ml-4">
+                    <p>
+                        <h6 class="text-primary">TTD Customer </h6>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 h-50 border">
+                <div class="text-right">
+                    <p>
+                        <h6 class="text-primary">TTD Admin </h6>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
+    <!-- invoice  -->
     <!-- footer -->
-    <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
+    <footer class="pt-5 mt-5 pb-3 footer footer-dark bg-tertiary">
         <div class="container">
             <div class="row">
 
