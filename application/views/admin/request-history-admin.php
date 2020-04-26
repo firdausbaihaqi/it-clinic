@@ -119,6 +119,7 @@
                     <?php echo $rows->date_finish; ?>
                   </td>
                   <td>
+                    <a href="<?php echo site_url(); ?>dashboard/admin_print_invoice/<?php echo $rows->id; ?>/<?php echo $rows->customer; ?>" class="btn btn-sm btn-success">Cetak Invoice</a>
                     <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
                     <!-- modal -->
                     <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">

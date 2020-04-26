@@ -67,140 +67,133 @@
     <!-- akhir navbar -->
 
     <!-- ini body -->
+
+    <!-- invoice  -->
+    <div class="container">
+        <div class="row vh-100" id="section-to-print">
+            <div class="row h-25 w-100 ">
+                <div class="col-md-4  ">
+                    <img src="
+                <?php echo base_url(); ?>assets/img/stetoscope-logo.png">
+                </div>
+                <div class="col-md-8 text-right ">
+                    <p class="d-flex flex-column ">
+                        <h5>Jalan Sukarno Hatta No. 12</h5>
+                        <h6>Karangbesuki, Malang</h6>
+                        <h6>441214</h6>
+                        <h6>Jawa Timur</h6>
+                    </p>
+                </div>
+            </div>
+            <div class="row h-25 w-100  ">
+                <div class="col-md-3   ">
+                    <div class="ml-4">
+                        <p>
+                            <?php foreach ($customer as $rows) { ?>
+                                <h6 class="text-primary">Atas Nama</h6>
+                                <h6><?php echo $rows->fullname; ?></h6>
+                                <h6><?php echo $rows->address; ?></h6>
+                                <h6><?php echo $rows->phone; ?></h6>
+                            <?php } ?>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <?php foreach ($request as $rows) { ?>
+                                <h6 class="text-primary">Tanggal Selesai : </h6>
+                                <h6><?php echo $rows->date_finish; ?></h6>
+                                <h6 class="text-primary">Garansi Sampai :</h6>
+                                <h6>
+                                    <?php
+                                    $date = $rows->date_finish;
+                                    $date = strtotime($date);
+                                    $date = strtotime("+7 day", $date);
+                                    echo date('Y-m-d', $date);;
+                                    ?>
+                                </h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Nomer Pesanan : </h6>
+                            <h6><?php echo $rows->code_order; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3   text-right">
+                    <p>
+                        <h6 class="text-primary">Total Biaya : </h6>
+                        <h1>RP <?php echo $rows->price; ?></h1>
+                    </p>
+                </div>
+                <hr class="bg-primary" style="width: 100%; height: 2px;" />
+            </div>
+            <div class="row h-25 w-100  ">
+
+                <div class="col-md-3 ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Keterangan : </h6>
+                            <h6><?php echo $rows->detail; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Harga Satuan </h6>
+                            <h6>RP <?php echo $rows->price; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Jumlah </h6>
+                            <h6>1</h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="text-right">
+                        <p>
+                            <h6 class="text-primary">Biaya </h6>
+                            <h6>RP <?php echo $rows->price; ?></h6>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row h-25 w-100  ">
+
+                <div class="col-md-6 w-100 "> </div>
+                <div class="col-md-3 h-50 border">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">TTD Customer </h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 h-50 border">
+                    <div class="text-right">
+                        <p>
+                            <h6 class="text-primary">TTD Admin </h6>
+                        </p>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+
+        </div>
+    </div>
+
     <div class="row p-5">
         <button class="btn btn-block btn-primary" onclick="window.print()">Print Invoice</button>
     </div>
-    <!-- <div class="container bg-dark" id="section-to-print">
-        <div class="row">
-            <div class="col-md-2">
-                <img src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 100px">
-            </div>
-            <div class="col-md-6">
-                <h1 class="text-white mt-5">IT Clinic</h1>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-white mt-3">IT Clinic</h5><br>
-                <h5 class="text-white">nomer telepon</h5>
-            </div>
-            <div class="col-md-2">
-                <h5 class="text-white mt-3">alamat</h5>
-            </div>
-        </div>
-    </div> -->
-
-
-    <!-- invoice  -->
-
-    <div class="row vh-100" id="section-to-print">
-        <div class="row h-25 w-100 ">
-            <div class="col-md-4  ">
-                <img src="
-                <?php echo base_url(); ?>assets/img/stetoscope-logo.png">
-            </div>
-            <div class="col-md-8 text-right ">
-                <p class="d-flex flex-column ">
-                    <h5>Jalan Sukarno Hatta No. 12</h5>
-                    <h6>Karangbesuki, Malang</h6>
-                    <h6>441214</h6>
-                    <h6>Jawa Timur</h6>
-                </p>
-            </div>
-        </div>
-        <div class="row h-25 w-100  ">
-            <div class="col-md-3   ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Atas Nama</h6>
-                        <h6>Rizal Elsa F</h6>
-                        <h6>Jl. ngawi no 20, Nganjuk</h6>
-                        <h6>+62 851 5531 9812</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3  ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Tanggal cetak : </h6>
-                        <h6>06/01/2020 </h6>
-                        <h6 class="text-primary">Garansi Sampai :</h6>
-                        <h6>09/01/2020</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3  ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Nomer Pesanan : </h6>
-                        <h6>90128884120</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3   text-right">
-                <p>
-                    <h6 class="text-primary">Total Biaya : </h6>
-                    <h1>RP 190.000</h1>
-                </p>
-            </div>
-            <hr class="bg-primary" style="width: 100%; height: 2px;" />
-        </div>
-        <div class="row h-25 w-100  ">
-
-            <div class="col-md-3 ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Keterangan : </h6>
-                        <h6>ganti layar, ganti keyboard, install ulang windows</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3  ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Harga Satuan </h6>
-                        <h6>RP 190.000</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3  ">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">Jumlah </h6>
-                        <h6>1</h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3  ">
-                <div class="text-right">
-                    <p>
-                        <h6 class="text-primary">Biaya </h6>
-                        <h6>RP 190.000</h6>
-                    </p>
-                </div>
-            </div>
-
-        </div>
-        <div class="row h-25 w-100  ">
-
-            <div class="col-md-6 w-100 "> </div>
-            <div class="col-md-3 h-50 border">
-                <div class="ml-4">
-                    <p>
-                        <h6 class="text-primary">TTD Customer </h6>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3 h-50 border">
-                <div class="text-right">
-                    <p>
-                        <h6 class="text-primary">TTD Admin </h6>
-                    </p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
     <!-- invoice  -->
     <!-- footer -->
     <footer class="pt-5 mt-5 pb-3 footer footer-dark bg-tertiary">

@@ -211,7 +211,7 @@ class Dashboard extends CI_Controller
         redirect(site_url('dashboard/admin_view_shipment'));
     }
 
-    public function admin_print_invoice()
+    public function admin_print_invoice($id, $customer)
     {
         if ($this->session->userdata('status') != 'admin') {
             redirect('dashboard');
@@ -221,6 +221,8 @@ class Dashboard extends CI_Controller
         $data['notify_shipment_number'] = $this->admin_model->notify_shipment_number();
         $data['notify_shipment_list'] = $this->admin_model->notify_shipment_list();
         $data['unverified_account'] = $this->admin_model->get_unverified_account();
+        $data['customer'] = $this->admin_model->get_verified_account_details($customer, 'customer');
+        $data['request'] = $this->admin_model->invoice($id);
         $this->load->view('header', $data, FALSE);
         $this->load->view('admin/invoice', $data, FALSE);
     }

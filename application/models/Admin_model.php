@@ -220,6 +220,14 @@ class Admin_model extends CI_Model
         $result = $query->result();
         return $result;
     }
+
+    public function invoice($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('order');
+        $result = $query->result();
+        return $result;
+    }
 }
 
 /* End of file Admin_model.php */
