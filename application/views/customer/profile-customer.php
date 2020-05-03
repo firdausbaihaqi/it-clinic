@@ -56,7 +56,7 @@
                   <center>
                     <h1 class="text-white">Profile</h1>
                     <img class="rounded-circle" src="<?php echo base_url(); ?>data/profile/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
-                    <br><br><br>
+                    <br><br>
                   </center>
                   <form class="form-primary" action="" method="POST">
                     <div class="row">
@@ -109,6 +109,17 @@
             </button>
           </div>
           <div class="modal-body">
+            <form class="form-primary" action="<?php echo site_url(); ?>dashboard/customer_edit_picture/<?php echo $rows->image; ?>" enctype="multipart/form-data" method="POST">
+              <div class=" form-group">
+                <label>Foto Profile</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                </div>
+              </div>
+              <button class="btn btn-block btn-sm btn-success" type="submit">Upload</button>
+              <br><br>
+            </form>
             <form class="form-primary" action="<?php echo site_url(); ?>dashboard/customer_edit_profile/<?php echo $rows->user; ?>" method="POST">
               <div class="row">
                 <div class="col">

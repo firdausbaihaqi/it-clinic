@@ -36,6 +36,38 @@ class Customer_model extends CI_Model
         $this->session->set_flashdata('message', 'Update profile berhasil');
     }
 
+    public function edit_picture($image)
+    {
+        $path = 'C:\xampp\htdocs\it-clinic\data\profile\\';
+        unlink($path . $image);
+
+        $user = $this->session->userdata('user');
+
+        $config['upload_path']   = './data/profile';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']      = 0;
+        $config['file_name'] = $user;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('image')) {
+            $error = $this->upload->display_errors();
+            echo $error;
+        }
+
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+
+        $this->db->where('user', $user);
+        $this->db->set('image', $file_name);
+        $this->db->update('user');
+
+        $this->db->where('user', $user);
+        $this->db->set('image', $file_name);
+        $this->db->update('user_customer');
+
+        $this->session->set_flashdata('message', 'Update profile berhasil');
+    }
+
     public function view_request()
     {
         $user = $this->session->userdata('user');

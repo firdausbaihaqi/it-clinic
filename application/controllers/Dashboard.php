@@ -259,6 +259,15 @@ class Dashboard extends CI_Controller
         redirect(site_url('dashboard/technician_view_profile'));
     }
 
+    public function technician_edit_picture($image)
+    {
+        if ($this->session->userdata('status') != 'technician') {
+            redirect('dashboard');
+        }
+        $this->technician_model->edit_picture($image);
+        redirect(site_url('dashboard/technician_view_profile'));
+    }
+
     public function technician_take_request($id)
     {
         if ($this->session->userdata('status') != 'technician') {
@@ -333,6 +342,15 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $this->customer_model->edit_profile($user);
+        redirect(site_url('dashboard/customer_view_profile'));
+    }
+
+    public function customer_edit_picture($image)
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
+        }
+        $this->customer_model->edit_picture($image);
         redirect(site_url('dashboard/customer_view_profile'));
     }
 
