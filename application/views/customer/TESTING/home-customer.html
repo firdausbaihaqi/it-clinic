@@ -47,7 +47,6 @@
 
 <body class="deep-purple accent-2">
 
-
     <div class="container-fluid">
 
         <div class="row vh-100 vw-100">
@@ -227,7 +226,7 @@
                                     <h6 class="brown-text font-weight-bold">Silahkan lakukan request Perbaikan sekarang juga :)</h6>
                                     <p class="brown-text font-weight-medium">Hubungi IT-clinic Helpdesk untuk bantuan lebih lanjut, atau pelajari tata cara melakukan request melalui link di bawah</p>
                                     <p>
-                                        <a href="#" class="btn btn-md btn-success btn-rounded waves-effect shadow-none">
+                                        <a href="#" class="btn btn-md btn-success btn-rounded waves-effect shadow-none" data-toggle="modal" data-target="#modal_add_request">
                                             <i class="fas fa-plus"></i> &nbsp; Add Request
                                         </a>
                                         <a href="#" class="btn btn-md btn-orange btn-rounded waves-effect shadow-none ">
@@ -236,6 +235,47 @@
                                     </p>
                                 </div>
                             </div>
+                            <!-- Modal -->
+                            <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Add Request</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="<?php echo site_url(); ?>dashboard/customer_add_request_process" enctype="multipart/form-data" method="POST">
+                                                <div class=" form-group">
+                                                    <label>Foto Perangkat</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Tanggal Pemesanan</label>
+                                                    <input type="date" class="form-control" name="date_order" id="date_order" value="<?php echo date('Y-m-d'); ?>" readonly>
+                                                </div>
+
+                                                <div class=" form-group">
+                                                    <label>Keterangan</label>
+                                                    <textarea class="form-control" name="detail" id="detail" cols="75" rows="10" placeholder="tulis keluhan anda disini..."></textarea>
+                                                </div>
+                                                <button class="btn btn-lg btn-success btn-block" type="submit">Request</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Kembali</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+
                         </div>
                         <!-- Grid Column -->
                     </div>
@@ -352,39 +392,14 @@
             </div>
             <!-- end of col-9 -->
             <div class="col-2 white ">
-                <div class="row" style="height: 10%;"></div>
-                <div class="row" style="height: 90%;">
-                    <!-- Card -->
-                    <div class="card testimonial-card shadow-none w-100">
-                        <!-- Background color -->
-                        <div class="card-up blue-gradient"></div>
-
-                        <!-- Avatar -->
-                        <div class="avatar mx-auto white">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle" alt="woman avatar">
-                        </div>
-
-                        <!-- Content -->
-                        <div class="card-body">
-                            <!-- Name -->
-                            <h5 class="card-title">Name</h5>
-                            <h6 class="card-text">Alamat</h6>
-                            <h6 class="card-text">No Telepon </h6>
-                            <hr>
-                            <div class="card-body">
-                                <h6 class="font-weight-bold"> Request Terakhir </h6>
-                                <p class="card-text">
-                                    <span>kode pemesanan : </span>
-                                    <span>tanggal : </span>
-
-                                    <textarea disabled class="card-text form-control" name="detail" id="detail" cols="75" rows="4" style="resize: none" placeholder="taruh keluhan disini"></textarea>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+                <div style="height: 10%;"></div>
+                <div class="row blue-gradient d-flex flex-column" style="height: 80%;">
+                    <center>
+                        <h4 class="text-white pt-5">put your Ads here</h4>
+                    </center>
                 </div>
-                <!-- Card -->
+                <div style="height: 10%;"></div>
+
             </div>
 
 
@@ -415,6 +430,19 @@
             $(".button-collapse ").sideNav({
                 slim: true,
             });
+        });
+
+        $('#inputGroupFile02').on('change', function() {
+            //get the file name
+            var fileName = $(this).val();
+            var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(cleanFileName);
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#customer').DataTable();
         });
     </script>
 
