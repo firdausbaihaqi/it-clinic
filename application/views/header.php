@@ -11,8 +11,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/theme.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/demo.css">
+
   <style>
-    @media print {
+    
+     @media print {
       body * {
         visibility: hidden;
       }
@@ -28,5 +30,32 @@
         top: 0;
       }
     }
+    
+    /* gradient bg style */
+    /* body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+        } */
+
+    /* gradient bg */
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    /* gradient bg */
+
+    
   </style>
+
+
 </head>
