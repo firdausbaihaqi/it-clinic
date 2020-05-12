@@ -7,9 +7,6 @@
                 </button>
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                            <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_print_invoice">Invoice</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo site_url(); ?>dashboard/admin_view_shipment">Request Pengiriman</a>
                         </li>
@@ -51,7 +48,7 @@
                                     ?>
                                         <a href="<?php echo site_url(); ?>dashboard/admin_view_shipment" class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-content">
-                                                <div class="list-group-heading"><?php echo $rows->code_order." - ".$rows->customer ?></div>
+                                                <div class="list-group-heading"><?php echo $rows->code_order . " - " . $rows->customer ?></div>
                                             </div>
                                         </a>
                                     <?php
@@ -70,43 +67,136 @@
     <!-- akhir navbar -->
 
     <!-- ini body -->
+
+    <!-- invoice  -->
     <div class="container">
-        <canvas id="bar-chart" width="100" height="20"></canvas>
-    </div>
-
-    <div>
-        <div class="row">
-            <h4 class="mx-auto">Select request :</h4>
-        </div>
-    </div>
-    <div class="row py-5 mx-5">
-        <div class="col-md-6">
-            <div class="d-flex justify-content-end">
-                <div class="card shadow-lg" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
-                    <div class="card-body">
-                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_customer" class="btn btn-primary">Customer</a></center>
-                    </div>
+        <div class="row vh-100" id="section-to-print">
+            <div class="row h-25 w-100 ">
+                <div class="col-md-4  ">
+                    <img src="
+                <?php echo base_url(); ?>assets/img/stetoscope-logo.png">
+                </div>
+                <div class="col-md-8 text-right ">
+                    <p class="d-flex flex-column ">
+                        <h5>Jalan Sukarno Hatta No. 12</h5>
+                        <h6>Karangbesuki, Malang</h6>
+                        <h6>441214</h6>
+                        <h6>Jawa Timur</h6>
+                    </p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-
-            <div class="d-flex justify-content-start">
-                <div class="card shadow-lg" style="width: 18rem;">
-                    <img class="card-img-top" src="<?php echo base_url(); ?>assets/img/perbaikan1.jpg">
-                    <div class="card-body">
-                        <center><a href="<?php echo site_url(); ?>dashboard/admin_view_list_request_technician" class="btn btn-tertiary">Technician</a></center>
+            <div class="row h-25 w-100  ">
+                <div class="col-md-3   ">
+                    <div class="ml-4">
+                        <p>
+                            <?php foreach ($customer as $rows) { ?>
+                                <h6 class="text-primary">Atas Nama</h6>
+                                <h6><?php echo $rows->fullname; ?></h6>
+                                <h6><?php echo $rows->address; ?></h6>
+                                <h6><?php echo $rows->phone; ?></h6>
+                            <?php } ?>
+                        </p>
                     </div>
                 </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <?php foreach ($request as $rows) { ?>
+                                <h6 class="text-primary">Tanggal Selesai : </h6>
+                                <h6><?php echo $rows->date_finish; ?></h6>
+                                <h6 class="text-primary">Garansi Sampai :</h6>
+                                <h6>
+                                    <?php
+                                    $date = $rows->date_finish;
+                                    $date = strtotime($date);
+                                    $date = strtotime("+7 day", $date);
+                                    echo date('Y-m-d', $date);;
+                                    ?>
+                                </h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Nomer Pesanan : </h6>
+                            <h6><?php echo $rows->code_order; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3   text-right">
+                    <p>
+                        <h6 class="text-primary">Total Biaya : </h6>
+                        <h1>RP <?php echo $rows->price; ?></h1>
+                    </p>
+                </div>
+                <hr class="bg-primary" style="width: 100%; height: 2px;" />
             </div>
+            <div class="row h-25 w-100  ">
+
+                <div class="col-md-3 ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Keterangan : </h6>
+                            <h6><?php echo $rows->detail; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Harga Satuan </h6>
+                            <h6>RP <?php echo $rows->price; ?></h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">Jumlah </h6>
+                            <h6>1</h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3  ">
+                    <div class="text-right">
+                        <p>
+                            <h6 class="text-primary">Biaya </h6>
+                            <h6>RP <?php echo $rows->price; ?></h6>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row h-25 w-100  ">
+
+                <div class="col-md-6 w-100 "> </div>
+                <div class="col-md-3 h-50 border">
+                    <div class="ml-4">
+                        <p>
+                            <h6 class="text-primary">TTD Customer </h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 h-50 border">
+                    <div class="text-right">
+                        <p>
+                            <h6 class="text-primary">TTD Admin </h6>
+                        </p>
+                    </div>
+                </div>
+            <?php } ?>
+            </div>
+
         </div>
     </div>
-    <!-- ini body -->
 
-
+    <div class="row p-5">
+        <button class="btn btn-block btn-primary" onclick="window.print()">Print Invoice</button>
+    </div>
+    <!-- invoice  -->
     <!-- footer -->
-    <footer class="pt-5 pb-3 footer footer-dark bg-tertiary">
+    <footer class="pt-5 mt-5 pb-3 footer footer-dark bg-tertiary">
         <div class="container">
             <div class="row">
 
@@ -161,34 +251,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script src="<?php echo base_url(); ?>assets/js/theme.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script>
-        new Chart(document.getElementById("bar-chart"), {
-            type: 'bar',
-            data: {
-                labels: [<?php foreach ($chart as $charts) {
-                                echo '"' . date("F", mktime(0, 0, 0, $charts->month, 10)) . ", " . $charts->year . '", ';
-                            } ?>],
-                datasets: [{
-                    label: "Jumlah Request",
-                    backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-                    data: [<?php foreach ($chart as $charts2) {
-                                echo $charts2->total . ", ";
-                            } ?>, 0]
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    display: true,
-                    text: 'Grafik Data Request Sepanjang Masa Hiya Hiya'
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

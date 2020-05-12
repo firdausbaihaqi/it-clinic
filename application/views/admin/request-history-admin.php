@@ -23,7 +23,7 @@
             <li class="nav-item">
               <a class="nav-link nav-link-icon" href="#" id="" role="button" data-toggle="dropdown">
                 <i class="fas fa-bell">
-                  <span class="badge badge-danger text-light"><?php echo $notify; ?></span>
+                  <span class="badge badge-danger text-light"><?php echo ($notify_account_number + $notify_shipment_number); ?></span>
                 </i>
               </a>
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
@@ -31,11 +31,25 @@
                   <h5 class="heading h6 mb-0">User Pending List</h5>
                 </div>
                 <div class="list-group">
-                  <?php foreach ($unverified_account as $rows2) {
+                  <?php foreach ($unverified_account as $rows) {
                   ?>
                     <a href="<?php echo site_url(); ?>dashboard/admin_verify_account" class="list-group-item list-group-item-action d-flex align-items-center">
                       <div class="list-group-content">
-                        <div class="list-group-heading"><?php echo $rows2->user; ?></div>
+                        <div class="list-group-heading"><?php echo $rows->user; ?></div>
+                      </div>
+                    </a>
+                  <?php
+                  } ?>
+                </div>
+                <div class="py-3 px-3">
+                  <h5 class="heading h6 mb-0">Request Pengiriman List</h5>
+                </div>
+                <div class="list-group">
+                  <?php foreach ($notify_shipment_list as $rows) {
+                  ?>
+                    <a href="<?php echo site_url(); ?>dashboard/admin_view_shipment" class="list-group-item list-group-item-action d-flex align-items-center">
+                      <div class="list-group-content">
+                        <div class="list-group-heading"><?php echo $rows->code_order . " - " . $rows->customer ?></div>
                       </div>
                     </a>
                   <?php
@@ -106,6 +120,7 @@
                     <?php echo $rows->date_finish; ?>
                   </td>
                   <td>
+                    <a href="<?php echo site_url(); ?>dashboard/admin_print_invoice/<?php echo $rows->id; ?>/<?php echo $rows->customer; ?>" class="btn btn-sm btn-success">Cetak Invoice</a>
                     <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
                     <!-- modal -->
                     <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">

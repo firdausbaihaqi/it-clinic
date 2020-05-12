@@ -113,6 +113,17 @@
             </button>
           </div>
           <div class="modal-body">
+          <form class="form-primary" action="<?php echo site_url(); ?>dashboard/technician_edit_picture/<?php echo $rows->image; ?>" enctype="multipart/form-data" method="POST">
+              <div class=" form-group">
+                <label>Foto Profile</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                  <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                </div>
+              </div>
+              <button class="btn btn-block btn-sm btn-success" type="submit">Upload</button>
+              <br><br>
+            </form>
             <form class="form-primary" action="<?php echo site_url(); ?>dashboard/technician_edit_profile/<?php echo $rows->user; ?>" method="POST">
               <div class="row">
                 <div class="col">
@@ -225,6 +236,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="<?php base_url(); ?>assets/js/theme.js"></script>
+  <script>
+    $('#inputGroupFile02').on('change', function() {
+      //get the file name
+      var fileName = $(this).val();
+      var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
+      //replace the "Choose a file" label
+      $(this).next('.custom-file-label').html(cleanFileName);
+    })
+  </script>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
 <body>
+
     <!-- ini navbar -->
     <div class="row my-5 pb-5">
         <nav class="navbar navbar-expand-lg navbar-tertiary navbar-dark bg-tertiary py-2 fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo site_url(); ?>dashboard"><strong>IT - Clinic</strong></a>
                 </button>
-
                 <div class="navbar-collapse" id="navbar_main">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
@@ -23,7 +23,7 @@
                         <li class="nav-item">
                             <a class="nav-link nav-link-icon" href="#" id="" role="button" data-toggle="dropdown">
                                 <i class="fas fa-bell">
-                                    <span class="badge badge-danger text-light"><?php echo $notify; ?></span>
+                                    <span class="badge badge-danger text-light"><?php echo ($notify_account_number + $notify_shipment_number); ?></span>
                                 </i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl py-0">
@@ -36,6 +36,20 @@
                                         <a href="<?php echo site_url(); ?>dashboard/admin_verify_account" class="list-group-item list-group-item-action d-flex align-items-center">
                                             <div class="list-group-content">
                                                 <div class="list-group-heading"><?php echo $rows->user; ?></div>
+                                            </div>
+                                        </a>
+                                    <?php
+                                    } ?>
+                                </div>
+                                <div class="py-3 px-3">
+                                    <h5 class="heading h6 mb-0">Request Pengiriman List</h5>
+                                </div>
+                                <div class="list-group">
+                                    <?php foreach ($notify_shipment_list as $rows) {
+                                    ?>
+                                        <a href="<?php echo site_url(); ?>dashboard/admin_view_shipment" class="list-group-item list-group-item-action d-flex align-items-center">
+                                            <div class="list-group-content">
+                                                <div class="list-group-heading"><?php echo $rows->code_order . " - " . $rows->customer ?></div>
                                             </div>
                                         </a>
                                     <?php

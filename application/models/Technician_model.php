@@ -18,7 +18,6 @@ class Technician_model extends CI_Model
     public function edit_profile($user)
     {
         $user_new = $this->input->post('user');
-        
 
         $this->db->where('user', $user);
         $this->db->set('user', $user_new);
@@ -36,6 +35,38 @@ class Technician_model extends CI_Model
         $this->db->update('user_technician', $data);
 
         $this->session->set_userdata('user', $user_new);
+        $this->session->set_flashdata('message', 'Update profile berhasil');
+    }
+
+    public function edit_picture($image)
+    {
+        $path = 'C:\xampp\htdocs\it-clinic\data\profile\\';
+        unlink($path . $image);
+
+        $user = $this->session->userdata('user');
+
+        $config['upload_path']   = './data/profile';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']      = 0;
+        $config['file_name'] = $user;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('image')) {
+            $error = $this->upload->display_errors();
+            echo $error;
+        }
+
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+
+        $this->db->where('user', $user);
+        $this->db->set('image', $file_name);
+        $this->db->update('user');
+
+        $this->db->where('user', $user);
+        $this->db->set('image', $file_name);
+        $this->db->update('user_technician');
+
         $this->session->set_flashdata('message', 'Update profile berhasil');
     }
 
@@ -94,20 +125,6 @@ class Technician_model extends CI_Model
         $this->db->order_by('id', 'desc');
         $query = $this->db->get('order');
         $result = $query->result();
-        return $result;
-    }
-
-    public function search($keyword)
-    {
-        $user = $this->session->userdata('user');
-
-        $this->db->like('code_order', $keyword);
-        $this->db->or_Like('detail', $keyword);
-        $this->db->or_Like('date_finish', $keyword);
-        $this->db->where('technician', $user);
-        $query = $this->db->get('order');
-        $result = $query->result();
-        $this->session->set_flashdata('message', 'Hasil Pencarian');
         return $result;
     }
     

@@ -13,6 +13,24 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/demo.css">
 
   <style>
+    
+     @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #section-to-print,
+      #section-to-print * {
+        visibility: visible;
+      }
+
+      #section-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+    
     /* gradient bg style */
     /* body {
             background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -38,5 +56,6 @@
 
     
   </style>
+
 
 </head>
