@@ -1,4 +1,3 @@
-
 <body class="deep-purple accent-2">
 
     <div class="container-fluid">
@@ -53,101 +52,7 @@
                 </div>
                 <!-- SideNav-->
 
-                <!-- Sidebar navigation -->
-                <div id="slide-out " class="side-nav expand fixed ">
-                    <ul class="custom-scrollbar ">
-                        <!-- Logo -->
-                        <li>
-                            <div class="logo-wrapper waves-light ">
-                                <a href="# "><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png " class="img-fluid flex-center "></a>
-                            </div>
-                        </li>
-                        <!--/. Logo -->
-                        <!--Social-->
-                        <li>
-                            <ul class="social ">
-                                <li><a href="# " class="icons-sm fb-ic "><i class="fab fa-facebook-f "> </i></a></li>
-                                <li><a href="# " class="icons-sm pin-ic "><i class="fab fa-pinterest "> </i></a></li>
-                                <li><a href="# " class="icons-sm gplus-ic "><i class="fab fa-google-plus-g "> </i></a></li>
-                                <li><a href="# " class="icons-sm tw-ic "><i class="fab fa-twitter "> </i></a></li>
-                            </ul>
-                        </li>
-                        <!--/Social-->
-                        <!--Search Form-->
-                        <li>
-                            <form class="search-form " role="search ">
-                                <div class="form-group md-form mt-0 pt-1 waves-light ">
-                                    <input type="text " class="form-control " placeholder="Search ">
-                                </div>
-                            </form>
-                        </li>
-                        <!--/.Search Form-->
-                        <!-- Side navigation links -->
-                        <li>
-                            <ul class="collapsible collapsible-accordion ">
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-chevron-right "></i> Submit
-            blog<i class="fas fa-angle-down rotate-icon "></i></a>
-                                    <div class="collapsible-body ">
-                                        <ul>
-                                            <li><a href="# " class="waves-effect ">Submit listing</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Registration form</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-hand-pointer "></i>
-            Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
-                                    <div class="collapsible-body ">
-                                        <ul>
-                                            <li><a href="# " class="waves-effect ">For bloggers</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">For authors</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i
-              class="fas fa-angle-down rotate-icon "></i></a>
-                                    <div class="collapsible-body ">
-                                        <ul>
-                                            <li><a href="# " class="waves-effect ">Introduction</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Monthly meetings</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i
-              class="fas fa-angle-down rotate-icon "></i></a>
-                                    <div class="collapsible-body ">
-                                        <ul>
-                                            <li><a href="# " class="waves-effect ">FAQ</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Write a message</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">FAQ</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Write a message</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">FAQ</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Write a message</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">FAQ</a>
-                                            </li>
-                                            <li><a href="# " class="waves-effect ">Write a message</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <!--/. Side navigation links -->
-                    </ul>
-                    <div class="sidenav-bg rgba-blue-strong "></div>
-                </div>
-                <!--/. Sidebar navigation -->
+
                 <!-- end of col-1 -->
             </div>
             <!-- end of col-1 SIDEBAR-->
@@ -167,7 +72,7 @@
                             <div class="col-md-4 h-50">
                                 <div class="h-75">
                                 </div>
-                                <h2 class="h-25">Welcome, <?php echo $this->session->userdata('user');?> !</h2>
+                                <h2 class="h-25">Welcome, <?php echo $this->session->userdata('user'); ?> !</h2>
                             </div>
                             <div class="col-md-7">
                             </div>
@@ -183,17 +88,19 @@
                                         <a href="#" class="btn btn-md btn-success btn-rounded waves-effect shadow-none" data-toggle="modal" data-target="#modal_add_request">
                                             <i class="fas fa-plus"></i> &nbsp; Add Request
                                         </a>
-                                        <a href="#" class="btn btn-md btn-orange btn-rounded waves-effect shadow-none ">
+                                        <a href="#" class="btn btn-md btn-orange btn-rounded waves-effect shadow-none" data-toggle="modal" data-target="#modal_learn_more">
                                             <i class="fas fa-question"></i> &nbsp; learn more
                                         </a>
                                     </p>
                                 </div>
                             </div>
                             <!-- Modal -->
+
+                            <!-- add -->
                             <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <div class="modal-header">
+                                        <div class="modal-header success-color text-white">
                                             <h5 class="modal-title">Add Request</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -222,13 +129,73 @@
                                             </form>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Kembali</button>
+                                            <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- add -->
 
+                            <!-- learn more -->
+                            <div class="modal fade left " id="modal_learn_more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none; " aria-hidden="true">
+                                <div class="modal-dialog modal-full-height modal-left" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+                                        <!--Header-->
+                                        <div class="modal-header deep-purple accent-2 text-white">
+                                            <h4 class="modal-title w-100 weight-bold" id="myModalLabel">Panduan pengguna</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <!--Body-->
+                                        <div class="modal-body mt-3">
+                                            <p>
+                                                Halo, selamat datang di IT-Clinic :)
+                                                <br>
+                                                ikuti langkah-langkah berikut untuk memulai proses pemesanan layanan
+                                            </p>
+
+                                            <ul class="list-group z-depth-0">
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">1</span>
+                                                    &nbsp; Tekan tombol add request
+                                                </li>
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">2</span>
+                                                    &nbsp; Tambahkan foto perangkat anda
+                                                </li>
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">3</span>
+                                                    &nbsp; Tulis kerusakan perangkat
+                                                </li>
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">4</span>
+                                                    &nbsp; Tekan tombol "Request" jika sudah selesai
+                                                </li>
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">5</span>
+                                                    &nbsp; Tunggu konfirmasi dari admin
+                                                </li>
+                                                <li class="list-group-item justify-content-between">
+                                                    <span class="badge badge-primary badge-pill">6</span>
+                                                    &nbsp; Anda bisa melihat status Request dari halaman Request di Menu sebelah kiri
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                        <!--Footer-->
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-dismiss="modal">Kembali</button>
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+                            <!-- learn more -->
                             <!-- Modal -->
+
 
                         </div>
                         <!-- Grid Column -->
@@ -261,11 +228,11 @@
                                                     <span class="font-weight-bold"><?php echo $in_queue; ?></span> request sedang dalam antrian
                                                 </h6>
                                             </p>
-                                            <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
-                                                            <span> more details</span> &nbsp;
-                                                            <i class=" fas fa-arrow-right"></i>
-                                                    </a> 
+                                            <button class="btn btn-sm btn-rounded btn-white">
+                                                <a href="<?php echo site_url(); ?>dashboard/customer_view_request" class="text-dark">
+                                                    <span> more details</span> &nbsp;
+                                                    <i class=" fas fa-arrow-right"></i>
+                                                </a>
                                             </button>
 
 
@@ -291,11 +258,11 @@
                                                     <span class="font-weight-bold"><?php echo $in_progress; ?></span> request sedang dikerjakan
                                                 </h6>
                                             </p>
-                                            <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
-                                                            <span> more details</span> &nbsp;
-                                                            <i class=" fas fa-arrow-right"></i>
-                                                    </a> 
+                                            <button class="btn btn-sm btn-rounded btn-white">
+                                                <a href="<?php echo site_url(); ?>dashboard/customer_view_request" class="text-dark">
+                                                    <span> more details</span> &nbsp;
+                                                    <i class=" fas fa-arrow-right"></i>
+                                                </a>
                                             </button>
 
 
@@ -321,11 +288,11 @@
                                                     <span class="font-weight-bold"><?php echo $finish; ?></span> request siap untuk dikirim
                                                 </h6>
                                             </p>
-                                            <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
-                                                            <span> more details</span> &nbsp;
-                                                            <i class=" fas fa-arrow-right"></i>
-                                                    </a> 
+                                            <button class="btn btn-sm btn-rounded btn-white">
+                                                <a href="<?php echo site_url(); ?>dashboard/customer_view_request" class="text-dark">
+                                                    <span> more details</span> &nbsp;
+                                                    <i class=" fas fa-arrow-right"></i>
+                                                </a>
                                             </button>
 
 

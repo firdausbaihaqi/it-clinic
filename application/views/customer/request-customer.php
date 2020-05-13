@@ -174,7 +174,7 @@
                                                             <a href="#" class="btn btn-sm btn-success btn-rounded waves-effect shadow-none" data-toggle="modal" data-target="#modal_add_request">
                                                                 <i class="fas fa-plus"></i> &nbsp; Add Request
                                                             </a>
-                                                            <a href="#" class="btn btn-sm btn-orange btn-rounded waves-effect shadow-none ">
+                                                            <a href="#" class="btn btn-sm btn-orange btn-rounded waves-effect shadow-none" data-toggle="modal" data-target="#modal_learn_more">
                                                                 <i class="fas fa-question"></i> &nbsp; learn more
                                                             </a>
                                                         </p>
@@ -243,6 +243,65 @@
                                                                     <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
 
                                                                     <!-- Modal -->
+
+                                                                    <!-- learn more -->
+                                                                    <div class="modal fade left " id="modal_learn_more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none; " aria-hidden="true">
+                                                                        <div class="modal-dialog modal-full-height modal-left" role="document">
+                                                                            <!--Content-->
+                                                                            <div class="modal-content">
+                                                                                <!--Header-->
+                                                                                <div class="modal-header deep-purple accent-2 text-white">
+                                                                                    <h4 class="modal-title w-100 weight-bold" id="myModalLabel">Panduan pengguna</h4>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">×</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <!--Body-->
+                                                                                <div class="modal-body mt-3">
+                                                                                    <p>
+                                                                                        Halo, selamat datang di IT-Clinic :)
+                                                                                        <br>
+                                                                                        ikuti langkah-langkah berikut untuk memulai proses pemesanan layanan
+                                                                                    </p>
+
+                                                                                    <ul class="list-group z-depth-0">
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">1</span>
+                                                                                            &nbsp; Tekan tombol add request
+                                                                                        </li>
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">2</span>
+                                                                                            &nbsp; Tambahkan foto perangkat anda
+                                                                                        </li>
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">3</span>
+                                                                                            &nbsp; Tulis kerusakan perangkat
+                                                                                        </li>
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">4</span>
+                                                                                            &nbsp; Tekan tombol "Request" jika sudah selesai
+                                                                                        </li>
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">5</span>
+                                                                                            &nbsp; Tunggu konfirmasi dari admin
+                                                                                        </li>
+                                                                                        <li class="list-group-item justify-content-between">
+                                                                                            <span class="badge badge-primary badge-pill">6</span>
+                                                                                            &nbsp; Anda bisa melihat status Request dari halaman Request di Menu sebelah kiri
+                                                                                        </li>
+
+                                                                                    </ul>
+
+                                                                                </div>
+                                                                                <!--Footer-->
+                                                                                <div class="modal-footer justify-content-center">
+                                                                                    <button type="button" class="btn btn-outline-primary waves-effect waves-light" data-dismiss="modal">Kembali</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/.Content-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- learn more -->
 
                                                                     <!-- add request -->
                                                                     <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -579,8 +638,8 @@
         })
 
 
-     // Material Design example
-     $(document).ready(function() {
+        // Material Design example
+        $(document).ready(function() {
             $('#dtMaterialDesignExample').DataTable({
                 "scrollY": "45vh",
                 "scrollCollapse": true,
