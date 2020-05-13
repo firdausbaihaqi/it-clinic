@@ -85,7 +85,7 @@
                         <li>
                             <ul class="collapsible collapsible-accordion ">
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-chevron-right "></i> Submit
-            blog<i class="fas fa-angle-down rotate-icon "></i></a>
+                                        blog<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Submit listing</a>
@@ -96,7 +96,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-hand-pointer "></i>
-            Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
+                                        Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">For bloggers</a>
@@ -106,8 +106,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i
-              class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Introduction</a>
@@ -117,8 +116,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i
-              class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">FAQ</a>
@@ -153,7 +151,7 @@
 
             <!-- start of col-9 -->
             <div class="col-11 vh-100">
-                <article class="view jarallax vh-100" style="background-image: url( 'bg-white-rounded.png'); background-repeat: no-repeat;
+                <article class="view jarallax vh-100" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
                  background-position: center; background-size: 120% 100%; ">
 
                     <!-- content -->
@@ -167,6 +165,21 @@
                                         <div class="card shadow-none">
                                             <div class="card-body">
                                                 <h3>List Job Diterima:</h3>
+
+                                                <div class="row mx-5">
+                                                    <div class="col">
+                                                        <?php
+                                                        if ($this->session->flashdata('message') != '') {
+                                                        ?>
+                                                            <div class="alert alert-primary">
+                                                                <?php echo $this->session->flashdata('message'); ?>
+                                                            </div>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+
                                                 <table class="table table-hover table-cards align-items-center" id="dtMaterialDesignExample">
                                                     <thead>
                                                         <tr>
@@ -179,27 +192,64 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php foreach ($request as $rows) {
-              ?>
-                                                        <tr>
-                                                            <td>
-                                                                <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="100px" height="100px" style="object-fit: cover">
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $rows->code_order; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $rows->detail; ?>
-                                                            </td>
-                                                            <td>
-                                                                <?php echo $rows->date_order; ?>
-                                                            </td>
-                                                            <td>
-                                                                <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+                                                        ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="100px" height="100px" style="object-fit: cover">
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $rows->code_order; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $rows->detail; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php echo $rows->date_order; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
 
-                                                            </td>
-                                                        </tr>
+                                                                </td>
+                                                            </tr>
+                                                            <!-- modal -->
+                                                            <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header text-white info-color">
+                                                                            <div class="modal-title h6" id="modal_title_6">More details</div>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col mt-3">
+                                                                                <div class="d-flex justify-content-center">
+                                                                                    <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-body mt-4">
+                                                                            <p class="card-text h6">Kode Order :
+                                                                                <?php echo $rows->code_order; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Teknisi :
+                                                                                <?php echo $rows->technician; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Keterangan : </p>
+                                                                            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
+                                                                            <p class="card-text h6">Tanggal Order :
+                                                                                <?php echo $rows->date_order; ?>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Kembali</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- modal -->
                                                         <?php
-              } ?>
+                                                        } ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -216,47 +266,6 @@
                     </div>
                     <!-- content -->
 
-
-                    <!-- modal -->
-                    <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-white info-color">
-                                    <div class="modal-title h6" id="modal_title_6">More details</div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-                                </div>
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <div class="d-flex justify-content-center">
-                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-body mt-4">
-                                    <p class="card-text h6">Kode Order :
-                                        <?php echo $rows->code_order; ?>
-                                    </p>
-                                    <p class="card-text h6">Teknisi :
-                                        <?php echo $rows->technician; ?>
-                                    </p>
-                                    <p class="card-text h6">Keterangan : </p>
-                                    <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
-                                    <p class="card-text h6">Tanggal Order :
-                                        <?php echo $rows->date_order; ?>
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Kembali</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- modal -->
-
-
-
             </div>
             <!-- end of col-9 -->
 
@@ -272,8 +281,8 @@
     </div>
 
 
-   <!-- jQuery -->
-   <script type=" text/javascript " src="<?php echo base_url(); ?>assets/new/js/jquery.min.js "></script>
+    <!-- jQuery -->
+    <script type=" text/javascript " src="<?php echo base_url(); ?>assets/new/js/jquery.min.js "></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/popper.min.js "></script>
     <!-- Bootstrap core JavaScript -->

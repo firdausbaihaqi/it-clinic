@@ -18,9 +18,11 @@ class Technician_model extends CI_Model
     public function edit_profile($user)
     {
         $user_new = $this->input->post('user');
+        $password_new = $this->input->post('password');
 
         $this->db->where('user', $user);
         $this->db->set('user', $user_new);
+        $this->db->set('password', $password_new);
         $this->db->update('user');
 
         $data = array(

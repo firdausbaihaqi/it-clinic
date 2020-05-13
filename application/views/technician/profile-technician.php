@@ -85,7 +85,7 @@
                         <li>
                             <ul class="collapsible collapsible-accordion ">
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-chevron-right "></i> Submit
-        blog<i class="fas fa-angle-down rotate-icon "></i></a>
+                                        blog<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Submit listing</a>
@@ -96,7 +96,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-hand-pointer "></i>
-        Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
+                                        Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">For bloggers</a>
@@ -106,8 +106,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i
-          class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Introduction</a>
@@ -117,8 +116,7 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i
-          class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">FAQ</a>
@@ -157,65 +155,147 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8" style="height: 100%;">
-                            <!-- isi profil -->
-                            <div class="card ">
+                            <?php foreach ($profile as $rows) { ?>
+                                <!-- isi profil -->
+                                <div class="card ">
 
-                                <h5 class="card-header success-color white-text text-center py-4">
-                                    <strong>Profil</strong>
-                                </h5>
+                                    <h5 class="card-header success-color white-text text-center py-4">
+                                        <strong>Profil</strong>
+                                    </h5>
 
-                                <!--Card content-->
-                                <div class="card-body px-lg-5 pt-0">
+                                    <!--Card content-->
+                                    <div class="card-body px-lg-5 pt-0">
 
-                                    <!-- Form -->
-                                    <form class="text-center" action="#!">
-                                        <center>
-                                            <img class="my-3" src="<?php echo base_url(); ?>data/profile/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
-                                        </center>
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <!--  Username -->
-                                                <div class="md-form">
-                                                    <input type="text" id="materialRegisterFormFirstName" class="form-control" placeholder="test" readonly>
-                                                    <label for="materialRegisterFormFirstName">Username</label>
+                                        <!-- Form -->
+                                        <form class="text-center" action="#">
+                                            <center>
+                                                <img class="my-3" src="<?php echo base_url(); ?>data/profile/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
+                                            </center>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <!--  Username -->
+                                                    <div class="md-form">
+                                                        <input type="text" id="materialRegisterFormFirstName" class="form-control" placeholder="<?php echo $rows->user; ?>" readonly>
+                                                        <label for="materialRegisterFormFirstName">Username</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <!-- Nama -->
+                                                    <div class="md-form">
+                                                        <input type="email" id="materialRegisterFormLastName" class="form-control" placeholder="<?php echo $rows->fullname; ?>" readonly>
+                                                        <label for="materialRegisterFormLastName">Nama</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col">
-                                                <!-- Nama -->
-                                                <div class="md-form">
-                                                    <input type="email" id="materialRegisterFormLastName" class="form-control" placeholder="test" readonly>
-                                                    <label for="materialRegisterFormLastName">Nama</label>
-                                                </div>
+
+                                            <!-- Edukasi -->
+                                            <div class="md-form mt-0">
+                                                <input type="text" id="materialRegisterFormEducation" class="form-control" placeholder="<?php echo $rows->education; ?>" readonly>
+                                                <label for="materialRegisterFormEducation">Pendidikan terakhir</label>
                                             </div>
-                                        </div>
-
-                                        <!-- Edukasi -->
-                                        <div class="md-form mt-0">
-                                            <input type="text" id="materialRegisterFormEducation" class="form-control" placeholder="test" readonly>
-                                            <label for="materialRegisterFormEducation">Pendidikan terakhir</label>
-                                        </div>
 
 
-                                        <!-- Telepon -->
-                                        <div class="md-form">
-                                            <input type="text" id="materialRegisterFormPhone" class="form-control" placeholder="test" readonly>
-                                            <label for="materialRegisterFormPhone">Nomor Telepon</label>
-                                        </div>
+                                            <!-- Telepon -->
+                                            <div class="md-form">
+                                                <input type="text" id="materialRegisterFormPhone" class="form-control" placeholder="<?php echo $rows->phone; ?>" readonly>
+                                                <label for="materialRegisterFormPhone">Nomor Telepon</label>
+                                            </div>
 
 
-                                        <!-- Edit button -->
-                                        <button class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect" type="submit" data-toggle="modal" data-target="#modalContactForm">
+                                            <!-- Edit button -->
+
+
+
+                                        </form>
+                                        <!-- Form -->
+                                        <button class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect" data-toggle="modal" data-target="#modalContactForm">
                                             Edit Profile
                                         </button>
+                                    </div>
+                                    <!-- modal -->
+                                    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-notify modal-success" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header text-center success-color">
+                                                    <h4 class="modal-title text-white w-100">Edit Profile</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body mx-3">
+                                                    <form class="form-primary" action="<?php echo site_url(); ?>dashboard/technician_edit_picture/<?php echo $rows->image; ?>" enctype="multipart/form-data" method="POST">
+                                                        <div class=" form-group">
+                                                            <label>Foto Profile</label>
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
+                                                                <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-block btn-md btn-success" type="submit">Upload</button>
+                                                        <br><br>
+                                                    </form>
+                                                    <form class="form-primary" action="<?php echo site_url(); ?>dashboard/technician_edit_profile/<?php echo $rows->user; ?>" method="POST">
+                                                        <div class="md-form my-0">
+                                                            <div class="form-row">
+                                                                <div class="col">
+                                                                    <div class="md-form">
+                                                                        <input type="text" class="form-control" id="user" name="user" value="<?php echo $rows->user; ?>" required>
+                                                                        <label for="materialRegisterFormFirstName">Username</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="md-form">
+                                                                        <input type="text" class="form-control" id="fullname" name="fullname" value="<?php echo $rows->fullname; ?>" required>
+                                                                        <label for="materialRegisterFormLastName">Nama</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
+                                                        <div class="md-form">
+                                                            <input type="password" id="password" name="password" class="form-control validate" value="<?php echo $rows->password; ?>" required>
+                                                            <label data-error="wrong" data-success="ok" for="form30">Password</label>
+                                                        </div>
 
-                                    </form>
-                                    <!-- Form -->
+                                                        <div class="md-form">
+                                                            <input type="email" id="email" name="email" class="form-control validate" value="<?php echo $rows->email; ?>" required>
+                                                            <label data-error="wrong" data-success="ok" for="form29">email</label>
+                                                        </div>
 
+                                                        <div class="md-form">
+                                                            <input type="text" id="address" name="address" class="form-control validate" value="<?php echo $rows->address; ?>" required>
+                                                            <label data-error="wrong" data-success="ok" for="form32">Alamat</label>
+                                                        </div>
+
+                                                        <div class="md-form">
+                                                            <input type="text" id="phone" name="phone" class="form-control validate" value="<?php echo $rows->phone; ?>" required>
+                                                            <label data-error="wrong" data-success="ok" for="form31">Nomor telepon</label>
+                                                        </div>
+
+                                                        <div class="md-form">
+                                                            <span>Pendidikan terakhir</span>
+                                                            <select class="form-control" id="education" name="education" required>
+                                                                <option value="" disabled>Pilih jenjang pendidikan</option>
+                                                                <option value="SMA/SMK">SMA/SMK</option>
+                                                                <option value="D1/D2">D1/D2</option>
+                                                                <option value="D3">D3</option>
+                                                                <option value="S1">S1</option>
+                                                            </select>
+                                                        </div>
+
+                                                </div>
+                                                <div class="modal-footer d-flex justify-content-center">
+                                                    <button class="btn btn-success" type="submit">Update </button>
+                                                    <button class="btn btn-outline-success" data-dismiss="modal">Kembali</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- modal -->
                                 </div>
-
-                            </div>
-                            <!--  isi profil -->
+                                <!--  isi profil -->
+                            <?php } ?>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -224,86 +304,6 @@
 
                 </article>
             </div>
-
-            <!-- modal -->
-            <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-notify modal-success" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center success-color">
-                            <h4 class="modal-title text-white w-100">Edit Profile</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body mx-3">
-                            <form class="form-primary" action="<?php echo site_url(); ?>dashboard/customer_edit_picture/<?php echo $rows->image; ?>" enctype="multipart/form-data" method="POST">
-                                <div class=" form-group">
-                                    <label>Foto Profile</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image" required />
-                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                                    </div>
-                                </div>
-                                <button class="btn btn-block btn-md btn-success" type="submit">Upload</button>
-                                <br><br>
-                            </form>
-                            <div class="md-form my-0">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <div class="md-form">
-                                            <input type="text" class="form-control">
-                                            <label for="materialRegisterFormFirstName">Username</label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="md-form">
-                                            <input type="text" class="form-control">
-                                            <label for="materialRegisterFormLastName">Nama</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="md-form">
-                                <input type="password" id="form30" class="form-control validate">
-                                <label data-error="wrong" data-success="ok" for="form30">Password</label>
-                            </div>
-
-                            <div class="md-form">
-                                <input type="email" id="form29" class="form-control validate">
-                                <label data-error="wrong" data-success="ok" for="form29">email</label>
-                            </div>
-
-                            <div class="md-form">
-                                <input type="text" id="form32" class="form-control validate">
-                                <label data-error="wrong" data-success="ok" for="form32">Alamat</label>
-                            </div>
-
-                            <div class="md-form">
-                                <input type="text" id="form31" class="form-control validate">
-                                <label data-error="wrong" data-success="ok" for="form31">Nomor telepon</label>
-                            </div>
-
-                            <div class="md-form">
-                                <span>Pendidikan terakhir</span>
-                                <select class="form-control" id="education" name="education" required>
-                                <option value="" disabled>Pilih jenjang pendidikan</option>
-                                  <option value="SMA/SMK">SMA/SMK</option>
-                                  <option value="D1/D2">D1/D2</option>
-                                  <option value="D3">D3</option>
-                                  <option value="S1">S1</option>
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-                            <button class="btn btn-success">Update </button>
-                            <button class="btn btn-outline-success" data-dismiss="modal">Kembali</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- modal -->
 
             <!-- end of col-9 -->
             <div class="col-2 white ">

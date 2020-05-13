@@ -168,6 +168,20 @@
                                                 <h4 class="ml-3">Welcome, <?php echo $this->session->userdata('user'); ?> !</h4>
                                                 <h3 class="ml-3">List Job Request :</h3>
 
+                                                <div class="row mx-5">
+                                                    <div class="col">
+                                                        <?php
+                                                        if ($this->session->flashdata('message') != '') {
+                                                        ?>
+                                                            <div class="alert alert-primary">
+                                                                <?php echo $this->session->flashdata('message'); ?>
+                                                            </div>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+
                                                 <table class="table table-hover table-cards align-items-center" id="dtMaterialDesignExample">
                                                     <thead>
                                                         <tr>

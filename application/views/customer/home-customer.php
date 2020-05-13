@@ -251,14 +251,14 @@
                                     <div class="card-body">
                                         <p>
                                             <h5 class="card-title">
-                                                <span class="counter">22</span>
+                                                <span class="counter"><?php echo $in_queue; ?></span>
                                                 <i class="fas fa-sync fa-spin fa-lg"></i> &nbsp; Dalam antrian</h5>
                                         </p>
 
                                         <p class="card-text">
                                             <p>
                                                 <h6>
-                                                    <span class="font-weight-bold"> 22 </span> request sedang dalam antrian
+                                                    <span class="font-weight-bold"><?php echo $in_queue; ?></span> request sedang dalam antrian
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 
@@ -281,14 +281,14 @@
                                     <div class="card-body">
                                         <p>
                                             <h5 class="card-title">
-                                                <span class="counter">22</span>
+                                                <span class="counter"><?php echo $in_progress; ?></span>
                                                 <i class="fas fa-cog fa-spin fa-lg"></i> &nbsp; Sedang dikerjakan</h5>
                                         </p>
 
                                         <p class="card-text">
                                             <p>
                                                 <h6>
-                                                    <span class="font-weight-bold"> 22 </span> request sedang dikerjakan
+                                                    <span class="font-weight-bold"><?php echo $in_progress; ?></span> request sedang dikerjakan
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 
@@ -311,14 +311,14 @@
                                     <div class="card-body">
                                         <p>
                                             <h5 class="card-title">
-                                                <span class="counter">22</span>
+                                                <span class="counter"><?php echo $finish; ?></span>
                                                 <i class="fas fa-truck fa-lg"></i> &nbsp; Siap dikirim</h5>
                                         </p>
 
                                         <p class="card-text">
                                             <p>
                                                 <h6>
-                                                    <span class="font-weight-bold"> 22 </span> request siap untuk dikirim
+                                                    <span class="font-weight-bold"><?php echo $finish; ?></span> request siap untuk dikirim
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 

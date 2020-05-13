@@ -155,6 +155,32 @@ class Customer_model extends CI_Model
         $this->session->set_flashdata('message', 'Request pengiriman berhasil');
     }
 
+    public function notify_in_queue_order()
+    {
+        $this->db->where('status', 'in_queue');
+        $this->db->where('status', 'available');
+        $query = $this->db->get('order');
+        $result = $query->num_rows();
+        return $result;
+    }
+
+    public function notify_in_progress_order()
+    {
+        $this->db->where('status', 'in_progress');
+        $query = $this->db->get('order');
+        $result = $query->num_rows();
+        return $result;
+    }
+
+    public function notify_finish_order()
+    {
+        $this->db->where('status', 'finish');
+        $query = $this->db->get('order');
+        $result = $query->num_rows();
+        return $result;
+    }
+
+
 }
 
 /* End of file Customer_model.php */

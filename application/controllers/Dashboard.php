@@ -246,7 +246,7 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Profile Teknisi";
         $data['profile'] = $this->technician_model->view_profile();
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('technician/profile-technician', $data, FALSE);
     }
 
@@ -288,7 +288,7 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Accepted Request";
         $data['request'] = $this->technician_model->view_accept_request();
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('technician/list-accepted-request', $data, FALSE);
     }
 
@@ -310,6 +310,9 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Dashboard Customer";
+        $data['in_queue'] = $this->customer_model->notify_in_queue_order();
+        $data['in_progress'] = $this->customer_model->notify_in_progress_order();
+        $data['finish'] = $this->customer_model->notify_finish_order();
         $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/home-customer', $data, FALSE);
         
