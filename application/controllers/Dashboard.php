@@ -316,13 +316,25 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Dashboard Customer";
         $data['request'] = $this->customer_model->view_request();
-        //search
-        $keyword = $this->input->post('keyword');
-        if ($keyword != "") {
-            $data['request'] = $this->customer_model->search($keyword);
+        // $this->load->view('header', $data, FALSE);
+        // $this->load->view('customer/dashboard-customer', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
+        $this->load->view('customer/home-customer', $data, FALSE);
+        
+        
+    }
+
+    public function customer_view_request()
+    {
+        if ($this->session->userdata('status') != 'customer') {
+            redirect('dashboard');
         }
-        $this->load->view('header', $data, FALSE);
-        $this->load->view('customer/dashboard-customer', $data, FALSE);
+        $data['title'] = "Request Customer";
+        $data['request'] = $this->customer_model->view_request();
+        // $this->load->view('header', $data, FALSE);
+        // $this->load->view('customer/dashboard-customer', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
+        $this->load->view('customer/request-customer', $data, FALSE);
     }
 
     public function customer_view_profile()
@@ -380,11 +392,6 @@ class Dashboard extends CI_Controller
         $user = $this->session->userdata('user');
         $data['title'] = "View History";
         $data['request'] = $this->customer_model->view_history($user);
-        //search
-        $keyword = $this->input->post('keyword');
-        if ($keyword != "") {
-            $data['request'] = $this->customer_model->search($keyword);
-        }
         $this->load->view('header', $data, FALSE);
         $this->load->view('customer/request-history-customer', $data, FALSE);
     }
