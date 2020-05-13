@@ -125,8 +125,8 @@
                 <small class="text-muted">Founder and CEO IT-Clinic</small>
               </h3>
               <p class="mt-4">Teknisi profesional ber sertifikasi kompeten dan juga Founder dari IT-Clinic</p>
-              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
-                <i class="fab fa-linkedin"></i>
+              <a href="https://github.com/RizalEF" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Github
+                <i class="fab fa-gitbuh"></i>
               </a>
             </div>
           </div>
@@ -137,11 +137,11 @@
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Andry Dwi</span>
-                <small class="text-muted">Back-End Programmer of IT-Clinic</small>
+                <small class="text-muted">Senior Programmer of IT-Clinic</small>
               </h3>
-              <p class="mt-4">Mahasiswa alumni Polinema dengan multi talenta</p>
-              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
-                <i class="fab fa-linkedin"></i>
+              <p class="mt-4">Backend Programmer IT-Clinic, alumni Polinema dengan pengalaman bertahun-tahun di bidang Programming</p>
+              <a href="https://github.com/andrydwis" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Github
+                <i class="fab fa-github"></i>
               </a>
             </div>
           </div>
@@ -155,8 +155,8 @@
                 <small class="text-muted">Front-End Programmer of IT-Clinic</small>
               </h3>
               <br>
-              <p>Fresh Graduate yang sedang dalam masa Internship di IT-Clinic</p>
-              <a href="instagram.com/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
+              <p>Pegawai yang sedang dalam masa Internship di IT-Clinic</p>
+              <a href="https://www.linkedin.com/in/kiki-e-027187a1/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
                 <i class="fab fa-linkedin"></i>
               </a>
             </div>
