@@ -200,13 +200,13 @@
 
             <!-- start of col-9 -->
             <div class="col-9 vh-100 ">
-                <article class="view jarallax" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
+                <article class="view vh-100 jarallax" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
                  background-position: center; background-size: 120% 100%;">
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8" style="height: 100%;">
                             <!-- isi profil -->
-                            <div class="card ">
+                            <div class="card vh-100">
 
                                 <h5 class="card-header deep-purple accent-2 white-text text-center py-4">
                                     <strong>Profil</strong>

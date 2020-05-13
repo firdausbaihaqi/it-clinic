@@ -320,7 +320,7 @@
         // Material Design example
         $(document).ready(function() {
             $('#dtMaterialDesignExample').DataTable({
-                "scrollY": "250px",
+                "scrollY": "40vh",
                 "scrollCollapse": true,
             });
             $('#dtMaterialDesignExample_wrapper').find('label').each(function() {

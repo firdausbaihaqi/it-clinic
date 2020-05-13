@@ -64,7 +64,7 @@
                         <div class="col-md-8" style="height: 100%;">
                             <?php foreach ($profile as $rows) { ?>
                                 <!-- isi profil -->
-                                <div class="card ">
+                                <div class="card vh-100">
 
                                     <h5 class="card-header success-color white-text text-center py-4">
                                         <strong>Profil</strong>
