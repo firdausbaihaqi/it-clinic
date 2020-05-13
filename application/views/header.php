@@ -39,7 +39,7 @@
       width: 20px;
       height: 20px;
       background: rgba(255, 255, 255, 0.2);
-      animation: animate 3s linear infinite;
+      animation: animate 5s linear infinite;
       bottom: -150px;
 
     }
