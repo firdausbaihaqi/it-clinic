@@ -315,9 +315,6 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $data['title'] = "Dashboard Customer";
-        $data['request'] = $this->customer_model->view_request();
-        // $this->load->view('header', $data, FALSE);
-        // $this->load->view('customer/dashboard-customer', $data, FALSE);
         $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/home-customer', $data, FALSE);
         
@@ -331,8 +328,6 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Request Customer";
         $data['request'] = $this->customer_model->view_request();
-        // $this->load->view('header', $data, FALSE);
-        // $this->load->view('customer/dashboard-customer', $data, FALSE);
         $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/request-customer', $data, FALSE);
     }
@@ -344,7 +339,7 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Profile Customer";
         $data['profile'] = $this->customer_model->view_profile();
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/profile-customer', $data, FALSE);
     }
 
@@ -372,7 +367,7 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $this->customer_model->add_request();
-        redirect(site_url('dashboard/customer'));
+        redirect(site_url('dashboard/customer_view_request'));
     }
 
     public function customer_cancel_request($id, $user, $image)
@@ -392,7 +387,7 @@ class Dashboard extends CI_Controller
         $user = $this->session->userdata('user');
         $data['title'] = "View History";
         $data['request'] = $this->customer_model->view_history($user);
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/request-history-customer', $data, FALSE);
     }
 

@@ -1,53 +1,3 @@
-<!-- iki dihapus, load header sng anyar -->
-<!DOCTYPE html>
-<html lang="en" class="full-height">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>TEST</title>
-    <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Material Design Bootstrap -->
-    <link rel="stylesheet" href="css/mdb.min.css">
-    <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="css/style.css">
-
-
-    <style>
-        .row {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .col-9,
-        .col-2 {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        body {
-            padding: 0px;
-            margin: 0px;
-        }
-
-        .container-fluid {
-            height: 100vh;
-            padding: 0px;
-            margin: 0px;
-            background-size: cover;
-        }
-    </style>
-
-</head>
-
-<!-- iki dihapus, load header sng anyar -->
-
 <body class="deep-purple accent-2">
 
     <div class="container-fluid">
@@ -201,7 +151,7 @@
 
             <!-- start of col-9 -->
             <div class="col-11 vh-100">
-                <article class="view jarallax vh-100" style="background-image: url( 'bg-white-rounded.png'); background-repeat: no-repeat;
+                <article class="view jarallax vh-100" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
                  background-position: center; background-size: 120% 100%; ">
 
                     <!-- content -->
@@ -213,7 +163,7 @@
                                 <div class="h-75">
                                 </div>
                                 <div class="h-25 w-100">
-                                    <h2>Welcome, User!</h2>
+                                    <h2>Welcome, <?php echo $this->session->userdata('user');?> !</h2>
 
                                 </div>
                             </div>
@@ -263,6 +213,46 @@
 
                                                                 </td>
                                                             </tr>
+                                                            <!-- modal -->
+                                                            <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <div class="modal-title h6" id="modal_title_6">More details</div>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col mt-3">
+                                                                                <div class="d-flex justify-content-center">
+                                                                                    <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-body mt-4">
+                                                                            <p class="card-text h6">Kode Order :
+                                                                                <?php echo $rows->code_order; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Keterangan : </p>
+                                                                            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
+                                                                            <p class="card-text h6">Tanggal Order :
+                                                                                <?php echo $rows->date_order; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Tanggal Selesai :
+                                                                                <?php echo $rows->date_finish; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Biaya Servis : RP
+                                                                                <?php echo $rows->price; ?>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- modal -->
                                                         <?php
                                                         } ?>
                                                     </tbody>
@@ -282,46 +272,7 @@
                     <!-- content -->
 
 
-                    <!-- modal -->
-                    <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="modal-title h6" id="modal_title_6">More details</div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <div class="d-flex justify-content-center">
-                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-body mt-4">
-                                    <p class="card-text h6">Kode Order :
-                                        <?php echo $rows->code_order; ?>
-                                    </p>
-                                    <p class="card-text h6">Keterangan : </p>
-                                    <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
-                                    <p class="card-text h6">Tanggal Order :
-                                        <?php echo $rows->date_order; ?>
-                                    </p>
-                                    <p class="card-text h6">Tanggal Selesai :
-                                        <?php echo $rows->date_finish; ?>
-                                    </p>
-                                    <p class="card-text h6">Biaya Servis : RP
-                                        <?php echo $rows->price; ?>
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- modal -->
+
 
             </div>
             <!-- end of col-9 -->
@@ -339,13 +290,13 @@
 
 
     <!-- jQuery -->
-    <script type=" text/javascript " src="js/jquery.min.js "></script>
+    <script type=" text/javascript " src="<?php echo base_url(); ?>assets/new/js/jquery.min.js "></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript " src="js/popper.min.js "></script>
+    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/popper.min.js "></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript " src="js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/bootstrap.min.js "></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript " src="js/mdb.min.js "></script>
+    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/mdb.min.js "></script>
 
     <!-- Datatable Javascript -->
     <script src="<?php echo base_url(); ?>assets/new/js/addons/datatables.min.js" type="text/javascript"></script>
