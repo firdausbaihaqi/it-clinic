@@ -18,6 +18,8 @@
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="css/style.css">
 
+    <link href="css/addons/datatables.min.css" rel="stylesheet">
+
 
     <style>
         .row {
@@ -44,22 +46,24 @@
         }
     </style>
 
-    <!-- iki dihapus, load header sng anyar -->
 </head>
 
-<body class="deep-purple accent-2">
+<!-- iki dihapus, load header sng anyar -->
+</head>
+
+<body class="success-color">
 
     <div class="container-fluid">
 
         <div class="row vh-100 vw-100">
             <!-- start of col 1 SIDEBAR -->
-            <div class="col-1 deep-purple accent-2 vh-100">
+            <div class="col-1 success-color vh-100">
                 <!-- sidenav -->
                 <div class="d-flex flex-column text-center">
 
                     <div class="pt-5">
                         <div class="btn p-2 btn-lg shadow-none">
-                            <a href="# " class="text-white-50">
+                            <a href="# " class="text-white-50 ">
                                 <i class="fas fa-home fa-2x "></i>
                                 <p>Home</p>
                             </a>
@@ -67,7 +71,7 @@
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white ">
+                            <a href="# " class="text-white">
                                 <i class="fas fa-user fa-2x "></i>
                                 <p>Profile</p>
                             </a>
@@ -75,15 +79,15 @@
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white-50 ">
+                            <a href="# " class="text-white-50">
                                 <i class="fas fa-receipt fa-2x "></i>
-                                <p>Request</p>
+                                <p>Accepted Request</p>
                             </a>
                         </div>
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white-50 ">
+                            <a href="# " class="text-white-50">
                                 <i class="fas fa-file-invoice-dollar fa-2x "></i>
                                 <p>History</p>
                             </a>
@@ -134,7 +138,7 @@
                         <li>
                             <ul class="collapsible collapsible-accordion ">
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-chevron-right "></i> Submit
-            blog<i class="fas fa-angle-down rotate-icon "></i></a>
+        blog<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Submit listing</a>
@@ -145,7 +149,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-hand-pointer "></i>
-            Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
+        Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">For bloggers</a>
@@ -156,7 +160,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i
-              class="fas fa-angle-down rotate-icon "></i></a>
+          class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Introduction</a>
@@ -167,7 +171,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i
-              class="fas fa-angle-down rotate-icon "></i></a>
+          class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">FAQ</a>
@@ -199,7 +203,6 @@
                 <!-- end of col-1 -->
             </div>
             <!-- end of col-1 SIDEBAR-->
-
             <!-- start of col-9 -->
             <div class="col-9 vh-100 ">
                 <article class="view jarallax" style="background-image: url( 'bg-white-rounded.png'); background-repeat: no-repeat;
@@ -210,7 +213,7 @@
                             <!-- isi profil -->
                             <div class="card ">
 
-                                <h5 class="card-header deep-purple accent-2 white-text text-center py-4">
+                                <h5 class="card-header success-color white-text text-center py-4">
                                     <strong>Profil</strong>
                                 </h5>
 
@@ -239,10 +242,10 @@
                                             </div>
                                         </div>
 
-                                        <!-- Alamat -->
+                                        <!-- Edukasi -->
                                         <div class="md-form mt-0">
-                                            <input type="text" id="materialRegisterFormAddress" class="form-control" placeholder="test" readonly>
-                                            <label for="materialRegisterFormAddress">Alamat</label>
+                                            <input type="text" id="materialRegisterFormEducation" class="form-control" placeholder="test" readonly>
+                                            <label for="materialRegisterFormEducation">Pendidikan terakhir</label>
                                         </div>
 
 
@@ -254,7 +257,7 @@
 
 
                                         <!-- Edit button -->
-                                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect" type="submit" data-toggle="modal" data-target="#modalContactForm">
+                                        <button class="btn btn-outline-success btn-rounded btn-block my-4 waves-effect" type="submit" data-toggle="modal" data-target="#modalContactForm">
                                             Edit Profile
                                         </button>
 
@@ -277,9 +280,9 @@
 
             <!-- modal -->
             <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-notify modal-info" role="document">
+                <div class="modal-dialog modal-notify modal-success" role="document">
                     <div class="modal-content">
-                        <div class="modal-header text-center">
+                        <div class="modal-header text-center success-color">
                             <h4 class="modal-title text-white w-100">Edit Profile</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -334,9 +337,21 @@
                                 <label data-error="wrong" data-success="ok" for="form31">Nomor telepon</label>
                             </div>
 
+                            <div class="md-form">
+                                <span>Pendidikan terakhir</span>
+                                <select class="form-control" id="education" name="education" required>
+                                <option value="" disabled>Pilih jenjang pendidikan</option>
+                                  <option value="SMA/SMK">SMA/SMK</option>
+                                  <option value="D1/D2">D1/D2</option>
+                                  <option value="D3">D3</option>
+                                  <option value="S1">S1</option>
+                                </select>
+                            </div>
+
                         </div>
                         <div class="modal-footer d-flex justify-content-center">
-                            <button class="btn btn-info">Update <i class="fas fa-paper-plane-o ml-1"></i></button>
+                            <button class="btn btn-success">Update </button>
+                            <button class="btn btn-outline-success" data-dismiss="modal">Kembali</button>
                         </div>
                     </div>
                 </div>

@@ -275,7 +275,7 @@
                                                                     <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
                                                                 </div>
                                                             </div>
-                                                            <button class="btn btn-block btn-md btn-success" type="submit">Upload</button>
+                                                            <button class="btn btn-block btn-md btn-info" type="submit">Upload</button>
                                                             <br><br>
                                                         </form>
                                                         <form class="form-primary" action="<?php echo site_url(); ?>dashboard/customer_edit_profile/<?php echo $rows->user; ?>" method="POST">
@@ -319,6 +319,7 @@
                                                     </div>
                                                     <div class="modal-footer d-flex justify-content-center">
                                                         <button class="btn btn-info" type="submit">Update <i class="fas fa-paper-plane-o ml-1"></i></button>
+                                                        <button class="btn btn-outline-info" data-dismiss="modal">Kembali</button>
                                                     </div>
                                                     </form>
                                                 </div>
