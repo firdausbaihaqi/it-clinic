@@ -157,19 +157,17 @@
                     <!-- content -->
                     <div class="row h-100">
                         <!-- Grid Column -->
-                        <div class="row w-100 h-25 ml-3">
+                        <div class="row w-100 ml-3">
 
-                            <div class="col-md-4 h-50 ">
-                                <div class="h-75">
-                                </div>
-                                <div class="h-25 w-100">
+                            <div class="col-md-4 h-25 ">
+                                <div class="ml-3 mt-3 w-100">
                                     <h2>Welcome, <?php echo $this->session->userdata('user');?> !</h2>
 
                                 </div>
                             </div>
 
                         </div>
-                        <div class="row h-75 w-100">
+                        <div class="row w-100">
 
                             <div class="col-md-12">
                                 <!-- table -->

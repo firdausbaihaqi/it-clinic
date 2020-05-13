@@ -262,7 +262,7 @@
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="#"  class="text-dark">
+                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
                                                             <span> more details</span> &nbsp;
                                                             <i class=" fas fa-arrow-right"></i>
                                                     </a> 
@@ -292,7 +292,7 @@
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="#"  class="text-dark">
+                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
                                                             <span> more details</span> &nbsp;
                                                             <i class=" fas fa-arrow-right"></i>
                                                     </a> 
@@ -312,7 +312,7 @@
                                         <p>
                                             <h5 class="card-title">
                                                 <span class="counter">22</span>
-                                                <i class="fas fa-truck fa-lg"></i> &nbsp; Dalam antrian</h5>
+                                                <i class="fas fa-truck fa-lg"></i> &nbsp; Siap dikirim</h5>
                                         </p>
 
                                         <p class="card-text">
@@ -322,7 +322,7 @@
                                                 </h6>
                                             </p>
                                             <button class="btn btn-sm btn-rounded btn-white"> 
-                                                    <a href="#"  class="text-dark">
+                                                    <a href="<?php echo site_url(); ?>dashboard/customer_view_request"  class="text-dark">
                                                             <span> more details</span> &nbsp;
                                                             <i class=" fas fa-arrow-right"></i>
                                                     </a> 
