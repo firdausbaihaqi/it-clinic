@@ -230,7 +230,7 @@
                                                                         <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue_<?php echo $rows->id; ?>">Dalam Antrian</a>
                                                                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
                                                                     <?php } else if ($rows->status == "in_progress") { ?>
-                                                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress_<?php echo $rows->id; ?>">Sedang Diperbaiki</a>
+                                                                        <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_in_progress_<?php echo $rows->id; ?>">Sedang Diperbaiki</a>
                                                                     <?php } else if ($rows->status == "finish" && $rows->shipment == "") { ?>
                                                                         <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish_<?php echo $rows->id; ?>">Siap Dikirim</a>
                                                                     <?php } else if ($rows->shipment == "in_request") { ?>
@@ -248,7 +248,7 @@
                                                                     <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header success-color text-white">
                                                                                     <h5 class="modal-title">Add Request</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -277,7 +277,7 @@
                                                                                     </form>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -288,7 +288,7 @@
                                                                     <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header info-color text-white">
                                                                                     <div class="modal-title h6" id="modal_title_6">More details</div>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -329,7 +329,7 @@
                                                                     <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header danger-color text-white">
                                                                                     <h5 class="modal-title">Batal Order</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -342,8 +342,8 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <a href="<?php echo site_url('dashboard/customer_cancel_request' . " / " . $rows->id . "/ " . $rows->customer . "/ " . $rows->image); ?>" class="btn btn-sm btn-secondary">Ya</a>
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <a href="<?php echo site_url('dashboard/customer_cancel_request' . " / " . $rows->id . "/ " . $rows->customer . "/ " . $rows->image); ?>" class="btn btn-sm btn-danger">Ya</a>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -354,7 +354,7 @@
                                                                     <div class="modal modal-warning fade" id="modal_in_queue_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header warning-color text-white">
                                                                                     <h5 class="modal-title">Status</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -370,7 +370,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-warning" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -381,7 +381,7 @@
                                                                     <div class="modal modal-info fade" id="modal_in_progress_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header info-color text-white">
                                                                                     <h5 class="modal-title">Status</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -397,7 +397,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -408,7 +408,7 @@
                                                                     <div class="modal modal-success fade" id="modal_finish_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header success-color text-white">
                                                                                     <h5 class="modal-title">Status</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -423,7 +423,7 @@
                                                                                 </div>
                                                                                 <div class="modal-footer">
                                                                                     <a class="btn btn-sm btn-secondary" href="<?php echo site_url(); ?>dashboard/customer_request_shipment/<?php echo $rows->id; ?>">Kirim Sekarang</a>
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -434,7 +434,7 @@
                                                                     <div class="modal modal-warning fade" id="modal_in_request_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header warning-color text-white">
                                                                                     <h5 class="modal-title">Shipment</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -450,7 +450,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-warning" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -461,7 +461,7 @@
                                                                     <div class="modal modal-primary fade" id="modal_in_delivery_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header primary-color text-white">
                                                                                     <h5 class="modal-title">Shipment</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -477,7 +477,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-primary" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -488,7 +488,7 @@
                                                                     <div class="modal modal-success fade" id="modal_delivered_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
-                                                                                <div class="modal-header">
+                                                                                <div class="modal-header success-color text-white">
                                                                                     <h5 class="modal-title">Shipment</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
@@ -503,7 +503,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -578,8 +578,9 @@
             $(this).next('.custom-file-label').html(cleanFileName);
         })
 
-        // Material Design example
-        $(document).ready(function() {
+
+     // Material Design example
+     $(document).ready(function() {
             $('#dtMaterialDesignExample').DataTable({
                 "scrollY": "250px",
                 "scrollCollapse": true,

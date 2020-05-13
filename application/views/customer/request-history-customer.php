@@ -340,8 +340,7 @@
             $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
         });
     </script>
-
-
+    
 </body>
 
 </html>
