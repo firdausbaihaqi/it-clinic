@@ -157,25 +157,13 @@
                     <!-- content -->
                     <div class="row h-100">
                         <!-- Grid Column -->
-                        <div class="row w-100 h-25 ml-3">
+                        <div class="row w-100 vh-100 mt-2 ">
 
-                            <div class="col-md-4 h-50 ">
-                                <div class="h-75">
-                                </div>
-                                <div class="h-25 w-100">
-                                    <h2>Welcome, User!</h2>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row h-75 w-100 border">
-
-                            <div class="col-md-12 border ">
+                            <div class="col-md-12 ">
                                 <!-- table -->
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="card">
+                                        <div class="card shadow-none">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-8">
@@ -194,7 +182,7 @@
                                                 </div>
 
 
-                                                <table class="table table-hover table-cards align-items-center" id="customer">
+                                                <table class="table table-hover table-cards align-items-center" id="dtMaterialDesignExample">
                                                     <thead>
                                                         <tr>
                                                             <th></th>
@@ -226,22 +214,24 @@
                                                                 </td>
                                                                 <td>
                                                                     <?php if ($rows->status == "in_queue" || $rows->status == "available") { ?>
-                                                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue">Dalam Antrian</a>
+                                                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_queue_<?php echo $rows->id; ?>">Dalam Antrian</a>
                                                                         <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_cancel_<?php echo $rows->id; ?>">Batal</a>
                                                                     <?php } else if ($rows->status == "in_progress") { ?>
-                                                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress">Sedang Diperbaiki</a>
+                                                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_progress_<?php echo $rows->id; ?>">Sedang Diperbaiki</a>
                                                                     <?php } else if ($rows->status == "finish" && $rows->shipment == "") { ?>
                                                                         <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_finish_<?php echo $rows->id; ?>">Siap Dikirim</a>
                                                                     <?php } else if ($rows->shipment == "in_request") { ?>
-                                                                        <a href="#" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal_in_request">Sedang Dikirim</a>
+                                                                        <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_in_request_<?php echo $rows->id; ?>">Sedang Dikirim</a>
                                                                     <?php } else if ($rows->shipment == "in_delivery") { ?>
-                                                                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_in_delivery">Dalam Pengiriman</a>
+                                                                        <a href="#" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal_in_delivery_<?php echo $rows->id; ?>">Dalam Pengiriman</a>
                                                                     <?php } else if ($rows->shipment == "delivered") { ?>
                                                                         <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_delivered_<?php echo $rows->id; ?>">Sudah Sampai</a>
                                                                     <?php } ?>
                                                                     <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+
                                                                     <!-- Modal -->
 
+                                                                    <!-- add request -->
                                                                     <div class="modal modal-light fade" id="modal_add_request" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
@@ -279,6 +269,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- add request -->
+
+                                                                    <!-- more detail -->
                                                                     <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
@@ -317,6 +310,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- more detail -->
+
+                                                                    <!-- cancel -->
                                                                     <div class="modal modal-danger fade" id="modal_cancel_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
@@ -339,6 +335,63 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- cancel -->
+
+                                                                    <!-- in queue -->
+                                                                    <div class="modal modal-warning fade" id="modal_in_queue_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title">Status</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="py-3 text-center">
+                                                                                        <i class="fa fa-exclamation-circle fa-4x"></i>
+                                                                                        <h4 class="heading mt-4">Perangkat anda masih dalam antrian</h4>
+                                                                                        <p>
+                                                                                            Perangkat anda belum diproses
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- in queue -->
+
+                                                                    <!-- in progress -->
+                                                                    <div class="modal modal-info fade" id="modal_in_progress_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title">Status</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="py-3 text-center">
+                                                                                        <i class="fa fa-exclamation-circle fa-4x"></i>
+                                                                                        <h4 class="heading mt-4">Perangkat anda masih diperbaiki, silahkan tunggu</h4>
+                                                                                        <p>
+                                                                                            Perangkat belum bisa diambil
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- in progress -->
+
+                                                                    <!-- finish -->
                                                                     <div class="modal modal-success fade" id="modal_finish_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
@@ -362,6 +415,63 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- finish -->
+
+                                                                    <!-- in request -->
+                                                                    <div class="modal modal-warning fade" id="modal_in_request_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title">Shipment</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="py-3 text-center">
+                                                                                        <i class="fa fa-exclamation-circle fa-4x"></i>
+                                                                                        <h4 class="heading mt-4">Perangkat anda masih dalam pengiriman</h4>
+                                                                                        <p>
+                                                                                            Perangkat anda belum dikirim
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- in request -->
+
+                                                                    <!-- in delivery -->
+                                                                    <div class="modal modal-primary fade" id="modal_in_delivery_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title">Shipment</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="py-3 text-center">
+                                                                                        <i class="fa fa-exclamation-circle fa-4x"></i>
+                                                                                        <h4 class="heading mt-4">Perangkat anda sedang dikirm</h4>
+                                                                                        <p>
+                                                                                            Harap ditunggu, masih dalam perjalanan
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- in delivery -->
+
+                                                                    <!-- delivered -->
                                                                     <div class="modal modal-success fade" id="modal_delivered_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
@@ -385,6 +495,9 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <!-- delivered -->
+
+
                                                                     <!-- Modal -->
                                                                 </td>
                                                             </tr>
@@ -432,6 +545,8 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/mdb.min.js "></script>
     <!-- Datatable Javascript -->
+    <script src="<?php echo base_url(); ?>assets/new/js/addons/datatables.min.js" type="text/javascript"></script>
+
 
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript ">
@@ -449,10 +564,28 @@
             //replace the "Choose a file" label
             $(this).next('.custom-file-label').html(cleanFileName);
         })
-    </script>
-    <script>
+
+        // Material Design example
         $(document).ready(function() {
-            $('#customer').DataTable();
+            $('#dtMaterialDesignExample').DataTable({
+                "scrollY": "250px",
+                "scrollCollapse": true,
+            });
+            $('#dtMaterialDesignExample_wrapper').find('label').each(function() {
+                $(this).parent().append($(this).children());
+            });
+            $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('input').each(function() {
+                const $this = $(this);
+                $this.attr("placeholder", "Search");
+                $this.removeClass('form-control-sm');
+            });
+            $('#dtMaterialDesignExample_wrapper .dataTables_length').addClass('d-flex flex-row');
+            $('#dtMaterialDesignExample_wrapper .dataTables_filter').addClass('md-form');
+            $('#dtMaterialDesignExample_wrapper select').removeClass(
+                'custom-select custom-select-sm form-control form-control-sm');
+            $('#dtMaterialDesignExample_wrapper select').addClass('mdb-select');
+            $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
+            $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
         });
     </script>
 
