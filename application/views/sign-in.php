@@ -9,50 +9,64 @@
 
     <main class="main">
       <!-- <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="background-image: url('<?php echo base_url(); ?>assets/img/mountain.jpg'); object-fit: cover;"> -->
-      <section class="spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="
-      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradient 5s ease infinite;
-      ">
-        <span class="mask bg-primary alpha-6"></span>
-        <div class="container d-flex align-items-center no-padding">
-          <div class="col">
-            <div class="row justify-content-center">
-              <div class="col-lg-4">
-                <div class="card bg-primary text-white mt-5">
-                  <div class="card-body">
-                    <span class="clearfix"></span>
-                    <img class="ml-5 pl-5" src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 175px">
-                    <h4 class="heading h4 text-white text-center pt-4 pb-2">Halo :)<br>
-                      silahkan masuk ke akun kamu</h4>
-                    <?php
-                    if ($this->session->flashdata('message') != '') {
-                    ?>
-                      <div class="alert alert-primary">
-                        <?php echo $this->session->flashdata('message'); ?>
-                      </div>
-                    <?php
-                    }
-                    ?>
-                    <form class="form-primary" action="<?php echo site_url(); ?>login/verify" method="POST">
-                      <div class="form-group">
-                        <input type="text" class="form-control" id="user" name="user" placeholder="Username" required>
-                      </div>
-                      <div class="form-group">
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                      </div>
+      <section class="area spotlight parallax bg-cover bg-size--cover" data-spotlight="fullscreen" style="object-fit: cover;">
 
-                      <div class="text-center mt-4">
-                        <p>Belum punya Akun? <a href="<?php echo site_url(); ?>register/register_customer" class="text-white"> <u>Daftar disini</u></a></p>
+        <div class="area">
+          <ul class="circles">
+          <span class="mask bg-primary alpha-6"></span>
+
+            <div class="container d-flex align-items-center no-padding">
+              <div class="col">
+                <div class="row justify-content-center">
+                  <div class="col-lg-4">
+                    <div class="card bg-primary text-white mt-5">
+                      <div class="card-body">
+                        <span class="clearfix"></span>
+                        <img class="ml-5 pl-5" src="<?php echo base_url(); ?>assets/img/stetoscope.png" style="width: 175px">
+                        <h4 class="heading h4 text-white text-center pt-4 pb-2">Halo :)<br>
+                          silahkan masuk ke akun kamu</h4>
+                        <?php
+                        if ($this->session->flashdata('message') != '') {
+                        ?>
+                          <div class="alert alert-primary">
+                            <?php echo $this->session->flashdata('message'); ?>
+                          </div>
+                        <?php
+                        }
+                        ?>
+                        <form class="form-primary" action="<?php echo site_url(); ?>login/verify" method="POST">
+                          <div class="form-group">
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Username" required>
+                          </div>
+                          <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                          </div>
+
+                          <div class="text-center mt-4">
+                            <p>Belum punya Akun? <a href="<?php echo site_url(); ?>register/register_customer" class="text-white"> <u>Daftar disini</u></a></p>
+                          </div>
+                          <button type="submit" class="btn btn-block btn-lg bg-white mt-4 text-primary ">Masuk</button>
+                        </form>
                       </div>
-                      <button type="submit" class="btn btn-block btn-lg bg-white mt-4 text-primary ">Masuk</button>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
+
+
       </section>
     </main>
     <!-- cdn js ojo diganti!! -->
