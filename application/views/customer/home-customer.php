@@ -167,7 +167,7 @@
                             <div class="col-md-4 h-50">
                                 <div class="h-75">
                                 </div>
-                                <h2 class="h-25">Welcome, <?php echo $this->session->userdata('user');?></h2>
+                                <h2 class="h-25">Welcome, <?php echo $this->session->userdata('user');?> !</h2>
                             </div>
                             <div class="col-md-7">
                             </div>

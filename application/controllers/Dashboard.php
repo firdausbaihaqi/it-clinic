@@ -235,7 +235,7 @@ class Dashboard extends CI_Controller
         }
         $data['title'] = "Dashboard Teknisi";
         $data['request'] = $this->technician_model->view_request();
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('technician/dashboard-technician', $data, FALSE);
     }
 
@@ -300,12 +300,7 @@ class Dashboard extends CI_Controller
         $user = $this->session->userdata('user');
         $data['title'] = "View History";
         $data['request'] = $this->technician_model->view_history($user);
-        //search
-        $keyword = $this->input->post('keyword');
-        if ($keyword != "") {
-            $data['request'] = $this->technician_model->search($keyword);
-        }
-        $this->load->view('header', $data, FALSE);
+        $this->load->view('header_new', $data, FALSE);
         $this->load->view('technician/request-history-technician', $data, FALSE);
     }
 
@@ -317,7 +312,6 @@ class Dashboard extends CI_Controller
         $data['title'] = "Dashboard Customer";
         $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/home-customer', $data, FALSE);
-        
         
     }
 
@@ -406,7 +400,7 @@ class Dashboard extends CI_Controller
             redirect('dashboard');
         }
         $this->customer_model->request_shipment($id);
-        redirect(site_url('dashboard/customer'));
+        redirect(site_url('dashboard/customer_view_history'));
     }
 
     public function unverified()

@@ -151,7 +151,7 @@
 
             <!-- start of col-9 -->
             <div class="col-11 vh-100">
-                <article class="view jarallax vh-100" style="background-image: url( 'bg-white-rounded.png'); background-repeat: no-repeat;
+                <article class="view jarallax vh-100" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
                  background-position: center; background-size: 120% 100%; ">
 
                     <!-- content -->
@@ -165,7 +165,7 @@
                                         <div class="card shadow-none">
                                             <div class="card-body">
 
-                                                <h4 class="ml-3">Welcome, User!</h4>
+                                                <h4 class="ml-3">Welcome, <?php echo $this->session->userdata('user'); ?> !</h4>
                                                 <h3 class="ml-3">List Job Request :</h3>
 
                                                 <table class="table table-hover table-cards align-items-center" id="dtMaterialDesignExample">
@@ -200,7 +200,70 @@
 
                                                                 </td>
                                                             </tr>
+                                                            <!-- modal -->
 
+                                                            <!-- detail -->
+                                                            <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header text-white info-color">
+                                                                            <div class="modal-title h6" id="modal_title_6">More details</div>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col mt-3">
+                                                                                <div class="d-flex justify-content-center">
+                                                                                    <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-body mt-4">
+                                                                            <p class="card-text h6">Kode Order :
+                                                                                <?php echo $rows->code_order; ?>
+                                                                            </p>
+                                                                            <p class="card-text h6">Keterangan : </p>
+                                                                            <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
+                                                                            <p class="card-text h6">Tanggal Order :
+                                                                                <?php echo $rows->date_order; ?>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- detail -->
+                                                            <!-- ambil -->
+                                                            <div class="modal modal-success fade" id="modal_accept_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header text-white success-color">
+                                                                            <h5 class="modal-title">Ambil Order</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="py-3 text-center">
+                                                                                <i class="fas fa-exclamation-triangle fa-4x"></i><br><br><br>
+                                                                                <p>
+                                                                                    Anda yakin ingin mengambil order ?
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <a href="<?php echo site_url('dashboard/technician_take_request' . "/" . $rows->id); ?>" class="btn btn-sm btn-success">Ya</a>
+                                                                            <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- ambil -->
+
+                                                            <!-- modal -->
                                                         <?php
                                                         } ?>
                                                     </tbody>
@@ -219,70 +282,7 @@
                     <!-- content -->
 
 
-                    <!-- modal -->
 
-                    <!-- detail -->
-                    <div class="modal modal-light fade" id="modal_more_detail_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-white info-color">
-                                    <div class="modal-title h6" id="modal_title_6">More details</div>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="row">
-                                    <div class="col mt-3">
-                                        <div class="d-flex justify-content-center">
-                                            <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="200px" height="200px" style="object-fit: cover">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-body mt-4">
-                                    <p class="card-text h6">Kode Order :
-                                        <?php echo $rows->code_order; ?>
-                                    </p>
-                                    <p class="card-text h6">Keterangan : </p>
-                                    <textarea disabled class="form-control" name="detail" id="detail" cols="75" rows="6" placeholder="<?php echo $rows->detail; ?>"></textarea><br>
-                                    <p class="card-text h6">Tanggal Order :
-                                        <?php echo $rows->date_order; ?>
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Kembali</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- detail -->
-                    <!-- ambil -->
-                    <div class="modal modal-success fade" id="modal_accept_<?php echo $rows->id; ?>" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header text-white success-color">
-                                    <h5 class="modal-title">Ambil Order</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="py-3 text-center">
-                                        <i class="fas fa-exclamation-triangle fa-4x"></i><br><br><br>
-                                        <p>
-                                            Anda yakin ingin mengambil order ?
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="<?php echo site_url('dashboard/technician_take_request' . " / " . $rows->id); ?>" class="btn btn-sm btn-success">Ya</a>
-                                    <button type="button" class="btn btn-sm btn-outline-success" data-dismiss="modal">Kembali</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ambil -->
-
-                    <!-- modal -->
 
             </div>
             <!-- end of col-9 -->

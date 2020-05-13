@@ -153,7 +153,7 @@
 
             <!-- start of col-9 -->
             <div class="col-11 vh-100">
-                <article class="view jarallax vh-100" style="background-image: url( 'bg-white-rounded.png'); background-repeat: no-repeat;
+                <article class="view jarallax vh-100" style="background-image: url( '<?php echo base_url(); ?>assets/new/bg-white-rounded.png'); background-repeat: no-repeat;
                  background-position: center; background-size: 120% 100%; ">
 
                     <!-- content -->
