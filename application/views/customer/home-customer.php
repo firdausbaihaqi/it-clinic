@@ -11,7 +11,7 @@
 
                     <div class="pt-5">
                         <div class="btn p-2 btn-lg shadow-none">
-                            <a href="# " class="text-white ">
+                            <a href="<?php echo site_url(); ?>dashboard/customer" class="text-white ">
                                 <i class="fas fa-home fa-2x "></i>
                                 <p>Home</p>
                             </a>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white-50 ">
+                            <a href="<?php echo site_url(); ?>dashboard/customer_view_profile" class="text-white-50 ">
                                 <i class="fas fa-user fa-2x "></i>
                                 <p>Profile</p>
                             </a>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white-50 ">
+                            <a href="<?php echo site_url(); ?>dashboard/customer_view_request" class="text-white-50 ">
                                 <i class="fas fa-receipt fa-2x "></i>
                                 <p>Request</p>
                             </a>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="py-2 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white-50 ">
+                            <a href="<?php echo site_url(); ?>dashboard/customer_view_history" class="text-white-50 ">
                                 <i class="fas fa-file-invoice-dollar fa-2x "></i>
                                 <p>History</p>
                             </a>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="pt-5 ">
                         <div class="btn p-2 shadow-none ">
-                            <a href="# " class="text-white ">
+                            <a href="<?php echo site_url(); ?>login/logout " class="text-white ">
                                 <i class="fas fa-sign-out-alt fa-2x "></i>
                                 <p>LogOut</p>
                             </a>
