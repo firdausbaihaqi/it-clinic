@@ -1,3 +1,55 @@
+<!-- iki dihapus, load header sng anyar -->
+<!DOCTYPE html>
+<html lang="en" class="full-height">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>TEST</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="css/addons/datatables.min.css" rel="stylesheet">
+
+
+    <style>
+        .row {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .col-9,
+        .col-2 {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .container-fluid {
+            height: 100vh;
+            padding: 0px;
+            margin: 0px;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+
+<!-- iki dihapus, load header sng anyar -->
+
 <body class="success-color">
 
     <div class="container-fluid">
@@ -85,7 +137,7 @@
                         <li>
                             <ul class="collapsible collapsible-accordion ">
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-chevron-right "></i> Submit
-                                        blog<i class="fas fa-angle-down rotate-icon "></i></a>
+            blog<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Submit listing</a>
@@ -96,7 +148,7 @@
                                     </div>
                                 </li>
                                 <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-hand-pointer "></i>
-                                        Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
+            Instruction<i class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">For bloggers</a>
@@ -106,7 +158,8 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="fas fa-eye "></i> About<i
+              class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">Introduction</a>
@@ -116,7 +169,8 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i class="fas fa-angle-down rotate-icon "></i></a>
+                                <li><a class="collapsible-header waves-effect arrow-r "><i class="far fa-envelope "></i> Contact me<i
+              class="fas fa-angle-down rotate-icon "></i></a>
                                     <div class="collapsible-body ">
                                         <ul>
                                             <li><a href="# " class="waves-effect ">FAQ</a>
@@ -180,29 +234,29 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php foreach ($request as $rows) {
-                                                        ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="100px" height="100px" style="object-fit: cover">
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $rows->code_order; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $rows->detail; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?php echo $rows->date_order; ?>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_accept_<?php echo $rows->id; ?>">Ambil Job</a>
-                                                                    <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
+              ?>
+                                                        <tr>
+                                                            <td>
+                                                                <img class="rounded-circle" src="<?php echo base_url(); ?>data/order/<?php echo $rows->image; ?>" width="100px" height="100px" style="object-fit: cover">
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows->code_order; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows->detail; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php echo $rows->date_order; ?>
+                                                            </td>
+                                                            <td>
+                                                                <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal_accept_<?php echo $rows->id; ?>">Ambil Job</a>
+                                                                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal_more_detail_<?php echo $rows->id; ?>">Details</a>
 
-                                                                </td>
-                                                            </tr>
+                                                            </td>
+                                                        </tr>
 
                                                         <?php
-                                                        } ?>
+              } ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -228,8 +282,8 @@
                                 <div class="modal-header text-white info-color">
                                     <div class="modal-title h6" id="modal_title_6">More details</div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                              <span aria-hidden="true">&times;</span>
+                            </button>
                                 </div>
                                 <div class="row">
                                     <div class="col mt-3">
@@ -262,8 +316,8 @@
                                 <div class="modal-header text-white success-color">
                                     <h5 class="modal-title">Ambil Order</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                              <span aria-hidden="true">&times;</span>
+                            </button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="py-3 text-center">
@@ -300,15 +354,15 @@
 
 
     <!-- jQuery -->
-    <script type=" text/javascript " src="<?php echo base_url(); ?>assets/new/js/jquery.min.js "></script>
+    <script type=" text/javascript " src="js/jquery.min.js "></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/popper.min.js "></script>
+    <script type="text/javascript " src="js/popper.min.js "></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="js/bootstrap.min.js "></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript " src="<?php echo base_url(); ?>assets/new/js/mdb.min.js "></script>
+    <script type="text/javascript " src="js/mdb.min.js "></script>
     <!-- Datatable Javascript -->
-    <script src="<?php echo base_url(); ?>assets/new/js/addons/datatables.min.js" type="text/javascript"></script>
+    <script src="js/addons/datatables.min.js" type="text/javascript"></script>
 
     <!-- Your custom scripts (optional) -->
     <script type="text/javascript ">
