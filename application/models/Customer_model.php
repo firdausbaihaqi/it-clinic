@@ -155,26 +155,29 @@ class Customer_model extends CI_Model
         $this->session->set_flashdata('message', 'Request pengiriman berhasil');
     }
 
-    public function notify_in_queue_order()
+    public function notify_in_queue_order($user)
     {
         $this->db->where('status', 'in_queue');
         $this->db->where('status', 'available');
+        $this->db->where('customer', $user);
         $query = $this->db->get('order');
         $result = $query->num_rows();
         return $result;
     }
 
-    public function notify_in_progress_order()
+    public function notify_in_progress_order($user)
     {
         $this->db->where('status', 'in_progress');
+        $this->db->where('customer', $user);
         $query = $this->db->get('order');
         $result = $query->num_rows();
         return $result;
     }
 
-    public function notify_finish_order()
+    public function notify_finish_order($user)
     {
         $this->db->where('status', 'finish');
+        $this->db->where('customer', $user);
         $query = $this->db->get('order');
         $result = $query->num_rows();
         return $result;

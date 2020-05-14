@@ -309,10 +309,11 @@ class Dashboard extends CI_Controller
         if ($this->session->userdata('status') != 'customer') {
             redirect('dashboard');
         }
+        $user = $this->session->userdata('user');
         $data['title'] = "Dashboard Customer";
-        $data['in_queue'] = $this->customer_model->notify_in_queue_order();
-        $data['in_progress'] = $this->customer_model->notify_in_progress_order();
-        $data['finish'] = $this->customer_model->notify_finish_order();
+        $data['in_queue'] = $this->customer_model->notify_in_queue_order($user);
+        $data['in_progress'] = $this->customer_model->notify_in_progress_order($user);
+        $data['finish'] = $this->customer_model->notify_finish_order($user);
         $this->load->view('header_new', $data, FALSE);
         $this->load->view('customer/home-customer', $data, FALSE);
         
