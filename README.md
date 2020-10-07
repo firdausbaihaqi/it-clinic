@@ -8,4 +8,4 @@ To do list :
 - [x] technician register
 - [x] Anti bypass 
 
-fix
+All to do list clear

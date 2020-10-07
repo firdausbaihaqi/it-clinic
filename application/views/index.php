@@ -108,11 +108,11 @@
             <img src="assets/img/rizal.png" class="card-img-top" style="height: 400px;width:350px;">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
-                <span class="d-block">Rizal Elsa</span>
+                <span class="d-block">Rizal Elsa Fanny</span>
                 <small class="text-muted">Founder and CEO IT-Clinic</small>
               </h3>
-              <p class="mt-2">Teknisi profesional ber sertifikasi kompeten dan juga Founder dari IT-Clinic</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <p class="mt-2">Teknisi profesional bersertifikasi dan juga Founder dari IT-Clinic</p>
+              <a href="instagram.com/rizall.ef" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@
                 <small class="text-muted">Front-End and Back-End Programmer of IT-Clinic</small>
               </h3>
               <p class="mt-2">Mahasiswa dari Polinema dengan multi talenta</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <a href="instagram.com/andry.dwis" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
             </div>
           </div>
         </div>
@@ -135,11 +135,11 @@
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
                 <span class="d-block">Kiki Effendi</span>
-                <small class="text-muted">Freelancer</small>
+                <small class="text-muted">UI/UX IT-Clinic</small>
               </h3>
               <br>
-              <p class="mt-2">Pegawai Magang</p>
-              <a href="instagram.com/" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
+              <p class="mt-2">Mahasiswa Berprestasi Polinema Jurusan Teknologi Informasi tahun 2021</p>
+              <a href="instagram.com/effendi_kiki" target="_blank" class="btn btn-sm btn-primary">View on Instagram</a>
             </div>
           </div>
         </div>
