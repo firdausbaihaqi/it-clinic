@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 01:27 PM
+-- Generation Time: Mar 22, 2020 at 06:01 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,21 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `main`
+-- Table structure for table `order`
 --
 
-CREATE TABLE `main` (
+CREATE TABLE `order` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `code_order` int(11) NOT NULL,
+  `customer` varchar(255) NOT NULL,
+  `technician` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `detail` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `date_order` date NOT NULL,
+  `date_finish` date NOT NULL,
+  `price` int(11) NOT NULL,
+  `shipment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `main`
+-- Dumping data for table `order`
 --
 
-INSERT INTO `main` (`id`, `name`) VALUES
-(3, 'dimas'),
-(5, 'sekolahpolinema');
+INSERT INTO `order` (`id`, `code_order`, `customer`, `technician`, `image`, `detail`, `status`, `date_order`, `date_finish`, `price`, `shipment`) VALUES
+(3, 1677978096, 'andry', 'default', 'andry.png', 'error mas,ngelu aku', 'in_progress', '2020-03-21', '0000-00-00', 0, ''),
+(11, 26335840, 'andry', 'default', 'andry.jpg', 'aaaaaaaaaaaaa', 'in_queue', '2020-03-22', '0000-00-00', 0, ''),
+(12, 95869841, 'andry', 'default', 'andry1.png', 'wes kenek mas', 'in_queue', '2020-03-22', '0000-00-00', 0, ''),
+(13, 1200570903, 'andry', 'default', 'andry2.png', 'erer', 'in_queue', '2020-03-22', '0000-00-00', 0, '');
 
 -- --------------------------------------------------------
 
@@ -51,6 +62,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -58,11 +70,14 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `user`, `password`, `status`) VALUES
-(1, 'admin', 'admin', 'customer-unverified'),
-(3, 'andry', '123', 'technician-unverified'),
-(15, 'anjay', '123', 'technician-unverified'),
-(20, 'a', 'a', 'customer-unverified');
+INSERT INTO `user` (`id`, `user`, `password`, `image`, `status`) VALUES
+(1, 'admin', 'admin', '', 'admin'),
+(2, 'default', 'default', '', 'technician'),
+(3, 'andry', '123', 'andry.jpg', 'customer'),
+(4, 'kiki', '123', 'kiki.png', 'technician-unverified'),
+(5, 'rijalll', '123', 'rijalll.jpg', 'technician'),
+(6, 'lemon', '123', 'lemon.jpg', 'technician-unverified'),
+(7, 'bukan', '123', 'bukan.jpg', 'customer-unverified');
 
 -- --------------------------------------------------------
 
@@ -74,6 +89,8 @@ CREATE TABLE `user_customer` (
   `id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL
@@ -83,9 +100,9 @@ CREATE TABLE `user_customer` (
 -- Dumping data for table `user_customer`
 --
 
-INSERT INTO `user_customer` (`id`, `user`, `password`, `email`, `address`, `phone`) VALUES
-(1, 'admin', 'admin', 'andry.dwi.s@gmail.coma', 'malang', '08986895328'),
-(2, 'a', 'a', 'andry.knights@gmail.com', 'a', 'a');
+INSERT INTO `user_customer` (`id`, `user`, `password`, `fullname`, `image`, `email`, `address`, `phone`) VALUES
+(1, 'andry', '123', 'Andry Dwi S', 'andry.jpg', 'andry.dwi.s@gmail.com', 'malang', '08986895328'),
+(2, 'bukan', '123', 'Andry Dwi S', 'bukan.jpg', 'andry.dwi.s@gmail.com', 'malang', '08986895328');
 
 -- --------------------------------------------------------
 
@@ -98,6 +115,7 @@ CREATE TABLE `user_technician` (
   `user` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
@@ -108,20 +126,23 @@ CREATE TABLE `user_technician` (
 -- Dumping data for table `user_technician`
 --
 
-INSERT INTO `user_technician` (`id`, `user`, `password`, `fullname`, `email`, `address`, `phone`, `education`) VALUES
-(1, 'andry', '123', 'Andry Dwi S', 'andry.dwi.s@gmail.com', 'malang', '08986895328', 'D3'),
-(6, 'admin', 'a', 'Andry Dwi S', 'andry.dwi.s@gmail.com', 'a', 'a', 'SMA/SMK'),
-(7, 'anjay', '123', '1', 'andry.dwi.s@gmail.com', 'malang', '1234', 'D1/D2');
+INSERT INTO `user_technician` (`id`, `user`, `password`, `fullname`, `image`, `email`, `address`, `phone`, `education`) VALUES
+(1, 'default', 'default', '', '', '', '', '', ''),
+(2, 'kiki', '123', 'kiki wibu', 'kiki.png', 'andry.dwi.s@gmail.com', 'malang', '08986895328', 'S1'),
+(3, 'rijalll', '123', 'rizal', 'rijalll.jpg', 'andry.dwi.s@gmail.com', 'malang', '08986895328', 'SMA/SMK'),
+(4, 'lemon', '123', 'lemon', 'lemon.jpg', 'andry.knights@gmail.com', 'malang', '123', 'SMA/SMK');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `main`
+-- Indexes for table `order`
 --
-ALTER TABLE `main`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `customer` (`customer`,`technician`),
+  ADD KEY `technician` (`technician`);
 
 --
 -- Indexes for table `user`
@@ -149,16 +170,16 @@ ALTER TABLE `user_technician`
 --
 
 --
--- AUTO_INCREMENT for table `main`
+-- AUTO_INCREMENT for table `order`
 --
-ALTER TABLE `main`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_customer`
@@ -170,11 +191,18 @@ ALTER TABLE `user_customer`
 -- AUTO_INCREMENT for table `user_technician`
 --
 ALTER TABLE `user_technician`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`customer`) REFERENCES `user_customer` (`user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`technician`) REFERENCES `user_technician` (`user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_customer`

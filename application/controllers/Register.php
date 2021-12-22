@@ -29,19 +29,20 @@ class Register extends CI_Controller
         redirect(site_url('register/register_technician'));
     }
 
-    public function register_user()
+    public function register_customer()
     {
         $data['title'] = 'Register Customer';
         $this->load->view('header', $data, FALSE);
         $this->load->view('register-user', $data, FALSE);
     }
 
-    public function register_user_process()
+    public function register_customer_process()
     {
-        
         $this->register_model->post_customer();
-        redirect(site_url('register/register_user'));
+        redirect(site_url('register/register_customer'));
     }
+
+    
 }
 
 /* End of file Register.php */

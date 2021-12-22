@@ -11,6 +11,13 @@ class Home extends CI_Controller
         $this->load->view('header', $data, FALSE);
         $this->load->view('index', $data, FALSE);
     }
+
+    public function about()
+    {
+        $data['title'] = 'About IT Clinic';
+        $this->load->view('header', $data, FALSE);
+        $this->load->view('about', $data, FALSE);
+    }
 }
 
 /* End of file Home.php */
