@@ -121,7 +121,7 @@
             <img src="<?php echo base_url(); ?>assets/img/rizal.png" class="avatar avatar-lg mx-auto" style="height: 250px;width:250px; ">
             <div class="card-body text-center">
               <h3 class="heading h5 mb-1">
-                <span class="d-block">Rizal Elsa</span>
+                <span class="d-block">Rizal Elsa Fanny</span>
                 <small class="text-muted">Founder and CEO IT-Clinic</small>
               </h3>
               <p class="mt-4">Teknisi profesional ber sertifikasi kompeten dan juga Founder dari IT-Clinic</p>
@@ -159,6 +159,7 @@
               <a href="https://www.linkedin.com/in/kiki-e-027187a1/" target="_blank" class="mt-2 btn btn-sm btn-primary">View on Linked
                 <i class="fab fa-linkedin"></i>
               </a>
+
             </div>
           </div>
         </div>
